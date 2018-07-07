@@ -15,17 +15,21 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // Class Interaction.InteractableComponent
-// 0x0038 (0x0108 - 0x00D0)
+// 0x0040 (0x0110 - 0x00D0)
 class UInteractableComponent : public UActorComponent
 {
 public:
 	unsigned char                                      UnknownData00[0x8];                                       // 0x00D0(0x0008) MISSED OFFSET
-	struct FName                                       FeatureFlag;                                              // 0x00D8(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     BoxExtent;                                                // 0x00E0(0x000C) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     BoxOrigin;                                                // 0x00EC(0x000C) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      MayBeGrouped : 1;                                         // 0x00F8(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly)
-	unsigned char                                      UnknownData01[0x7];                                       // 0x00F9(0x0007) MISSED OFFSET
+	unsigned char                                      ProxyForActorInteraction : 1;                             // 0x00D8(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x00D9(0x0003) MISSED OFFSET
+	struct FName                                       FeatureFlag;                                              // 0x00DC(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     BoxExtent;                                                // 0x00E4(0x000C) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     BoxOrigin;                                                // 0x00F0(0x000C) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      MayBeGrouped : 1;                                         // 0x00FC(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly)
+	unsigned char                                      UnknownData02[0x3];                                       // 0x00FD(0x0003) MISSED OFFSET
 	class UInteractableArea*                           InteractableArea;                                         // 0x0100(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	TEnumAsByte<EInteractableState>                    CurrentInteractionState;                                  // 0x0108(0x0001) (ZeroConstructor, Transient, IsPlainOldData)
+	unsigned char                                      UnknownData03[0x7];                                       // 0x0109(0x0007) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -82,16 +86,15 @@ public:
 
 
 // Class Interaction.InteractableArea
-// 0x0040 (0x0068 - 0x0028)
+// 0x0038 (0x0060 - 0x0028)
 class UInteractableArea : public UObject
 {
 public:
 	struct FBoxSphereBounds                            Bounds;                                                   // 0x0028(0x001C) (ZeroConstructor, IsPlainOldData)
 	struct FName                                       Name;                                                     // 0x0044(0x0008) (ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData00[0x4];                                       // 0x004C(0x0004) MISSED OFFSET
-	class AActor*                                      Interactable;                                             // 0x0050(0x0008) (ZeroConstructor, IsPlainOldData)
+	class UObject*                                     Interactable;                                             // 0x0050(0x0008) (ZeroConstructor, IsPlainOldData)
 	class AActor*                                      Parent;                                                   // 0x0058(0x0008) (ZeroConstructor, IsPlainOldData)
-	class UInteractableComponent*                      InteractableComponent;                                    // 0x0060(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
@@ -101,12 +104,13 @@ public:
 
 
 	void SetParent(class AActor* InParent);
-	void SetInteractable(class AActor* InInteractable);
+	void SetInteractable(class UObject* InInteractable);
 	void SetAreaName(const struct FName& InName);
 	void SetAreaBounds(const struct FBoxSphereBounds& InBounds);
 	class AActor* GetParent();
-	class AActor* GetInteractable();
+	class UObject* GetInteractable();
 	struct FName GetAreaName();
+	struct FVector GetAreaLocation();
 	struct FBoxSphereBounds GetAreaBounds();
 };
 
@@ -125,10 +129,10 @@ public:
 
 
 	bool ShouldDrawTooltipInWorldSpace(class AActor* InInteractor, struct FVector* DesiredTooltipWorldPosition);
-	void SetInteractionsDisabled(bool Disabled);
-	bool InteractionsCanBeDisabled();
+	void SetInteractionState(TEnumAsByte<EInteractableState> InNewInteractableState);
+	bool IsInteractableDisabled();
 	void Interact(class AActor* InInteractor, class UClass* NotificationInputId);
-	bool GetInteractionsDisabled();
+	TEnumAsByte<EInteractableState> GetInteractionState();
 	struct FVector GetFrontFacingVector();
 	struct FVector GetClosestInteractionPoint(const struct FVector& ReferencePosition, float* OutInteractionPointRadius);
 	void GetActorsToIgnoreDuringOcclusionChecker(TArray<class AActor*>* ActorsToIgnore);
@@ -136,6 +140,7 @@ public:
 	bool DoesRequireNotBeingAirborne();
 	bool DoesRequireFacingFront();
 	bool CanInteractWithNotificationInputId(class AActor* InInteractor, class UClass* NotificationInputId);
+	bool CanInteractionStatesBeSet();
 	bool CanInteract(class AActor* InInteractor);
 };
 
@@ -187,13 +192,13 @@ public:
 
 
 // Class Interaction.MockActorWithCharacterInteractionComponent
-// 0x00B0 (0x0528 - 0x0478)
+// 0x00B0 (0x0538 - 0x0488)
 class AMockActorWithCharacterInteractionComponent : public AActor
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0478(0x0008) MISSED OFFSET
-	class UCharacterInteractionComponent*              CharacterInteractionComponent;                            // 0x0480(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
-	unsigned char                                      UnknownData01[0xA0];                                      // 0x0488(0x00A0) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0488(0x0008) MISSED OFFSET
+	class UCharacterInteractionComponent*              CharacterInteractionComponent;                            // 0x0490(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	unsigned char                                      UnknownData01[0xA0];                                      // 0x0498(0x00A0) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -221,14 +226,14 @@ public:
 
 
 // Class Interaction.MockInteractorActor
-// 0x0028 (0x04A0 - 0x0478)
+// 0x0028 (0x04B0 - 0x0488)
 class AMockInteractorActor : public AActor
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0478(0x0008) MISSED OFFSET
-	class UObject*                                     FocusedInteractable;                                      // 0x0480(0x0008) (ZeroConstructor, IsPlainOldData)
-	class UObject*                                     InteractedObject;                                         // 0x0488(0x0008) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x10];                                      // 0x0490(0x0010) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0488(0x0008) MISSED OFFSET
+	class UObject*                                     FocusedInteractable;                                      // 0x0490(0x0008) (ZeroConstructor, IsPlainOldData)
+	class UObject*                                     InteractedObject;                                         // 0x0498(0x0008) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x10];                                      // 0x04A0(0x0010) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
@@ -240,12 +245,12 @@ public:
 
 
 // Class Interaction.TestActorWithInteractableComponent
-// 0x0010 (0x0488 - 0x0478)
+// 0x0010 (0x0498 - 0x0488)
 class ATestActorWithInteractableComponent : public AActor
 {
 public:
-	class USceneComponent*                             SceneRootComponent;                                       // 0x0478(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
-	class UInteractableComponent*                      InteractableComponent;                                    // 0x0480(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class USceneComponent*                             SceneRootComponent;                                       // 0x0488(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class UInteractableComponent*                      InteractableComponent;                                    // 0x0490(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{

@@ -7,11 +7,11 @@
 #endif
 
 #include "SoT_Basic.hpp"
-#include "SoT_CoreUObject_classes.hpp"
 #include "SoT_Engine_classes.hpp"
-#include "SoT_ActionStateMachine_classes.hpp"
 #include "SoT_Maths_classes.hpp"
+#include "SoT_CoreUObject_classes.hpp"
 #include "SoT_AIModule_classes.hpp"
+#include "SoT_ActionStateMachine_classes.hpp"
 #include "SoT_Athena_classes.hpp"
 
 namespace SDK
@@ -38,8 +38,7 @@ enum class EAISpawnLocationSearchResult : uint8_t
 	AISpawnLocationSearchResult__Incomplete = 0,
 	None                           = 1,
 	AISpawnLocationSearchResult__Cancelled = 2,
-	None01                         = 3,
-	OSM_Alpha                      = 4
+	None01                         = 3
 };
 
 
@@ -203,13 +202,23 @@ enum class ETinySharkDespawnReason : uint8_t
 };
 
 
+// Enum AthenaAI.ETinySharkActiveState
+enum class ETinySharkActiveState : uint8_t
+{
+	ETinySharkActiveState__TrackingTarget = 0,
+	None                           = 1,
+	ETinySharkActiveState__ETinySharkActiveState_MAX = 2
+};
+
+
 // Enum AthenaAI.ETinySharkState
 enum class ETinySharkState : uint8_t
 {
 	ETinySharkState__Inactive      = 0,
 	None                           = 1,
 	ETinySharkState__Despawning    = 2,
-	None01                         = 3
+	None01                         = 3,
+	NM_PreserveSmoothingGroups     = 4
 };
 
 
@@ -676,7 +685,7 @@ struct FSwimAttackTargetShipImpulseData
 };
 
 // ScriptStruct AthenaAI.TinySharkParams
-// 0x00B0
+// 0x00B8
 struct FTinySharkParams
 {
 	class UClass*                                      TinySharkType;                                            // 0x0000(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
@@ -687,6 +696,8 @@ struct FTinySharkParams
 	TAssetPtr<class ULoadoutAsset>                     TinySharkLoadout;                                         // 0x0058(0x0020) (Edit, DisableEditOnInstance)
 	class UClass*                                      TinySharkClassID;                                         // 0x0078(0x0008) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 	struct FWeightedProbabilityRangeOfRanges           LifetimeTimeout;                                          // 0x0080(0x0030) (Edit, DisableEditOnInstance)
+	float                                              TrackedShipDistanceThreshold;                             // 0x00B0(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	float                                              RepositionTime;                                           // 0x00B4(0x0004) (Edit, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 };
 
 // ScriptStruct AthenaAI.TinySharkShipSpawnData
@@ -949,7 +960,7 @@ struct FEventAIPawnReadyToConstructDebugText
 };
 
 // ScriptStruct AthenaAI.EventOwnedPawnFinishedSpawning
-// 0x0038
+// 0x0040
 struct FEventOwnedPawnFinishedSpawning
 {
 	class UObject*                                     AICoordinator;                                            // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
@@ -960,6 +971,7 @@ struct FEventOwnedPawnFinishedSpawning
 	float                                              MaximumDistanceToPerceiveOnSpawn;                         // 0x0028(0x0004) (ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData01[0x4];                                       // 0x002C(0x0004) MISSED OFFSET
 	class UAthenaAIControllerParamsDataAsset*          Skillset;                                                 // 0x0030(0x0008) (ZeroConstructor, IsPlainOldData)
+	struct FName                                       HomeRegionZone;                                           // 0x0038(0x0008) (ZeroConstructor, IsPlainOldData)
 };
 
 // ScriptStruct AthenaAI.PeriodicAINoiseEventAggregateTickFunction

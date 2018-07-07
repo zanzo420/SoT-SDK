@@ -9,8 +9,8 @@
 #include "SoT_Basic.hpp"
 #include "SoT_Engine_classes.hpp"
 #include "SoT_Athena_classes.hpp"
-#include "SoT_Maths_classes.hpp"
 #include "SoT_AIModule_classes.hpp"
+#include "SoT_Maths_classes.hpp"
 #include "SoT_CoreUObject_classes.hpp"
 
 namespace SDK
@@ -64,7 +64,7 @@ enum class EKrakenState : uint8_t
 	EKrakenState__Spawning         = 0,
 	None                           = 1,
 	IntProperty                    = 2,
-	EKrakenDynamicsStateEvent__Damage = 3
+	None01                         = 3
 };
 
 
@@ -74,7 +74,7 @@ enum class EKrakenTentacleBehaviourDamageActions : uint8_t
 	EKrakenTentacleBehaviourDamageActions__StayActive = 0,
 	None                           = 1,
 	IntProperty                    = 2,
-	ResetState                     = 3
+	EGeyserState__Dormant          = 3
 };
 
 

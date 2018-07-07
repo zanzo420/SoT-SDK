@@ -42,7 +42,8 @@ enum class EEmitterRenderModuleType : uint8_t
 	RMT_None                       = 0,
 	None                           = 1,
 	RMT_Meshes                     = 2,
-	None01                         = 3
+	None01                         = 3,
+	EGameplayTaskState__Uninitialized = 4
 };
 
 

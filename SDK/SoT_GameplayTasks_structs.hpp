@@ -30,7 +30,8 @@ enum class EGameplayTaskState : uint8_t
 	EGameplayTaskState__Uninitialized = 0,
 	None                           = 1,
 	EGameplayTaskState__Finished   = 2,
-	None01                         = 3
+	None01                         = 3,
+	EGameplayTaskRunResult__Error  = 4
 };
 
 
@@ -41,7 +42,7 @@ enum class EGameplayTaskRunResult : uint8_t
 	None                           = 1,
 	EGameplayTaskRunResult__Success_Finished = 2,
 	None01                         = 3,
-	EPawnActionResult__NotStarted  = 4
+	ETestArea__None                = 4
 };
 
 

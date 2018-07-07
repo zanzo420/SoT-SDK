@@ -337,12 +337,23 @@ struct AAthenaAIController_ApplyControllerParams_Params
 	class APawn*                                       InPawn;                                                   // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
+// Function AthenaAI.AthenaAICharacterController.SetOverridePrioritiseInteractablesBeforeEnemies
+struct AAthenaAICharacterController_SetOverridePrioritiseInteractablesBeforeEnemies_Params
+{
+	bool                                               InPrioritiseInteractablesBeforeEnemies;                   // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+};
+
 // Function AthenaAI.AthenaAICharacterController.SetItemSpecificNamedControllerParam
 struct AAthenaAICharacterController_SetItemSpecificNamedControllerParam_Params
 {
 	class UClass*                                      InItemCategory;                                           // (Parm, ZeroConstructor, IsPlainOldData)
 	struct FName                                       ParamName;                                                // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm, IsPlainOldData)
 	float                                              Value;                                                    // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AthenaAI.AthenaAICharacterController.ClearOverridePrioritiseInteractablesBeforeEnemies
+struct AAthenaAICharacterController_ClearOverridePrioritiseInteractablesBeforeEnemies_Params
+{
 };
 
 // Function AthenaAI.AthenaFaunaAIController.LeaderDestroyed
@@ -490,6 +501,26 @@ struct ATinySharkExperience_TinySharkPawnDestroyed_Params
 struct ATinySharkExperience_GetTrackedShip_Params
 {
 	class AShip*                                       ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function AthenaAI.TinySharkExperience.GetCurrentState
+struct ATinySharkExperience_GetCurrentState_Params
+{
+	TEnumAsByte<ETinySharkState>                       ReturnValue;                                              // (ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function AthenaAI.TinySharkExperience.GetActiveState
+struct ATinySharkExperience_GetActiveState_Params
+{
+	TEnumAsByte<ETinySharkActiveState>                 ReturnValue;                                              // (ConstParm, Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+};
+
+// Function AthenaAI.TinySharkService.RequestTinySharkWithShip
+struct ATinySharkService_RequestTinySharkWithShip_Params
+{
+	class AShip*                                       InTrackedShip;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+	int                                                OverrideControllerParamIndex;                             // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	bool                                               ReturnValue;                                              // (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 };
 
 // Function AthenaAI.TinySharkService.RequestTinySharkWithLocation

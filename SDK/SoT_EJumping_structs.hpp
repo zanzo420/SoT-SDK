@@ -20,8 +20,7 @@ enum class EJumping : uint8_t
 	EJumping__NewEnumerator0       = 0,
 	None                           = 1,
 	EJumping__NewEnumerator4       = 2,
-	None01                         = 3,
-	NavCollision_X                 = 4
+	None01                         = 3
 };
 
 
