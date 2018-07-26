@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.1.1) SDK
+// Sea of Thieves (1.1.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -17,6 +17,7 @@ namespace SDK
 // Function StatusEffects.StatusEffectManagerComponent.OnRep_ActiveEffects
 struct UStatusEffectManagerComponent_OnRep_ActiveEffects_Params
 {
+	TArray<struct FActiveStatusEffect>                 OldEffects;                                               // (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
 };
 
 }

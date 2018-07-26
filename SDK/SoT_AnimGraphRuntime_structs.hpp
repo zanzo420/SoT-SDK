@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.1.1) SDK
+// Sea of Thieves (1.1.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -34,9 +34,8 @@ enum class EComponentType : uint8_t
 	None01                         = 3,
 	EComponentType__ScaleX         = 4,
 	None02                         = 5,
-	None03                         = 6,
-	EMPMatchOutcome__None          = 7,
-	None04                         = 8
+	EMPMatchOutcome__None          = 6,
+	None03                         = 7
 };
 
 

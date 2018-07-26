@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.1.1) SDK
+// Sea of Thieves (1.1.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -28,6 +28,11 @@ struct ABP_Shipwreck_01_a_C_ReceiveBeginPlay_Params
 struct ABP_Shipwreck_01_a_C_ReceiveEndPlay_Params
 {
 	TEnumAsByte<EEndPlayReason>*                       EndPlayReason;                                            // (Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function BP_Shipwreck_01_a.BP_Shipwreck_01_a_C.OnResetTo
+struct ABP_Shipwreck_01_a_C_OnResetTo_Params
+{
 };
 
 // Function BP_Shipwreck_01_a.BP_Shipwreck_01_a_C.ExecuteUbergraph_BP_Shipwreck_01_a

@@ -1,4 +1,4 @@
-// Sea of Thieves (1.1.1) SDK
+// Sea of Thieves (1.1.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -57,6 +57,23 @@ void ABP_Shipwreck_01_a_C::ReceiveEndPlay(TEnumAsByte<EEndPlayReason>* EndPlayRe
 
 	ABP_Shipwreck_01_a_C_ReceiveEndPlay_Params params;
 	params.EndPlayReason = EndPlayReason;
+
+	auto flags = fn->FunctionFlags;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function BP_Shipwreck_01_a.BP_Shipwreck_01_a_C.OnResetTo
+// (Event, Public, BlueprintEvent)
+
+void ABP_Shipwreck_01_a_C::OnResetTo()
+{
+	static auto fn = UObject::FindObject<UFunction>("Function BP_Shipwreck_01_a.BP_Shipwreck_01_a_C.OnResetTo");
+
+	ABP_Shipwreck_01_a_C_OnResetTo_Params params;
 
 	auto flags = fn->FunctionFlags;
 

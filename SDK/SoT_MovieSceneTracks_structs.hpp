@@ -1,15 +1,15 @@
 #pragma once
 
-// Sea of Thieves (1.1.1) SDK
+// Sea of Thieves (1.1.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
 #include "SoT_Basic.hpp"
+#include "SoT_Engine_classes.hpp"
 #include "SoT_MovieScene_classes.hpp"
 #include "SoT_CoreUObject_classes.hpp"
-#include "SoT_Engine_classes.hpp"
 
 namespace SDK
 {
@@ -23,8 +23,7 @@ enum class EMovieScene3DPathSection_Axis : uint8_t
 	MovieScene3DPathSection_Axis__X = 0,
 	None                           = 1,
 	MovieScene3DPathSection_Axis__NEG_Y = 2,
-	None01                         = 3,
-	NameProperty                   = 4
+	None01                         = 3
 };
 
 

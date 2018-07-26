@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.1.1) SDK
+// Sea of Thieves (1.1.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -68,11 +68,8 @@ enum class EIPGBlendType : uint8_t
 	None                           = 1,
 	EIPGBlendType__POSNEG          = 2,
 	None01                         = 3,
-	NameProperty                   = 4,
-	EIPGBlendType__ONOFF_BIAS      = 5,
-	None02                         = 6,
-	StructProperty                 = 7,
-	None03                         = 8
+	EIPGBlendType__ONOFF_BIAS      = 4,
+	None02                         = 5
 };
 
 
@@ -82,7 +79,8 @@ enum class EPirateBakeFlags : uint8_t
 	EPirateBakeFlags__None         = 0,
 	None                           = 1,
 	EPirateBakeFlags__StripTopLOD  = 2,
-	None01                         = 3
+	None01                         = 3,
+	WeakObjectProperty             = 4
 };
 
 

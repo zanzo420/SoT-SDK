@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.1.1) SDK
+// Sea of Thieves (1.1.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -34,7 +34,8 @@ enum class EAddEndpointResult : uint8_t
 	EAddEndpointResult__Success    = 0,
 	None                           = 1,
 	EAddEndpointResult__Failed_DoesntImplementEndpointInterface = 2,
-	None01                         = 3
+	None01                         = 3,
+	EKrakenDespawnReason__Invalid  = 4
 };
 
 

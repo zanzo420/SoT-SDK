@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.1.1) SDK
+// Sea of Thieves (1.1.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,7 +15,7 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass BP_SailAngle_BackSail.BP_SailAngle_BackSail_C
-// 0x0000 (0x07D0 - 0x07D0)
+// 0x0000 (0x07E0 - 0x07E0)
 class ABP_SailAngle_BackSail_C : public ABP_SailAngle_C
 {
 public:

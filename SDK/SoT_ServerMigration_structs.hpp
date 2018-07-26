@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.1.1) SDK
+// Sea of Thieves (1.1.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -21,8 +21,7 @@ enum class EExecutionTarget : uint8_t
 {
 	EExecutionTarget__OldServer    = 0,
 	None                           = 1,
-	IntProperty                    = 2,
-	EEmitterRelationship__Audio_Remote = 3
+	EBuoyancyBlend__PrimaryToSecondary = 2
 };
 
 

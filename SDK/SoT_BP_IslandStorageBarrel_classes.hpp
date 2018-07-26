@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.1.1) SDK
+// Sea of Thieves (1.1.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,10 +15,13 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass BP_IslandStorageBarrel.BP_IslandStorageBarrel_C
-// 0x0000 (0x0630 - 0x0630)
-class ABP_IslandStorageBarrel_C : public AIslandStorageContainer
+// 0x0018 (0x0598 - 0x0580)
+class ABP_IslandStorageBarrel_C : public AStorageContainer
 {
 public:
+	class UReplenishableComponent*                     Replenishable;                                            // 0x0580(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	class UIslandTelemetrySubjectComponent*            IslandTelemetrySubject;                                   // 0x0588(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	class UStorageContainerComponent*                  StorageContainer;                                         // 0x0590(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
@@ -26,6 +29,8 @@ public:
 		return ptr;
 	}
 
+
+	void UserConstructionScript();
 };
 
 

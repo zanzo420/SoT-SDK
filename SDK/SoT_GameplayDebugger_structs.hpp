@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.1.1) SDK
+// Sea of Thieves (1.1.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -28,7 +28,7 @@ enum class EAIDebugDrawDataView : uint8_t
 	None02                         = 5,
 	EAIDebugDrawDataView__MAX      = 6,
 	None03                         = 7,
-	None04                         = 8
+	ByteProperty                   = 8
 };
 
 

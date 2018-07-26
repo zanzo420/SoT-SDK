@@ -1,4 +1,4 @@
-// Sea of Thieves (1.1.1) SDK
+// Sea of Thieves (1.1.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -25,6 +25,48 @@ void UAIShipDebugFunctionLibrary::STATIC_RequestAIShipForCrew(class UObject* Wor
 	UAIShipDebugFunctionLibrary_RequestAIShipForCrew_Params params;
 	params.WorldContextObject = WorldContextObject;
 	params.CrewId = CrewId;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIShips.AIShipEncounterTriggerSphere.OnExitZone
+// (Final, Native, Private)
+// Parameters:
+// class AActor*                  Other                          (Parm, ZeroConstructor, IsPlainOldData)
+
+void AAIShipEncounterTriggerSphere::OnExitZone(class AActor* Other)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIShips.AIShipEncounterTriggerSphere.OnExitZone");
+
+	AAIShipEncounterTriggerSphere_OnExitZone_Params params;
+	params.Other = Other;
+
+	auto flags = fn->FunctionFlags;
+	fn->FunctionFlags |= 0x400;
+
+	UObject::ProcessEvent(fn, &params);
+
+	fn->FunctionFlags = flags;
+}
+
+
+// Function AIShips.AIShipEncounterTriggerSphere.OnEnterZone
+// (Final, Native, Private)
+// Parameters:
+// class AActor*                  Other                          (Parm, ZeroConstructor, IsPlainOldData)
+
+void AAIShipEncounterTriggerSphere::OnEnterZone(class AActor* Other)
+{
+	static auto fn = UObject::FindObject<UFunction>("Function AIShips.AIShipEncounterTriggerSphere.OnEnterZone");
+
+	AAIShipEncounterTriggerSphere_OnEnterZone_Params params;
+	params.Other = Other;
 
 	auto flags = fn->FunctionFlags;
 	fn->FunctionFlags |= 0x400;

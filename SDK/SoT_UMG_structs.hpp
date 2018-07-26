@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.1.1) SDK
+// Sea of Thieves (1.1.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -8,11 +8,11 @@
 
 #include "SoT_Basic.hpp"
 #include "SoT_MovieSceneTracks_classes.hpp"
+#include "SoT_MovieScene_classes.hpp"
 #include "SoT_Engine_classes.hpp"
 #include "SoT_CoreUObject_classes.hpp"
-#include "SoT_SlateCore_classes.hpp"
-#include "SoT_MovieScene_classes.hpp"
 #include "SoT_Slate_classes.hpp"
+#include "SoT_SlateCore_classes.hpp"
 #include "SoT_InputCore_classes.hpp"
 
 namespace SDK
@@ -40,11 +40,8 @@ enum class EDragPivot : uint8_t
 	IntProperty                    = 2,
 	EDragPivot__CenterLeft         = 3,
 	None01                         = 4,
-	NameProperty                   = 5,
-	EDragPivot__BottomCenter       = 6,
-	None02                         = 7,
-	StructProperty                 = 8,
-	None03                         = 9
+	EDragPivot__BottomCenter       = 5,
+	None02                         = 6
 };
 
 
@@ -71,8 +68,7 @@ enum class EDesignPreviewSizeMode : uint8_t
 	EDesignPreviewSizeMode__FillScreen = 0,
 	None                           = 1,
 	EDesignPreviewSizeMode__DesiredOnScreen = 2,
-	None01                         = 3,
-	RMT_None                       = 4
+	None01                         = 3
 };
 
 
@@ -98,7 +94,8 @@ enum class EWidgetBlendMode : uint8_t
 {
 	EWidgetBlendMode__Opaque       = 0,
 	None                           = 1,
-	EWidgetSpace__World            = 2
+	IntProperty                    = 2,
+	EWidgetSpace__World            = 3
 };
 
 

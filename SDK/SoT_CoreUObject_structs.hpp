@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.1.1) SDK
+// Sea of Thieves (1.1.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -29,7 +29,8 @@ enum class ERangeBoundTypes : uint8_t
 {
 	ERangeBoundTypes__Exclusive    = 0,
 	None                           = 1,
-	ERotatorQuantization__ByteComponents = 2
+	IntProperty                    = 2,
+	ERotatorQuantization__ByteComponents = 3
 };
 
 
@@ -45,7 +46,7 @@ enum class EUnit : uint8_t
 	None02                         = 6,
 	EUnit__MetersPerSecond         = 7,
 	None03                         = 8,
-	UImpulseThrottlerComponent     = 9,
+	DeadActionStateParams          = 9,
 	EUnit__Farenheit               = 10,
 	None04                         = 11,
 	EUnit__Grams                   = 12,
@@ -135,7 +136,8 @@ enum class EAxis : uint8_t
 {
 	EAxis__None                    = 0,
 	None                           = 1,
-	EAxis__EAxis_MAX               = 2
+	EAxis__EAxis_MAX               = 2,
+	IntProperty                    = 3
 };
 
 
@@ -152,8 +154,7 @@ enum class ELogTimes : uint8_t
 enum class ESearchDir : uint8_t
 {
 	ESearchDir__FromStart          = 0,
-	None                           = 1,
-	IntProperty                    = 2
+	None                           = 1
 };
 
 
@@ -161,8 +162,7 @@ enum class ESearchDir : uint8_t
 enum class ESearchCase : uint8_t
 {
 	ESearchCase__CaseSensitive     = 0,
-	None                           = 1,
-	IntProperty                    = 2
+	None                           = 1
 };
 
 

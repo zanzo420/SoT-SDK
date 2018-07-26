@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.1.1) SDK
+// Sea of Thieves (1.1.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -23,10 +23,9 @@ enum class ESailAnimationState : uint8_t
 	None01                         = 3,
 	ESailAnimationState__NewEnumerator22 = 4,
 	None02                         = 5,
-	StructProperty                 = 6,
-	ESailAnimationState__NewEnumerator26 = 7,
-	None03                         = 8,
-	None04                         = 9
+	ESailAnimationState__NewEnumerator26 = 6,
+	None03                         = 7,
+	None04                         = 8
 };
 
 

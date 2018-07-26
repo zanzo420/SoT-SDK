@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.1.1) SDK
+// Sea of Thieves (1.1.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,6 +13,11 @@ namespace SDK
 //---------------------------------------------------------------------------
 //Parameters
 //---------------------------------------------------------------------------
+
+// Function BP_IslandStorageBarrel.BP_IslandStorageBarrel_C.UserConstructionScript
+struct ABP_IslandStorageBarrel_C_UserConstructionScript_Params
+{
+};
 
 }
 
