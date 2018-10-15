@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.1.6) SDK
+// Sea of Thieves (1.2.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -85,21 +85,12 @@ enum class ECoherentUIGTKeys : uint8_t
 	None34                         = 62,
 	IntProperty                    = 63,
 	None35                         = 64,
-	None36                         = 65,
-	None37                         = 66,
-	None38                         = 67,
-	None39                         = 68,
-	None40                         = 69,
-	None41                         = 70,
-	None42                         = 71,
-	None43                         = 72,
-	None44                         = 73,
-	ByteProperty                   = 74,
-	None45                         = 75,
-	None46                         = 76,
-	None47                         = 77,
-	ByteProperty01                 = 78,
-	None48                         = 79
+	FloatProperty                  = 65,
+	ClassProperty                  = 66,
+	BoolProperty                   = 67,
+	None36                         = 68,
+	InterfaceProperty              = 69,
+	VectorProperty                 = 70
 };
 
 

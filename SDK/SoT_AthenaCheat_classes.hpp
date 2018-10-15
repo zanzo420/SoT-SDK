@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.1.6) SDK
+// Sea of Thieves (1.2.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -25,7 +25,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("Class AthenaCheat.AthenaCheatManager");
+		static auto ptr = UObject::FindObject<UClass>("Class AthenaCheat.AthenaCheatManager");
 		return ptr;
 	}
 
@@ -50,6 +50,7 @@ public:
 	void TriggerControllerConnectionChange(bool IsConnect, int UserId, int ControllerId);
 	void TriggerAIShipTimerBattle();
 	void TriggerAIShipEncounter();
+	void TriggerAIShipAggressive();
 	void ToggleVideprinter(const class FString& Id);
 	void ToggleThirdPerson();
 	void ToggleNearestSuperheatedWater();
@@ -113,6 +114,9 @@ public:
 	void SpawnKrakenAtCurrentLocationWithNumTentacles(uint32_t NumTentacles);
 	void SpawnKrakenAtCurrentLocation();
 	void SpawnKraken();
+	void SpawnGeyserAtPlayerLocationWithDormancy(float Dormancy);
+	void SpawnGeyserAtPlayerLocation();
+	void SpawnGeyserAtLocation(float LocationX, float LocationY, float LocationZ, float Dormancy);
 	void SpawnCursedCannonball(const class FString& CannonballTypeString);
 	void SpawnCargoRunCrate(const class FString& SpawnCargoRunCrateString);
 	void SpawnBountyReward(const class FString& BountyTypeString);

@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.1.6) SDK
+// Sea of Thieves (1.2.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -126,6 +126,11 @@ struct UAthenaCheatManager_TriggerAIShipTimerBattle_Params
 
 // Function AthenaCheat.AthenaCheatManager.TriggerAIShipEncounter
 struct UAthenaCheatManager_TriggerAIShipEncounter_Params
+{
+};
+
+// Function AthenaCheat.AthenaCheatManager.TriggerAIShipAggressive
+struct UAthenaCheatManager_TriggerAIShipAggressive_Params
 {
 };
 
@@ -502,6 +507,26 @@ struct UAthenaCheatManager_SpawnKrakenAtCurrentLocation_Params
 // Function AthenaCheat.AthenaCheatManager.SpawnKraken
 struct UAthenaCheatManager_SpawnKraken_Params
 {
+};
+
+// Function AthenaCheat.AthenaCheatManager.SpawnGeyserAtPlayerLocationWithDormancy
+struct UAthenaCheatManager_SpawnGeyserAtPlayerLocationWithDormancy_Params
+{
+	float                                              Dormancy;                                                 // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+};
+
+// Function AthenaCheat.AthenaCheatManager.SpawnGeyserAtPlayerLocation
+struct UAthenaCheatManager_SpawnGeyserAtPlayerLocation_Params
+{
+};
+
+// Function AthenaCheat.AthenaCheatManager.SpawnGeyserAtLocation
+struct UAthenaCheatManager_SpawnGeyserAtLocation_Params
+{
+	float                                              LocationX;                                                // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              LocationY;                                                // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              LocationZ;                                                // (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
+	float                                              Dormancy;                                                 // (Parm, ZeroConstructor, IsPlainOldData)
 };
 
 // Function AthenaCheat.AthenaCheatManager.SpawnCursedCannonball

@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.1.6) SDK
+// Sea of Thieves (1.2.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,22 +15,22 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass BP_Cutlass_Item.BP_Cutlass_Item_C
-// 0x0008 (0x0A40 - 0x0A38)
+// 0x0008 (0x0A48 - 0x0A40)
 class ABP_Cutlass_Item_C : public AMeleeWeapon
 {
 public:
-	struct FPointerToUberGraphFrame                    UberGraphFrame;                                           // 0x0A38(0x0008) (ZeroConstructor, Transient, DuplicateTransient)
+	struct FPointerToUberGraphFrame                    UberGraphFrame;                                           // 0x0A40(0x0008) (ZeroConstructor, Transient, DuplicateTransient)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("BlueprintGeneratedClass BP_Cutlass_Item.BP_Cutlass_Item_C");
+		static auto ptr = UObject::FindObject<UClass>("BlueprintGeneratedClass BP_Cutlass_Item.BP_Cutlass_Item_C");
 		return ptr;
 	}
 
 
 	void DoBlockEffect();
 	void UserConstructionScript();
-	void OnBlockedAttack(struct FEventBlocked* Event);
+	void OnBlockedAttack(const struct FEventBlocked& Event);
 	void ExecuteUbergraph_BP_Cutlass_Item(int EntryPoint);
 };
 

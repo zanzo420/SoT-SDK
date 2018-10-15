@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.1.6) SDK
+// Sea of Thieves (1.2.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -8,9 +8,9 @@
 
 #include "SoT_Basic.hpp"
 #include "SoT_Engine_classes.hpp"
+#include "SoT_CoreUObject_classes.hpp"
 #include "SoT_ActionStateMachine_classes.hpp"
 #include "SoT_Athena_classes.hpp"
-#include "SoT_CoreUObject_classes.hpp"
 #include "SoT_AIModule_classes.hpp"
 #include "SoT_Maths_classes.hpp"
 
@@ -38,8 +38,7 @@ enum class EAISpawnLocationSearchResult : uint8_t
 	AISpawnLocationSearchResult__Incomplete = 0,
 	None                           = 1,
 	AISpawnLocationSearchResult__Cancelled = 2,
-	None01                         = 3,
-	EWaterSplashProbeType__ThresholdedRateOfChange = 4
+	None01                         = 3
 };
 
 
@@ -104,7 +103,8 @@ enum class EAIThreatLevel : uint8_t
 {
 	EAIThreatLevel__NoDanger       = 0,
 	None                           = 1,
-	EAIThreatLevel__EAIThreatLevel_MAX = 2
+	EAIThreatLevel__EAIThreatLevel_MAX = 2,
+	UDSS_UpToDate                  = 3
 };
 
 
@@ -163,8 +163,7 @@ enum class ESwimmingLineOfSightTest : uint8_t
 {
 	ESwimmingLineOfSightTest__None = 0,
 	None                           = 1,
-	IntProperty                    = 2,
-	ESwimmingSyncMode__Synchronous = 3
+	ESwimmingSyncMode__Synchronous = 2
 };
 
 
@@ -227,7 +226,7 @@ enum class ETinySharkState : uint8_t
 	None                           = 1,
 	ETinySharkState__Despawning    = 2,
 	None01                         = 3,
-	NoCulling                      = 4
+	EWaterSplashProbeType__ThresholdedRateOfChange = 4
 };
 
 
@@ -1030,7 +1029,7 @@ struct FEventOwnedPawnFinishedSpawning
 	unsigned char                                      UnknownData01[0x4];                                       // 0x002C(0x0004) MISSED OFFSET
 	class UAthenaAIControllerParamsDataAsset*          Skillset;                                                 // 0x0030(0x0008) (ZeroConstructor, IsPlainOldData)
 	struct FName                                       HomeRegionZone;                                           // 0x0038(0x0008) (ZeroConstructor, IsPlainOldData)
-	class AActor*                                      TargetInteractableOnSpawn;                                // 0x0040(0x0008) (ZeroConstructor, IsPlainOldData)
+	class UObject*                                     TargetInteractableOnSpawn;                                // 0x0040(0x0008) (ZeroConstructor, IsPlainOldData)
 };
 
 // ScriptStruct AthenaAI.PeriodicAINoiseEventAggregateTickFunction

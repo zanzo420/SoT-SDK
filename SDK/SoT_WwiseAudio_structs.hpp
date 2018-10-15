@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.1.6) SDK
+// Sea of Thieves (1.2.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -33,9 +33,7 @@ enum class EWwiseLanguageOrder : uint8_t
 	EWwiseLanguageOrder__Spanish   = 2,
 	None01                         = 3,
 	EWwiseLanguageOrder__Japanese  = 4,
-	None02                         = 5,
-	PSA_FacingCameraPosition       = 6,
-	None03                         = 7
+	None02                         = 5
 };
 
 
@@ -46,11 +44,10 @@ enum class EWwise7Point1Order : uint8_t
 	None                           = 1,
 	EWwise7Point1Order__Right_Surround = 2,
 	None01                         = 3,
-	NameProperty                   = 4,
-	EWwise7Point1Order__Null_Channel = 5,
-	None02                         = 6,
-	EWwiseLanguageOrder__English   = 7,
-	None03                         = 8
+	EWwise7Point1Order__Null_Channel = 4,
+	None02                         = 5,
+	EWwiseLanguageOrder__English   = 6,
+	None03                         = 7
 };
 
 
@@ -60,7 +57,7 @@ enum class EWwiseEventDurationType : uint8_t
 	EWwiseEventDurationType__OneShot = 0,
 	None                           = 1,
 	EWwiseEventDurationType__EWwiseEventDurationType_MAX = 2,
-	UDSS_UpToDate                  = 3
+	EWwiseAsyncIOPriorityDisplay__Low = 3
 };
 
 

@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.1.6) SDK
+// Sea of Thieves (1.2.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -19,7 +19,8 @@ enum class ELadderState : uint8_t
 {
 	ELadderState__NewEnumerator5   = 0,
 	None                           = 1,
-	ELadderState__ELadderState_MAX = 2
+	IntProperty                    = 2,
+	ELadderState__ELadderState_MAX = 3
 };
 
 

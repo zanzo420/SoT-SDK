@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.1.6) SDK
+// Sea of Thieves (1.2.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -8,9 +8,9 @@
 
 #include "SoT_Basic.hpp"
 #include "SoT_Engine_classes.hpp"
-#include "SoT_Athena_classes.hpp"
 #include "SoT_AthenaAI_classes.hpp"
 #include "SoT_CoreUObject_classes.hpp"
+#include "SoT_Athena_classes.hpp"
 #include "SoT_AIModule_classes.hpp"
 #include "SoT_Maths_classes.hpp"
 
@@ -61,8 +61,7 @@ enum class EAIShipPlayerTrackerType : uint8_t
 {
 	DefaultRadiusTracker           = 0,
 	None                           = 1,
-	EAIShipPlayerTrackerType_MAX   = 2,
-	EEarthquakeState__Dormant      = 3
+	EAIShipPlayerTrackerType_MAX   = 2
 };
 
 
@@ -299,12 +298,11 @@ struct FAIShipEncounterBattleDesc
 };
 
 // ScriptStruct AIShips.AIShipEncounterDescGenerationParams
-// 0x0080
+// 0x0020
 struct FAIShipEncounterDescGenerationParams
 {
-	struct FAIShipContextDescGenerationParams          ContextDescGenerationParams;                              // 0x0000(0x0060) (Edit, DisableEditOnInstance)
-	TArray<struct FFeatureLockedAIShipEncounterBattleGenerationParams> BattleGenerationParams;                                   // 0x0060(0x0010) (Edit, ZeroConstructor, DisableEditOnInstance)
-	TArray<struct FAIShipEncounterBattleDesc>          BattleDescs;                                              // 0x0070(0x0010) (Edit, ZeroConstructor, DisableEditOnInstance)
+	TArray<struct FFeatureLockedAIShipEncounterBattleGenerationParams> BattleGenerationParams;                                   // 0x0000(0x0010) (Edit, ZeroConstructor, DisableEditOnInstance)
+	TArray<struct FAIShipEncounterBattleDesc>          BattleDescs;                                              // 0x0010(0x0010) (Edit, ZeroConstructor, DisableEditOnInstance)
 };
 
 // ScriptStruct AIShips.AIShipEncounterWave

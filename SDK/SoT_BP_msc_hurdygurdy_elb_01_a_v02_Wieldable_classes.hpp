@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.1.6) SDK
+// Sea of Thieves (1.2.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,14 +15,14 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass BP_msc_hurdygurdy_elb_01_a_v02_Wieldable.BP_msc_hurdygurdy_elb_01_a_v02_Wieldable_C
-// 0x0000 (0x08C0 - 0x08C0)
+// 0x0000 (0x08C8 - 0x08C8)
 class ABP_msc_hurdygurdy_elb_01_a_v02_Wieldable_C : public ABP_HurdyGurdy_C
 {
 public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("BlueprintGeneratedClass BP_msc_hurdygurdy_elb_01_a_v02_Wieldable.BP_msc_hurdygurdy_elb_01_a_v02_Wieldable_C");
+		static auto ptr = UObject::FindObject<UClass>("BlueprintGeneratedClass BP_msc_hurdygurdy_elb_01_a_v02_Wieldable.BP_msc_hurdygurdy_elb_01_a_v02_Wieldable_C");
 		return ptr;
 	}
 

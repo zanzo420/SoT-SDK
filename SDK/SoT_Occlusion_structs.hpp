@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.1.6) SDK
+// Sea of Thieves (1.2.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -21,8 +21,7 @@ enum class EOcclusionTypes : uint8_t
 {
 	EOcclusionTypes__Visible       = 0,
 	None                           = 1,
-	EOcclusionTypes__EOcclusionTypes_MAX = 2,
-	ArrayProperty                  = 3
+	EOcclusionTypes__EOcclusionTypes_MAX = 2
 };
 
 

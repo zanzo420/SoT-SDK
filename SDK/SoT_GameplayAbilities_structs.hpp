@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.1.6) SDK
+// Sea of Thieves (1.2.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -9,8 +9,8 @@
 #include "SoT_Basic.hpp"
 #include "SoT_CoreUObject_classes.hpp"
 #include "SoT_Engine_classes.hpp"
-#include "SoT_GameplayTasks_classes.hpp"
 #include "SoT_GameplayTags_classes.hpp"
+#include "SoT_GameplayTasks_classes.hpp"
 
 namespace SDK
 {
@@ -23,7 +23,7 @@ enum class EGameplayEffectGrantedAbilityRemovePolicy : uint8_t
 {
 	EGameplayEffectGrantedAbilityRemovePolicy__CancelAbilityImmediately = 0,
 	None                           = 1,
-	ETraceDirection__ItemToContext = 2
+	EGameplayTagEventType__NewOrRemoved = 2
 };
 
 
@@ -189,7 +189,8 @@ enum class EGameplayAbilityInstancingPolicy : uint8_t
 {
 	EGameplayAbilityInstancingPolicy__NonInstanced = 0,
 	None                           = 1,
-	ETargetDataFilterSelf__TDFS_Any = 2
+	IntProperty                    = 2,
+	ETargetDataFilterSelf__TDFS_Any = 3
 };
 
 

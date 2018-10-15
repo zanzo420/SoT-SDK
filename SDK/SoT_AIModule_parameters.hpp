@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.1.6) SDK
+// Sea of Thieves (1.2.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -526,7 +526,7 @@ struct UBehaviorTreeComponent_GetTagCooldownEndTime_Params
 struct UBehaviorTreeComponent_AddCooldownTagDuration_Params
 {
 	struct FGameplayTag                                CooldownTag;                                              // (Parm)
-	float                                              CooldownDuration;                                         // (Parm, ZeroConstructor, IsPlainOldData)
+	float                                              CoolDownDuration;                                         // (Parm, ZeroConstructor, IsPlainOldData)
 	bool                                               bAddToExistingDuration;                                   // (Parm, ZeroConstructor, IsPlainOldData)
 };
 

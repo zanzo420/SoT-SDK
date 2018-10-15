@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.1.6) SDK
+// Sea of Thieves (1.2.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,14 +15,14 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass BP_TreasureArtifact_Wieldable_DVR_Common.BP_TreasureArtifact_Wieldable_DVR_Common_C
-// 0x0000 (0x0808 - 0x0808)
+// 0x0000 (0x0810 - 0x0810)
 class ABP_TreasureArtifact_Wieldable_DVR_Common_C : public ABP_TreasureArtifact_Wieldable_Base_C
 {
 public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindClass("BlueprintGeneratedClass BP_TreasureArtifact_Wieldable_DVR_Common.BP_TreasureArtifact_Wieldable_DVR_Common_C");
+		static auto ptr = UObject::FindObject<UClass>("BlueprintGeneratedClass BP_TreasureArtifact_Wieldable_DVR_Common.BP_TreasureArtifact_Wieldable_DVR_Common_C");
 		return ptr;
 	}
 

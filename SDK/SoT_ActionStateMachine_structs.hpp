@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.1.6) SDK
+// Sea of Thieves (1.2.6) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -32,8 +32,7 @@ enum class EActionStateMachineTrackId : uint8_t
 enum class EActionPredictionType : uint8_t
 {
 	EActionPredictionType__Predicted = 0,
-	None                           = 1,
-	IntProperty                    = 2
+	None                           = 1
 };
 
 
