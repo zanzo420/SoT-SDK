@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,16 +15,16 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass BP_BountyRewardSkullItemInfo_Legendary.BP_BountyRewardSkullItemInfo_Legendary_C
-// 0x0010 (0x05B8 - 0x05A8)
+// 0x0010 (0x0788 - 0x0778)
 class ABP_BountyRewardSkullItemInfo_Legendary_C : public ABootyItemInfo
 {
 public:
-	struct FPointerToUberGraphFrame                    UberGraphFrame;                                           // 0x05A8(0x0008) (ZeroConstructor, Transient, DuplicateTransient)
-	class USceneComponent*                             DefaultSceneRoot;                                         // 0x05B0(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	struct FPointerToUberGraphFrame                    UberGraphFrame;                                           // 0x0778(0x0008) (ZeroConstructor, Transient, DuplicateTransient)
+	class USceneComponent*                             DefaultSceneRoot;                                         // 0x0780(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("BlueprintGeneratedClass BP_BountyRewardSkullItemInfo_Legendary.BP_BountyRewardSkullItemInfo_Legendary_C");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("BlueprintGeneratedClass BP_BountyRewardSkullItemInfo_Legendary.BP_BountyRewardSkullItemInfo_Legendary_C"));
 		return ptr;
 	}
 

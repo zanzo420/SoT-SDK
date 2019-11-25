@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,15 +15,15 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass BP_SkellyFort_SkullCloud.BP_SkellyFort_SkullCloud_C
-// 0x0008 (0x0538 - 0x0530)
+// 0x0008 (0x0558 - 0x0550)
 class ABP_SkellyFort_SkullCloud_C : public AGameplayEventSignal
 {
 public:
-	struct FPointerToUberGraphFrame                    UberGraphFrame;                                           // 0x0530(0x0008) (ZeroConstructor, Transient, DuplicateTransient)
+	struct FPointerToUberGraphFrame                    UberGraphFrame;                                           // 0x0550(0x0008) (ZeroConstructor, Transient, DuplicateTransient)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("BlueprintGeneratedClass BP_SkellyFort_SkullCloud.BP_SkellyFort_SkullCloud_C");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("BlueprintGeneratedClass BP_SkellyFort_SkullCloud.BP_SkellyFort_SkullCloud_C"));
 		return ptr;
 	}
 

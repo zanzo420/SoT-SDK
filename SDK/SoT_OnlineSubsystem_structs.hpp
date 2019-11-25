@@ -1,47 +1,17 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
 #include "SoT_Basic.hpp"
+#include "SoT_OnlineSubsystem_enums.hpp"
 #include "SoT_CoreUObject_classes.hpp"
 
 namespace SDK
 {
-//---------------------------------------------------------------------------
-//Enums
-//---------------------------------------------------------------------------
-
-// Enum OnlineSubsystem.EInAppPurchaseState
-enum class EInAppPurchaseState : uint8_t
-{
-	EInAppPurchaseState__Success   = 0,
-	None                           = 1,
-	IntProperty                    = 2,
-	EInAppPurchaseState__NotAllowed = 3,
-	None01                         = 4,
-	NameProperty                   = 5
-};
-
-
-// Enum OnlineSubsystem.EMPMatchOutcome
-enum class EMPMatchOutcome : uint8_t
-{
-	EMPMatchOutcome__None          = 0,
-	None                           = 1,
-	EMPMatchOutcome__Tied          = 2,
-	None01                         = 3,
-	EMPMatchOutcome__Third         = 4,
-	None02                         = 5,
-	StructProperty                 = 6,
-	None03                         = 7
-};
-
-
-
 //---------------------------------------------------------------------------
 //Script Structs
 //---------------------------------------------------------------------------
@@ -84,6 +54,22 @@ struct FInAppPurchaseRestoreInfo
 {
 	class FString                                      Identifier;                                               // 0x0000(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
 	class FString                                      ReceiptData;                                              // 0x0010(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
+};
+
+// ScriptStruct OnlineSubsystem.OnlineStoreCatalogItem
+// 0x0080
+struct FOnlineStoreCatalogItem
+{
+	class FString                                      ProductId;                                                // 0x0000(0x0010) (ZeroConstructor)
+	class FString                                      Title;                                                    // 0x0010(0x0010) (ZeroConstructor)
+	class FString                                      Description;                                              // 0x0020(0x0010) (ZeroConstructor)
+	class FString                                      FormattedPrice;                                           // 0x0030(0x0010) (ZeroConstructor)
+	class FString                                      FormattedBasePrice;                                       // 0x0040(0x0010) (ZeroConstructor)
+	bool                                               IsOnSale;                                                 // 0x0050(0x0001) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0051(0x0007) MISSED OFFSET
+	struct FDateTime                                   SaleEndDate;                                              // 0x0058(0x0008) (ZeroConstructor)
+	class FString                                      ImageUri;                                                 // 0x0060(0x0010) (ZeroConstructor)
+	TArray<class FString>                              MetaTags;                                                 // 0x0070(0x0010) (ZeroConstructor)
 };
 
 // ScriptStruct OnlineSubsystem.InAppPurchaseProductRequest

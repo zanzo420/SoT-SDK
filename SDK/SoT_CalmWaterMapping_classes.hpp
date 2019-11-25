@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -22,7 +22,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class CalmWaterMapping.CalmWaterMappingInterface");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class CalmWaterMapping.CalmWaterMappingInterface"));
 		return ptr;
 	}
 
@@ -33,15 +33,15 @@ public:
 
 
 // Class CalmWaterMapping.AthenaCalmWaterZone
-// 0x0020 (0x04B8 - 0x0498)
+// 0x0020 (0x04D8 - 0x04B8)
 class AAthenaCalmWaterZone : public ACalmWaterZone
 {
 public:
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0498(0x0020) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x20];                                      // 0x04B8(0x0020) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class CalmWaterMapping.AthenaCalmWaterZone");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class CalmWaterMapping.AthenaCalmWaterZone"));
 		return ptr;
 	}
 
@@ -57,12 +57,12 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class CalmWaterMapping.CalmWaterMappingService");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class CalmWaterMapping.CalmWaterMappingService"));
 		return ptr;
 	}
 
 
-	float STATIC_GetMaxWindSpeed();
+	static float GetMaxWindSpeed();
 };
 
 

@@ -1,10 +1,10 @@
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
-#include "SoT_Occlusion_parameters.hpp"
+#include "SoT_Occlusion_classes.hpp"
 
 namespace SDK
 {
@@ -12,61 +12,43 @@ namespace SDK
 //Functions
 //---------------------------------------------------------------------------
 
-// Function Occlusion.OcclusionFunctionLibrary.IsActorOccludedFromActor
-// (Final, Native, Static, Public, HasOutParms, HasDefaults, BlueprintCallable)
+// Function Occlusion.OcclusionService.OnPrimaryActorEndPlay
+// (Final, Native, Private)
 // Parameters:
-// class UObject*                 WorldContextObject             (Parm, ZeroConstructor, IsPlainOldData)
-// class AActor*                  Observer                       (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-// class AActor*                  Target                         (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-// struct FVector                 TargetPosition                 (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-// float                          InteractionPointRadius         (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-// TArray<class AActor*>          AdditionalIgnoredActors        (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
-// TEnumAsByte<EOcclusionTypes>   ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+// class AActor*                  InActor                        (Parm, ZeroConstructor, IsPlainOldData)
 
-TEnumAsByte<EOcclusionTypes> UOcclusionFunctionLibrary::STATIC_IsActorOccludedFromActor(class UObject* WorldContextObject, class AActor* Observer, class AActor* Target, const struct FVector& TargetPosition, float InteractionPointRadius, TArray<class AActor*> AdditionalIgnoredActors)
+void UOcclusionService::OnPrimaryActorEndPlay(class AActor* InActor)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function Occlusion.OcclusionFunctionLibrary.IsActorOccludedFromActor");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function Occlusion.OcclusionService.OnPrimaryActorEndPlay"));
 
-	UOcclusionFunctionLibrary_IsActorOccludedFromActor_Params params;
-	params.WorldContextObject = WorldContextObject;
-	params.Observer = Observer;
-	params.Target = Target;
-	params.TargetPosition = TargetPosition;
-	params.InteractionPointRadius = InteractionPointRadius;
-	params.AdditionalIgnoredActors = AdditionalIgnoredActors;
+	struct
+	{
+		class AActor*                  InActor;
+	} params;
+
+	params.InActor = InActor;
 
 	UObject::ProcessEvent(fn, &params);
-
-	return params.ReturnValue;
 }
 
 
-// Function Occlusion.OcclusionInterface.IsActorOccludedFromActor
-// (Native, Public, HasOutParms, HasDefaults, BlueprintCallable)
+// Function Occlusion.OcclusionService.OnIgnoredActorEndPlay
+// (Final, Native, Private)
 // Parameters:
-// class AActor*                  Observer                       (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-// class AActor*                  Target                         (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-// struct FVector                 TargetPosition                 (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-// float                          Tolerance                      (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-// TEnumAsByte<ECollisionChannel> CollisionChannel               (ConstParm, Parm, ZeroConstructor, IsPlainOldData)
-// TArray<class AActor*>          AdditionalIgnoredActors        (ConstParm, Parm, OutParm, ZeroConstructor, ReferenceParm)
-// TEnumAsByte<EOcclusionTypes>   ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
+// class AActor*                  InActor                        (Parm, ZeroConstructor, IsPlainOldData)
 
-TEnumAsByte<EOcclusionTypes> UOcclusionInterface::IsActorOccludedFromActor(class AActor* Observer, class AActor* Target, const struct FVector& TargetPosition, float Tolerance, TEnumAsByte<ECollisionChannel> CollisionChannel, TArray<class AActor*> AdditionalIgnoredActors)
+void UOcclusionService::OnIgnoredActorEndPlay(class AActor* InActor)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function Occlusion.OcclusionInterface.IsActorOccludedFromActor");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function Occlusion.OcclusionService.OnIgnoredActorEndPlay"));
 
-	UOcclusionInterface_IsActorOccludedFromActor_Params params;
-	params.Observer = Observer;
-	params.Target = Target;
-	params.TargetPosition = TargetPosition;
-	params.Tolerance = Tolerance;
-	params.CollisionChannel = CollisionChannel;
-	params.AdditionalIgnoredActors = AdditionalIgnoredActors;
+	struct
+	{
+		class AActor*                  InActor;
+	} params;
+
+	params.InActor = InActor;
 
 	UObject::ProcessEvent(fn, &params);
-
-	return params.ReturnValue;
 }
 
 

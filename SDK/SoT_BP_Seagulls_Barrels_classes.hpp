@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,14 +15,14 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass BP_Seagulls_Barrels.BP_Seagulls_Barrels_C
-// 0x0000 (0x04E0 - 0x04E0)
+// 0x0000 (0x0500 - 0x0500)
 class ABP_Seagulls_Barrels_C : public ABP_Seagull01_8POI_C
 {
 public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("BlueprintGeneratedClass BP_Seagulls_Barrels.BP_Seagulls_Barrels_C");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("BlueprintGeneratedClass BP_Seagulls_Barrels.BP_Seagulls_Barrels_C"));
 		return ptr;
 	}
 

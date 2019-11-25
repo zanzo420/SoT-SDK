@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -31,7 +31,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class MovieScene.MovieScene");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class MovieScene.MovieScene"));
 		return ptr;
 	}
 
@@ -52,7 +52,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class MovieScene.MovieSceneSection");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class MovieScene.MovieSceneSection"));
 		return ptr;
 	}
 
@@ -67,7 +67,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class MovieScene.MovieSceneSequence");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class MovieScene.MovieSceneSequence"));
 		return ptr;
 	}
 
@@ -82,7 +82,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class MovieScene.MovieSceneTrack");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class MovieScene.MovieSceneTrack"));
 		return ptr;
 	}
 

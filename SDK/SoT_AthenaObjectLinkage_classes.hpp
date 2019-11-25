@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -23,7 +23,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class AthenaObjectLinkage.EndPlayHandler");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class AthenaObjectLinkage.EndPlayHandler"));
 		return ptr;
 	}
 
@@ -40,16 +40,16 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class AthenaObjectLinkage.LinkEndpointIdUtilities");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class AthenaObjectLinkage.LinkEndpointIdUtilities"));
 		return ptr;
 	}
 
 
-	bool STATIC_IsValid(const struct FLinkEndpointId& Id);
-	bool STATIC_IsPathed(const struct FLinkEndpointId& Id);
-	struct FLinkEndpointId STATIC_CreateEndpointId(const class FString& String);
-	class FString STATIC_Conv_LinkEndpointIdToString(const struct FLinkEndpointId& Id);
-	struct FLinkEndpointId STATIC_CombineEndpointIds(const struct FLinkEndpointId& Root, const struct FLinkEndpointId& path);
+	static bool IsValid(const struct FLinkEndpointId& Id);
+	static bool IsPathed(const struct FLinkEndpointId& Id);
+	static struct FLinkEndpointId CreateEndpointId(const class FString& String);
+	static class FString Conv_LinkEndpointIdToString(const struct FLinkEndpointId& Id);
+	static struct FLinkEndpointId CombineEndpointIds(const struct FLinkEndpointId& Root, const struct FLinkEndpointId& path);
 };
 
 
@@ -61,7 +61,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class AthenaObjectLinkage.LinkEndpointInterface");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class AthenaObjectLinkage.LinkEndpointInterface"));
 		return ptr;
 	}
 
@@ -72,24 +72,24 @@ public:
 
 
 // Class AthenaObjectLinkage.LinkerComponent
-// 0x00D8 (0x01B0 - 0x00D8)
+// 0x00D8 (0x01A8 - 0x00D0)
 class ULinkerComponent : public UActorComponent
 {
 public:
-	unsigned char                                      UnknownData00[0xC8];                                      // 0x00D8(0x00C8) MISSED OFFSET
-	TArray<class UEndPlayHandler*>                     EndPlayHandlers;                                          // 0x01A0(0x0010) (ZeroConstructor)
+	unsigned char                                      UnknownData00[0xC8];                                      // 0x00D0(0x00C8) MISSED OFFSET
+	TArray<class UEndPlayHandler*>                     EndPlayHandlers;                                          // 0x0198(0x0010) (ZeroConstructor)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class AthenaObjectLinkage.LinkerComponent");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class AthenaObjectLinkage.LinkerComponent"));
 		return ptr;
 	}
 
 
-	void UnregisterLink(const struct FLinkEndpointId& SourceId, const struct FLinkEndpointId& TargetId);
+	void UnregisterLink(const struct FLinkEndpointId& SourceId, const struct FLinkEndpointId& TargetID);
 	void UnregisterEndpoint(const struct FLinkEndpointId& Id);
 	void SetParent(class AActor* Parent);
-	TEnumAsByte<EAddLinkResult> RegisterLink(const struct FLinkEndpointId& SourceId, const struct FLinkEndpointId& TargetId);
+	TEnumAsByte<EAddLinkResult> RegisterLink(const struct FLinkEndpointId& SourceId, const struct FLinkEndpointId& TargetID);
 	TEnumAsByte<EAddEndpointResult> RegisterEndpoint(const struct FLinkEndpointId& Id, class AActor* Source);
 	void OnEndpointRemovedFromChild(class AActor* Child, const struct FLinkEndpointId& Id);
 	void OnEndpointAddedToChild(class AActor* Child, const struct FLinkEndpointId& Id, class AActor* Instance);
@@ -109,18 +109,18 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class AthenaObjectLinkage.LinkerInterface");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class AthenaObjectLinkage.LinkerInterface"));
 		return ptr;
 	}
 
 
 	void SetParent(class AActor* Parent);
-	void RemoveLink(const struct FLinkEndpointId& SourceId, const struct FLinkEndpointId& TargetId);
+	void RemoveLink(const struct FLinkEndpointId& SourceId, const struct FLinkEndpointId& TargetID);
 	void RemoveEndpoint(const struct FLinkEndpointId& Id);
 	void OnEndpointRemovedFromChild(class AActor* Child, const struct FLinkEndpointId& Id);
 	void OnEndpointAddedToChild(class AActor* Child, const struct FLinkEndpointId& Id, class AActor* Instance);
 	class AActor* LookupEndpoint(const struct FLinkEndpointId& Id);
-	bool AddLink(const struct FLinkEndpointId& SourceId, const struct FLinkEndpointId& TargetId);
+	bool AddLink(const struct FLinkEndpointId& SourceId, const struct FLinkEndpointId& TargetID);
 	bool AddEndpoint(const struct FLinkEndpointId& Id, class AActor* Instance);
 };
 

@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,14 +15,14 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass BP_BountyRewardSkull_Mythical_Desc_DVR.BP_BountyRewardSkull_Mythical_Desc_DVR_C
-// 0x0000 (0x0120 - 0x0120)
+// 0x0000 (0x0130 - 0x0130)
 class UBP_BountyRewardSkull_Mythical_Desc_DVR_C : public UBootyItemDesc
 {
 public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("BlueprintGeneratedClass BP_BountyRewardSkull_Mythical_Desc_DVR.BP_BountyRewardSkull_Mythical_Desc_DVR_C");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("BlueprintGeneratedClass BP_BountyRewardSkull_Mythical_Desc_DVR.BP_BountyRewardSkull_Mythical_Desc_DVR_C"));
 		return ptr;
 	}
 

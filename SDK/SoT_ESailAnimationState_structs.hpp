@@ -1,36 +1,16 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
 #include "SoT_Basic.hpp"
+#include "SoT_ESailAnimationState_enums.hpp"
 
 namespace SDK
 {
-//---------------------------------------------------------------------------
-//Enums
-//---------------------------------------------------------------------------
-
-// UserDefinedEnum ESailAnimationState.ESailAnimationState
-enum class ESailAnimationState : uint8_t
-{
-	ESailAnimationState__NewEnumerator14 = 0,
-	None                           = 1,
-	ESailAnimationState__NewEnumerator18 = 2,
-	None01                         = 3,
-	ESailAnimationState__NewEnumerator22 = 4,
-	None02                         = 5,
-	StructProperty                 = 6,
-	ESailAnimationState__NewEnumerator26 = 7,
-	None03                         = 8,
-	NameProperty                   = 9
-};
-
-
-
 }
 
 #ifdef _MSC_VER

@@ -1,16 +1,32 @@
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
-#include "SoT_TestUtilities_parameters.hpp"
+#include "SoT_TestUtilities_classes.hpp"
 
 namespace SDK
 {
 //---------------------------------------------------------------------------
 //Functions
 //---------------------------------------------------------------------------
+
+// Function TestUtilities.DelegateTester.Callback
+// (Final, RequiredAPI, Native, Public)
+
+void UDelegateTester::Callback()
+{
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function TestUtilities.DelegateTester.Callback"));
+
+	struct
+	{
+	} params;
+
+
+	UObject::ProcessEvent(fn, &params);
+}
+
 
 // Function TestUtilities.TestPrimitiveComponent.GetCollisionObjectType
 // (Final, Native, Public, BlueprintCallable, BlueprintPure, Const)
@@ -19,9 +35,13 @@ namespace SDK
 
 TEnumAsByte<ECollisionChannel> UTestPrimitiveComponent::GetCollisionObjectType()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function TestUtilities.TestPrimitiveComponent.GetCollisionObjectType");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function TestUtilities.TestPrimitiveComponent.GetCollisionObjectType"));
 
-	UTestPrimitiveComponent_GetCollisionObjectType_Params params;
+	struct
+	{
+		TEnumAsByte<ECollisionChannel> ReturnValue;
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -38,9 +58,15 @@ TEnumAsByte<ECollisionChannel> UTestPrimitiveComponent::GetCollisionObjectType()
 
 void UTestStaticMeshComponent::AddForce(const struct FVector& Force, const struct FName& BoneName, bool bAccelChange)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function TestUtilities.TestStaticMeshComponent.AddForce");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function TestUtilities.TestStaticMeshComponent.AddForce"));
 
-	UTestStaticMeshComponent_AddForce_Params params;
+	struct
+	{
+		struct FVector                 Force;
+		struct FName                   BoneName;
+		bool                           bAccelChange;
+	} params;
+
 	params.Force = Force;
 	params.BoneName = BoneName;
 	params.bAccelChange = bAccelChange;

@@ -1,10 +1,10 @@
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
-#include "SoT_BP_Anim_TreasureChest_parameters.hpp"
+#include "SoT_BP_Anim_TreasureChest_classes.hpp"
 
 namespace SDK
 {
@@ -19,9 +19,13 @@ namespace SDK
 
 void UBP_Anim_TreasureChest_C::ExecuteUbergraph_BP_Anim_TreasureChest(int EntryPoint)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_Anim_TreasureChest.BP_Anim_TreasureChest_C.ExecuteUbergraph_BP_Anim_TreasureChest");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function BP_Anim_TreasureChest.BP_Anim_TreasureChest_C.ExecuteUbergraph_BP_Anim_TreasureChest"));
 
-	UBP_Anim_TreasureChest_C_ExecuteUbergraph_BP_Anim_TreasureChest_Params params;
+	struct
+	{
+		int                            EntryPoint;
+	} params;
+
 	params.EntryPoint = EntryPoint;
 
 	UObject::ProcessEvent(fn, &params);

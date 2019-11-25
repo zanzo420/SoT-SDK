@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -26,7 +26,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class EngineSettings.ConsoleSettings");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class EngineSettings.ConsoleSettings"));
 		return ptr;
 	}
 
@@ -53,7 +53,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class EngineSettings.GameMapsSettings");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class EngineSettings.GameMapsSettings"));
 		return ptr;
 	}
 
@@ -81,7 +81,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class EngineSettings.GameNetworkManagerSettings");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class EngineSettings.GameNetworkManagerSettings"));
 		return ptr;
 	}
 
@@ -100,7 +100,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class EngineSettings.GameSessionSettings");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class EngineSettings.GameSessionSettings"));
 		return ptr;
 	}
 
@@ -115,7 +115,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class EngineSettings.GeneralEngineSettings");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class EngineSettings.GeneralEngineSettings"));
 		return ptr;
 	}
 
@@ -138,12 +138,11 @@ public:
 	class FString                                      ProjectName;                                              // 0x00A8(0x0010) (Edit, ZeroConstructor, Config)
 	class FString                                      ProjectVersion;                                           // 0x00B8(0x0010) (Edit, ZeroConstructor, Config)
 	class FString                                      SupportContact;                                           // 0x00C8(0x0010) (Edit, ZeroConstructor, Config)
-	struct FText                                       ProjectDisplayedTitle;                                    // 0x00D8(0x0018) (Edit, Config)
-	unsigned char                                      UnknownData00[0x20];                                      // 0x00D8(0x0020) FIX WRONG TYPE SIZE OF PREVIOUS PROPERTY
+	struct FText                                       ProjectDisplayedTitle;                                    // 0x00D8(0x0038) (Edit, Config)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class EngineSettings.GeneralProjectSettings");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class EngineSettings.GeneralProjectSettings"));
 		return ptr;
 	}
 
@@ -161,7 +160,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class EngineSettings.HudSettings");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class EngineSettings.HudSettings"));
 		return ptr;
 	}
 

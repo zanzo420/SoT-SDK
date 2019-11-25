@@ -1,10 +1,10 @@
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
-#include "SoT_WwiseAudio_parameters.hpp"
+#include "SoT_WwiseAudio_classes.hpp"
 
 namespace SDK
 {
@@ -21,9 +21,15 @@ namespace SDK
 
 bool UWwiseEvent::IsAudible(const struct FVector& SoundPosition, const struct FVector& ListenerPos)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function WwiseAudio.WwiseEvent.IsAudible");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function WwiseAudio.WwiseEvent.IsAudible"));
 
-	UWwiseEvent_IsAudible_Params params;
+	struct
+	{
+		struct FVector                 SoundPosition;
+		struct FVector                 ListenerPos;
+		bool                           ReturnValue;
+	} params;
+
 	params.SoundPosition = SoundPosition;
 	params.ListenerPos = ListenerPos;
 
@@ -40,9 +46,13 @@ bool UWwiseEvent::IsAudible(const struct FVector& SoundPosition, const struct FV
 
 float UWwiseEvent::GetMaxAttenuation()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function WwiseAudio.WwiseEvent.GetMaxAttenuation");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function WwiseAudio.WwiseEvent.GetMaxAttenuation"));
 
-	UWwiseEvent_GetMaxAttenuation_Params params;
+	struct
+	{
+		float                          ReturnValue;
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -57,9 +67,13 @@ float UWwiseEvent::GetMaxAttenuation()
 
 TEnumAsByte<EWwiseEventDurationType> UWwiseEvent::GetDurationType()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function WwiseAudio.WwiseEvent.GetDurationType");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function WwiseAudio.WwiseEvent.GetDurationType"));
 
-	UWwiseEvent_GetDurationType_Params params;
+	struct
+	{
+		TEnumAsByte<EWwiseEventDurationType> ReturnValue;
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -74,9 +88,13 @@ TEnumAsByte<EWwiseEventDurationType> UWwiseEvent::GetDurationType()
 
 float UWwiseEvent::GetDurationMin()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function WwiseAudio.WwiseEvent.GetDurationMin");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function WwiseAudio.WwiseEvent.GetDurationMin"));
 
-	UWwiseEvent_GetDurationMin_Params params;
+	struct
+	{
+		float                          ReturnValue;
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -91,9 +109,13 @@ float UWwiseEvent::GetDurationMin()
 
 float UWwiseEvent::GetDurationMax()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function WwiseAudio.WwiseEvent.GetDurationMax");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function WwiseAudio.WwiseEvent.GetDurationMax"));
 
-	UWwiseEvent_GetDurationMax_Params params;
+	struct
+	{
+		float                          ReturnValue;
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 

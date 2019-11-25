@@ -1,38 +1,17 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
 #include "SoT_Basic.hpp"
+#include "SoT_EngineSettings_enums.hpp"
 #include "SoT_CoreUObject_classes.hpp"
 
 namespace SDK
 {
-//---------------------------------------------------------------------------
-//Enums
-//---------------------------------------------------------------------------
-
-// Enum EngineSettings.EThreePlayerSplitScreenType
-enum class EThreePlayerSplitScreenType : uint8_t
-{
-	EThreePlayerSplitScreenType__FavorTop = 0,
-	None                           = 1,
-	IntProperty                    = 2
-};
-
-
-// Enum EngineSettings.ETwoPlayerSplitScreenType
-enum class ETwoPlayerSplitScreenType : uint8_t
-{
-	ETwoPlayerSplitScreenType__Horizontal = 0,
-	None                           = 1
-};
-
-
-
 //---------------------------------------------------------------------------
 //Script Structs
 //---------------------------------------------------------------------------

@@ -1,30 +1,18 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
 #include "SoT_Basic.hpp"
-#include "SoT_Engine_classes.hpp"
+#include "SoT_JsonUtilities_enums.hpp"
 #include "SoT_CoreUObject_classes.hpp"
+#include "SoT_Engine_classes.hpp"
 
 namespace SDK
 {
-//---------------------------------------------------------------------------
-//Enums
-//---------------------------------------------------------------------------
-
-// Enum JsonUtilities.ETestEnum
-enum class ETestEnum : uint8_t
-{
-	ETestEnum__Value0              = 0,
-	None                           = 1
-};
-
-
-
 //---------------------------------------------------------------------------
 //Script Structs
 //---------------------------------------------------------------------------
@@ -40,10 +28,8 @@ struct FJsonObjectWrapper
 // 0x0070
 struct FTestTextObject
 {
-	struct FText                                       TestText;                                                 // 0x0000(0x0018)
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0000(0x0020) FIX WRONG TYPE SIZE OF PREVIOUS PROPERTY
-	struct FText                                       TestTextExport;                                           // 0x0038(0x0018)
-	unsigned char                                      UnknownData01[0x20];                                      // 0x0038(0x0020) FIX WRONG TYPE SIZE OF PREVIOUS PROPERTY
+	struct FText                                       TestText;                                                 // 0x0000(0x0038)
+	struct FText                                       TestTextExport;                                           // 0x0038(0x0038)
 };
 
 // ScriptStruct JsonUtilities.TestFloatObject
@@ -58,7 +44,7 @@ struct FTestFloatObject
 // 0x0001
 struct FTestEnumObject
 {
-	TEnumAsByte<ETestEnum>                             TestEnum;                                                 // 0x0000(0x0001) (ZeroConstructor, IsPlainOldData)
+	TEnumAsByte<EJsonUtilities_ETestEnum>              TestEnum;                                                 // 0x0000(0x0001) (ZeroConstructor, IsPlainOldData)
 };
 
 // ScriptStruct JsonUtilities.TestMessageTimespan

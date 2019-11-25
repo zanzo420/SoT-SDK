@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,15 +15,15 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass BP_MerchantCrate_Commodity_VolcanicStone_ItemInfo.BP_MerchantCrate_Commodity_VolcanicStone_ItemInfo_C
-// 0x0008 (0x05B0 - 0x05A8)
+// 0x0008 (0x0780 - 0x0778)
 class ABP_MerchantCrate_Commodity_VolcanicStone_ItemInfo_C : public ABootyItemInfo
 {
 public:
-	class USceneComponent*                             DefaultSceneRoot;                                         // 0x05A8(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	class USceneComponent*                             DefaultSceneRoot;                                         // 0x0778(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("BlueprintGeneratedClass BP_MerchantCrate_Commodity_VolcanicStone_ItemInfo.BP_MerchantCrate_Commodity_VolcanicStone_ItemInfo_C");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("BlueprintGeneratedClass BP_MerchantCrate_Commodity_VolcanicStone_ItemInfo.BP_MerchantCrate_Commodity_VolcanicStone_ItemInfo_C"));
 		return ptr;
 	}
 

@@ -1,10 +1,10 @@
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
-#include "SoT_BP_Anim_Cannon_parameters.hpp"
+#include "SoT_BP_Anim_Cannon_classes.hpp"
 
 namespace SDK
 {
@@ -17,9 +17,12 @@ namespace SDK
 
 void UBP_Anim_Cannon_C::EvaluateGraphExposedInputs_ExecuteUbergraph_BP_Anim_Cannon_AnimGraphNode_TransitionResult_D8AE3CC240728DC448411C83C0524A3E()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_Anim_Cannon.BP_Anim_Cannon_C.EvaluateGraphExposedInputs_ExecuteUbergraph_BP_Anim_Cannon_AnimGraphNode_TransitionResult_D8AE3CC240728DC448411C83C0524A3E");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function BP_Anim_Cannon.BP_Anim_Cannon_C.EvaluateGraphExposedInputs_ExecuteUbergraph_BP_Anim_Cannon_AnimGraphNode_TransitionResult_D8AE3CC240728DC448411C83C0524A3E"));
 
-	UBP_Anim_Cannon_C_EvaluateGraphExposedInputs_ExecuteUbergraph_BP_Anim_Cannon_AnimGraphNode_TransitionResult_D8AE3CC240728DC448411C83C0524A3E_Params params;
+	struct
+	{
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -30,9 +33,12 @@ void UBP_Anim_Cannon_C::EvaluateGraphExposedInputs_ExecuteUbergraph_BP_Anim_Cann
 
 void UBP_Anim_Cannon_C::AnimNotify_FireEnd()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_Anim_Cannon.BP_Anim_Cannon_C.AnimNotify_FireEnd");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function BP_Anim_Cannon.BP_Anim_Cannon_C.AnimNotify_FireEnd"));
 
-	UBP_Anim_Cannon_C_AnimNotify_FireEnd_Params params;
+	struct
+	{
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -45,9 +51,13 @@ void UBP_Anim_Cannon_C::AnimNotify_FireEnd()
 
 void UBP_Anim_Cannon_C::ExecuteUbergraph_BP_Anim_Cannon(int EntryPoint)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_Anim_Cannon.BP_Anim_Cannon_C.ExecuteUbergraph_BP_Anim_Cannon");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function BP_Anim_Cannon.BP_Anim_Cannon_C.ExecuteUbergraph_BP_Anim_Cannon"));
 
-	UBP_Anim_Cannon_C_ExecuteUbergraph_BP_Anim_Cannon_Params params;
+	struct
+	{
+		int                            EntryPoint;
+	} params;
+
 	params.EntryPoint = EntryPoint;
 
 	UObject::ProcessEvent(fn, &params);

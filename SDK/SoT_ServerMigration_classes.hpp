@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -23,7 +23,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class ServerMigration.MigrationControlChannel");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class ServerMigration.MigrationControlChannel"));
 		return ptr;
 	}
 
@@ -38,20 +38,24 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class ServerMigration.NetworkTestingBlueprintFunctionLibrary");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class ServerMigration.NetworkTestingBlueprintFunctionLibrary"));
 		return ptr;
 	}
 
 
-	void STATIC_SwitchNetworkClusterForActor(class AActor* TargetActor, class AActor* NewOwner);
-	void STATIC_SetConnectionLastReceiveTime(class APlayerController* PlayerController, float OffsetFromDriverTime);
-	void STATIC_ResumePropertyTracking(class AActor* TargetActor);
-	void STATIC_PausePropertyTrackingOnNextSend(class AActor* TargetActor);
-	bool STATIC_IsActorNetRelevantFor(class AActor* TargetActor, class APlayerController* PlayerController);
-	bool STATIC_IsActorNetDormant(class AActor* TargetActor);
-	int STATIC_GetReliableBufferBunchCount(class AActor* TargetActor);
-	void STATIC_ClearRecentRelevanceTimerForPlayer(class AActor* TargetActor, class APlayerController* PlayerController);
-	void STATIC_ClearRecentRelevanceTimer(class AActor* TargetActor);
+	static void SwitchNetworkClusterForActor(class AActor* TargetActor, class AActor* NewOwner);
+	static void SetConnectionLastReceiveTime(class APlayerController* PlayerController, float OffsetFromDriverTime);
+	static void ResumePropertyTracking(class AActor* TargetActor);
+	static void PausePropertyTrackingOnNextSend(class AActor* TargetActor);
+	static bool IsActorNetRelevantFor(class AActor* TargetActor, class APlayerController* PlayerController);
+	static bool IsActorNetDormant(class AActor* TargetActor);
+	static bool IsActorInNetworkClusterGlobal(class AActor* TargetActor);
+	static bool IsActorInNetworkCluster(class AActor* TargetActor, class AActor* NetworkClusterOwner);
+	static bool IsActorInLevelNetworkClusterOnOwner(class AActor* TargetActor, class AActor* LevelOwner);
+	static bool IsActorInLevelNetworkCluster(class AActor* TargetActor, const struct FName& Level);
+	static int GetReliableBufferBunchCount(class AActor* TargetActor);
+	static void ClearRecentRelevanceTimerForPlayer(class AActor* TargetActor, class APlayerController* PlayerController);
+	static void ClearRecentRelevanceTimer(class AActor* TargetActor);
 };
 
 
@@ -63,30 +67,30 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class ServerMigration.ServerMigrationBlueprintFunctionLibrary");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class ServerMigration.ServerMigrationBlueprintFunctionLibrary"));
 		return ptr;
 	}
 
 
-	void STATIC_WaitWhileMigrationInProgress(class UObject* WorldContextObject, const struct FLatentActionInfo& LatentInfo);
-	void STATIC_WaitForPendingNetTraffic(class UObject* WorldContextObject, const struct FLatentActionInfo& LatentInfo, class AActor* TargetActor);
-	void STATIC_WaitForMigrationCompletedEvent(class UObject* WorldContextObject, const struct FLatentActionInfo& LatentInfo);
-	void STATIC_WaitForClientsToHaveActorChannel(class UObject* WorldContextObject, const struct FLatentActionInfo& LatentInfo, class AActor* TargetActor);
-	TArray<unsigned char> STATIC_TestSerialiseActorToBuffer(class AActor* TargetActor);
-	TArray<unsigned char> STATIC_TestSerialiseActorGroupToBuffer(TArray<class AActor*> ActorGroup);
-	class AActor* STATIC_TestDeserialiseActorWithOffsetFromBuffer(class UObject* WorldContextObject, TArray<unsigned char> Buffer, const struct FVector& Offset);
-	TArray<class AActor*> STATIC_TestDeserialiseActorGroupWithOffsetFromBuffer(class UObject* WorldContextObject, TArray<unsigned char> Buffer, const struct FVector& Offset);
-	TArray<class AActor*> STATIC_TestDeserialiseActorGroupFromBuffer(class UObject* WorldContextObject, TArray<unsigned char> Buffer);
-	class AActor* STATIC_TestDeserialiseActorFromBuffer(class UObject* WorldContextObject, TArray<unsigned char> Buffer);
-	void STATIC_SetServerMigrationTestServerSettings(class UObject* WorldContextObject, const struct FServerSettings& Settings);
-	void STATIC_SetServerMigrationTestClientSettings(class UObject* WorldContextObject, const struct FClientSettings& Settings);
-	void STATIC_SetPacketSimulationSettings(class UObject* WorldContextObject, int PacketLag, int PacketLagVariance, int PacketLoss);
-	void STATIC_ResumeReplication(class AActor* TargetActor);
-	void STATIC_RegisterPersistentDynamicActor(class AActor* TargetActor, const class FString& IdentificationName);
-	void STATIC_PauseReplication(class AActor* TargetActor, bool bDropUnreliableRPCsWhilePaused);
-	bool STATIC_HasActorChannelFromServer(class AActor* TargetActor);
-	bool STATIC_ClientsHaveDormantActor(class AActor* TargetActor);
-	bool STATIC_ClientsHaveActorChannel(class AActor* TargetActor);
+	static void WaitWhileMigrationInProgress(class UObject* WorldContextObject, const struct FLatentActionInfo& LatentInfo);
+	static void WaitForPendingNetTraffic(class UObject* WorldContextObject, const struct FLatentActionInfo& LatentInfo, class AActor* TargetActor);
+	static void WaitForMigrationCompletedEvent(class UObject* WorldContextObject, const struct FLatentActionInfo& LatentInfo);
+	static void WaitForClientsToHaveActorChannel(class UObject* WorldContextObject, const struct FLatentActionInfo& LatentInfo, class AActor* TargetActor);
+	static TArray<unsigned char> TestSerialiseActorToBuffer(class AActor* TargetActor);
+	static TArray<unsigned char> TestSerialiseActorGroupToBuffer(TArray<class AActor*> ActorGroup);
+	static class AActor* TestDeserialiseActorWithOffsetFromBuffer(class UObject* WorldContextObject, TArray<unsigned char> Buffer, const struct FVector& Offset);
+	static TArray<class AActor*> TestDeserialiseActorGroupWithOffsetFromBuffer(class UObject* WorldContextObject, TArray<unsigned char> Buffer, const struct FVector& Offset);
+	static TArray<class AActor*> TestDeserialiseActorGroupFromBuffer(class UObject* WorldContextObject, TArray<unsigned char> Buffer);
+	static class AActor* TestDeserialiseActorFromBuffer(class UObject* WorldContextObject, TArray<unsigned char> Buffer);
+	static void SetServerMigrationTestServerSettings(class UObject* WorldContextObject, const struct FServerSettings& Settings);
+	static void SetServerMigrationTestClientSettings(class UObject* WorldContextObject, const struct FClientSettings& Settings);
+	static void SetPacketSimulationSettings(class UObject* WorldContextObject, int PacketLag, int PacketLagVariance, int PacketLoss);
+	static void ResumeReplication(class AActor* TargetActor);
+	static void RegisterPersistentDynamicActor(class AActor* TargetActor, const class FString& IdentificationName);
+	static void PauseReplication(class AActor* TargetActor, bool bDropUnreliableRPCsWhilePaused);
+	static bool HasActorChannelFromServer(class AActor* TargetActor);
+	static bool ClientsHaveDormantActor(class AActor* TargetActor);
+	static bool ClientsHaveActorChannel(class AActor* TargetActor);
 };
 
 
@@ -99,7 +103,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class ServerMigration.ServerMigrationSerialisationDetailsTestsActorRef");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class ServerMigration.ServerMigrationSerialisationDetailsTestsActorRef"));
 		return ptr;
 	}
 
@@ -107,64 +111,15 @@ public:
 
 
 // Class ServerMigration.ServerMigrationSerialisationDetailsTestsActorThatMovesOnBeginPlay
-// 0x0008 (0x0498 - 0x0490)
+// 0x0008 (0x04B8 - 0x04B0)
 class AServerMigrationSerialisationDetailsTestsActorThatMovesOnBeginPlay : public AActor
 {
 public:
-	class UPrimitiveComponent*                         PrimitiveComponent;                                       // 0x0490(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class UPrimitiveComponent*                         PrimitiveComponent;                                       // 0x04B0(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class ServerMigration.ServerMigrationSerialisationDetailsTestsActorThatMovesOnBeginPlay");
-		return ptr;
-	}
-
-};
-
-
-// Class ServerMigration.ServerMigrationSerialisationDetailsTestsActorWithChild
-// 0x0008 (0x0498 - 0x0490)
-class AServerMigrationSerialisationDetailsTestsActorWithChild : public AActor
-{
-public:
-	class UChildActorComponent*                        ChildActorComponent;                                      // 0x0490(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindObject<UClass>("Class ServerMigration.ServerMigrationSerialisationDetailsTestsActorWithChild");
-		return ptr;
-	}
-
-};
-
-
-// Class ServerMigration.ServerMigrationSerialisationDetailsTestsActorWithNetActorPtr
-// 0x0018 (0x04A8 - 0x0490)
-class AServerMigrationSerialisationDetailsTestsActorWithNetActorPtr : public AActor
-{
-public:
-	struct FNetActorPtr                                ActorPtr;                                                 // 0x0490(0x0014)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x04A4(0x0004) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindObject<UClass>("Class ServerMigration.ServerMigrationSerialisationDetailsTestsActorWithNetActorPtr");
-		return ptr;
-	}
-
-};
-
-
-// Class ServerMigration.ServerMigrationSerialisationDetailsTestsActorWithUniqueNetId
-// 0x0018 (0x04A8 - 0x0490)
-class AServerMigrationSerialisationDetailsTestsActorWithUniqueNetId : public AActor
-{
-public:
-	struct FUniqueNetIdRepl                            UniqueId;                                                 // 0x0490(0x0018)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindObject<UClass>("Class ServerMigration.ServerMigrationSerialisationDetailsTestsActorWithUniqueNetId");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class ServerMigration.ServerMigrationSerialisationDetailsTestsActorThatMovesOnBeginPlay"));
 		return ptr;
 	}
 
@@ -172,16 +127,83 @@ public:
 
 
 // Class ServerMigration.ServerMigrationSerialisationDetailsTestsMigratableComponent
-// 0x0008 (0x00E0 - 0x00D8)
+// 0x0008 (0x00D8 - 0x00D0)
 class UServerMigrationSerialisationDetailsTestsMigratableComponent : public UActorComponent
 {
 public:
-	float                                              FloatWithMigrationMarkup;                                 // 0x00D8(0x0004) (ZeroConstructor, IsPlainOldData)
-	int                                                IntWithNoMarkup;                                          // 0x00DC(0x0004) (ZeroConstructor, IsPlainOldData)
+	float                                              FloatWithMigrationMarkup;                                 // 0x00D0(0x0004) (ZeroConstructor, IsPlainOldData)
+	int                                                IntWithNoMarkup;                                          // 0x00D4(0x0004) (ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class ServerMigration.ServerMigrationSerialisationDetailsTestsMigratableComponent");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class ServerMigration.ServerMigrationSerialisationDetailsTestsMigratableComponent"));
+		return ptr;
+	}
+
+};
+
+
+// Class ServerMigration.ServerMigrationSerialisationDetailsTestsActorWithChild
+// 0x0008 (0x04B8 - 0x04B0)
+class AServerMigrationSerialisationDetailsTestsActorWithChild : public AActor
+{
+public:
+	class UChildActorComponent*                        ChildActorComponent;                                      // 0x04B0(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class ServerMigration.ServerMigrationSerialisationDetailsTestsActorWithChild"));
+		return ptr;
+	}
+
+};
+
+
+// Class ServerMigration.ServerMigrationSerialisationDetailsTestsActorWithDynamicComponent
+// 0x0018 (0x04C8 - 0x04B0)
+class AServerMigrationSerialisationDetailsTestsActorWithDynamicComponent : public AActor
+{
+public:
+	class UServerMigrationSerialisationDetailsTestsMigratableComponent* SubObject;                                                // 0x04B0(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class UServerMigrationSerialisationDetailsTestsMigratableComponent* ActorComponent;                                           // 0x04B8(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class UServerMigrationSerialisationDetailsTestsMigratableComponent* Subobject2;                                               // 0x04C0(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class ServerMigration.ServerMigrationSerialisationDetailsTestsActorWithDynamicComponent"));
+		return ptr;
+	}
+
+};
+
+
+// Class ServerMigration.ServerMigrationSerialisationDetailsTestsActorWithNetActorPtr
+// 0x0018 (0x04C8 - 0x04B0)
+class AServerMigrationSerialisationDetailsTestsActorWithNetActorPtr : public AActor
+{
+public:
+	struct FNetActorPtr                                ActorPtr;                                                 // 0x04B0(0x0014)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x04C4(0x0004) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class ServerMigration.ServerMigrationSerialisationDetailsTestsActorWithNetActorPtr"));
+		return ptr;
+	}
+
+};
+
+
+// Class ServerMigration.ServerMigrationSerialisationDetailsTestsActorWithUniqueNetId
+// 0x0018 (0x04C8 - 0x04B0)
+class AServerMigrationSerialisationDetailsTestsActorWithUniqueNetId : public AActor
+{
+public:
+	struct FUniqueNetIdRepl                            UniqueId;                                                 // 0x04B0(0x0018)
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class ServerMigration.ServerMigrationSerialisationDetailsTestsActorWithUniqueNetId"));
 		return ptr;
 	}
 
@@ -189,15 +211,15 @@ public:
 
 
 // Class ServerMigration.ServerMigrationSerialisationDetailsTestsMigratableComponentActor
-// 0x0008 (0x0498 - 0x0490)
+// 0x0008 (0x04B8 - 0x04B0)
 class AServerMigrationSerialisationDetailsTestsMigratableComponentActor : public AActor
 {
 public:
-	class UServerMigrationSerialisationDetailsTestsMigratableComponent* ComponentWithMigrationMarkup;                             // 0x0490(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class UServerMigrationSerialisationDetailsTestsMigratableComponent* ComponentWithMigrationMarkup;                             // 0x04B0(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class ServerMigration.ServerMigrationSerialisationDetailsTestsMigratableComponentActor");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class ServerMigration.ServerMigrationSerialisationDetailsTestsMigratableComponentActor"));
 		return ptr;
 	}
 
@@ -205,15 +227,15 @@ public:
 
 
 // Class ServerMigration.ServerMigrationSerialisationDetailsTestsMigratableDefaultComponentActor
-// 0x0008 (0x0498 - 0x0490)
+// 0x0008 (0x04B8 - 0x04B0)
 class AServerMigrationSerialisationDetailsTestsMigratableDefaultComponentActor : public AActor
 {
 public:
-	class UServerMigrationSerialisationDetailsTestsMigratableComponent* ComponentWithMigrationMarkup;                             // 0x0490(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class UServerMigrationSerialisationDetailsTestsMigratableComponent* ComponentWithMigrationMarkup;                             // 0x04B0(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class ServerMigration.ServerMigrationSerialisationDetailsTestsMigratableDefaultComponentActor");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class ServerMigration.ServerMigrationSerialisationDetailsTestsMigratableDefaultComponentActor"));
 		return ptr;
 	}
 
@@ -221,15 +243,30 @@ public:
 
 
 // Class ServerMigration.ServerMigrationSerialisationDetailsTestsMigrationActorCallsOrderingTestActor
-// 0x0008 (0x0498 - 0x0490)
+// 0x0008 (0x04B8 - 0x04B0)
 class AServerMigrationSerialisationDetailsTestsMigrationActorCallsOrderingTestActor : public AActor
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0490(0x0008) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x8];                                       // 0x04B0(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class ServerMigration.ServerMigrationSerialisationDetailsTestsMigrationActorCallsOrderingTestActor");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class ServerMigration.ServerMigrationSerialisationDetailsTestsMigrationActorCallsOrderingTestActor"));
+		return ptr;
+	}
+
+};
+
+
+// Class ServerMigration.ServerMigrationSerialisationDetailsTestsMigrationActorWithRootComponentSimulatePhysicsEnabledByDefault
+// 0x0000 (0x04B0 - 0x04B0)
+class AServerMigrationSerialisationDetailsTestsMigrationActorWithRootComponentSimulatePhysicsEnabledByDefault : public AActor
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class ServerMigration.ServerMigrationSerialisationDetailsTestsMigrationActorWithRootComponentSimulatePhysicsEnabledByDefault"));
 		return ptr;
 	}
 
@@ -237,15 +274,15 @@ public:
 
 
 // Class ServerMigration.ServerMigrationSerialisationDetailsTestsMigrationChildActorLinkedActor
-// 0x0008 (0x0498 - 0x0490)
+// 0x0008 (0x04B8 - 0x04B0)
 class AServerMigrationSerialisationDetailsTestsMigrationChildActorLinkedActor : public AActor
 {
 public:
-	class UChildActorComponent*                        Component;                                                // 0x0490(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	class UChildActorComponent*                        Component;                                                // 0x04B0(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class ServerMigration.ServerMigrationSerialisationDetailsTestsMigrationChildActorLinkedActor");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class ServerMigration.ServerMigrationSerialisationDetailsTestsMigrationChildActorLinkedActor"));
 		return ptr;
 	}
 
@@ -253,16 +290,16 @@ public:
 
 
 // Class ServerMigration.ServerMigrationSerialisationDetailsTestsMigrationCustomSerialiseActor
-// 0x0008 (0x0498 - 0x0490)
+// 0x0008 (0x04B8 - 0x04B0)
 class AServerMigrationSerialisationDetailsTestsMigrationCustomSerialiseActor : public AActor
 {
 public:
-	struct FServerMigrationCustomMigrationSerialisationStruct TestStruct;                                               // 0x0490(0x0004)
-	unsigned char                                      UnknownData00[0x4];                                       // 0x0494(0x0004) MISSED OFFSET
+	struct FServerMigrationCustomMigrationSerialisationStruct TestStruct;                                               // 0x04B0(0x0004)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x04B4(0x0004) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class ServerMigration.ServerMigrationSerialisationDetailsTestsMigrationCustomSerialiseActor");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class ServerMigration.ServerMigrationSerialisationDetailsTestsMigrationCustomSerialiseActor"));
 		return ptr;
 	}
 
@@ -270,15 +307,15 @@ public:
 
 
 // Class ServerMigration.ServerMigrationSerialisationDetailsTestsMigrationGetLinkedActor
-// 0x0008 (0x0498 - 0x0490)
+// 0x0008 (0x04B8 - 0x04B0)
 class AServerMigrationSerialisationDetailsTestsMigrationGetLinkedActor : public AActor
 {
 public:
-	class AActor*                                      DependentActor;                                           // 0x0490(0x0008) (ZeroConstructor, IsPlainOldData)
+	class AActor*                                      DependentActor;                                           // 0x04B0(0x0008) (ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class ServerMigration.ServerMigrationSerialisationDetailsTestsMigrationGetLinkedActor");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class ServerMigration.ServerMigrationSerialisationDetailsTestsMigrationGetLinkedActor"));
 		return ptr;
 	}
 
@@ -286,16 +323,16 @@ public:
 
 
 // Class ServerMigration.ServerMigrationSerialisationDetailsTestsMigrationReferenceActor
-// 0x0010 (0x04A0 - 0x0490)
+// 0x0010 (0x04C0 - 0x04B0)
 class AServerMigrationSerialisationDetailsTestsMigrationReferenceActor : public AActor
 {
 public:
-	class AActor*                                      ActorReferenceWithMigrationMarkup;                        // 0x0490(0x0008) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0498(0x0008) MISSED OFFSET
+	class AActor*                                      ActorReferenceWithMigrationMarkup;                        // 0x04B0(0x0008) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x8];                                       // 0x04B8(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class ServerMigration.ServerMigrationSerialisationDetailsTestsMigrationReferenceActor");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class ServerMigration.ServerMigrationSerialisationDetailsTestsMigrationReferenceActor"));
 		return ptr;
 	}
 
@@ -316,7 +353,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class ServerMigration.ServerMigrationSerialisationDetailsTestsPropertyMarkup");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class ServerMigration.ServerMigrationSerialisationDetailsTestsPropertyMarkup"));
 		return ptr;
 	}
 
@@ -332,7 +369,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class ServerMigration.ServerMigrationSerialisationDetailsTestsTArrayProperty");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class ServerMigration.ServerMigrationSerialisationDetailsTestsTArrayProperty"));
 		return ptr;
 	}
 
@@ -349,7 +386,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class ServerMigration.ServerMigrationSerialisationDetailsTestsUStructProperty");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class ServerMigration.ServerMigrationSerialisationDetailsTestsUStructProperty"));
 		return ptr;
 	}
 
@@ -376,7 +413,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class ServerMigration.ServerMigrationSettings");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class ServerMigration.ServerMigrationSettings"));
 		return ptr;
 	}
 

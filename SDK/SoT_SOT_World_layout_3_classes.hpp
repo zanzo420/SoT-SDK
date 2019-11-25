@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,14 +15,14 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass SOT_World_layout_3.SOT_World_layout_2_C
-// 0x0000 (0x0498 - 0x0498)
+// 0x0000 (0x04B8 - 0x04B8)
 class ASOT_World_layout_2_C : public ALevelScriptActor
 {
 public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("BlueprintGeneratedClass SOT_World_layout_3.SOT_World_layout_2_C");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("BlueprintGeneratedClass SOT_World_layout_3.SOT_World_layout_2_C"));
 		return ptr;
 	}
 

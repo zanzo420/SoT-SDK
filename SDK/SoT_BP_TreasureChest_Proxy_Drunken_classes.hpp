@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,15 +15,15 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass BP_TreasureChest_Proxy_Drunken.BP_TreasureChest_Proxy_Drunken_C
-// 0x0008 (0x0A68 - 0x0A60)
+// 0x0008 (0x08E8 - 0x08E0)
 class ABP_TreasureChest_Proxy_Drunken_C : public ABP_TreasureChestProxy_C
 {
 public:
-	class UTankardRefillerComponent*                   TankardRefiller;                                          // 0x0A60(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	class UTankardRefillerComponent*                   TankardRefiller;                                          // 0x08E0(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("BlueprintGeneratedClass BP_TreasureChest_Proxy_Drunken.BP_TreasureChest_Proxy_Drunken_C");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("BlueprintGeneratedClass BP_TreasureChest_Proxy_Drunken.BP_TreasureChest_Proxy_Drunken_C"));
 		return ptr;
 	}
 

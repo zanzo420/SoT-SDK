@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,14 +15,14 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass BP_PlantAIFormComponent.BP_PlantAIFormComponent_C
-// 0x0000 (0x01E0 - 0x01E0)
+// 0x0000 (0x0200 - 0x0200)
 class UBP_PlantAIFormComponent_C : public UPlantAIFormComponent
 {
 public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("BlueprintGeneratedClass BP_PlantAIFormComponent.BP_PlantAIFormComponent_C");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("BlueprintGeneratedClass BP_PlantAIFormComponent.BP_PlantAIFormComponent_C"));
 		return ptr;
 	}
 

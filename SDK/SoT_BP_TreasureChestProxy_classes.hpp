@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,15 +15,16 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass BP_TreasureChestProxy.BP_TreasureChestProxy_C
-// 0x0008 (0x0A60 - 0x0A58)
-class ABP_TreasureChestProxy_C : public ATreasureChestItemProxy
+// 0x0010 (0x08E0 - 0x08D0)
+class ABP_TreasureChestProxy_C : public ATreasureChestItemProxySkeletal
 {
 public:
-	class UInteractableComponent*                      Interactable;                                             // 0x0A58(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	class UGlintComponent*                             Glint;                                                    // 0x08D0(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	class UInteractableComponent*                      Interactable;                                             // 0x08D8(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("BlueprintGeneratedClass BP_TreasureChestProxy.BP_TreasureChestProxy_C");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("BlueprintGeneratedClass BP_TreasureChestProxy.BP_TreasureChestProxy_C"));
 		return ptr;
 	}
 

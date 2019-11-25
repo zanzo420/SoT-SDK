@@ -1,50 +1,18 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
 #include "SoT_Basic.hpp"
-#include "SoT_CoreUObject_classes.hpp"
+#include "SoT_ActionStateMachine_enums.hpp"
 #include "SoT_Engine_classes.hpp"
+#include "SoT_CoreUObject_classes.hpp"
 
 namespace SDK
 {
-//---------------------------------------------------------------------------
-//Enums
-//---------------------------------------------------------------------------
-
-// Enum ActionStateMachine.EActionStateMachineTrackId
-enum class EActionStateMachineTrackId : uint8_t
-{
-	EActionStateMachineTrackId__Locomotion = 0,
-	None                           = 1,
-	IntProperty                    = 2,
-	EActionStateMachineTrackId__Migration = 3,
-	None01                         = 4,
-	NameProperty                   = 5
-};
-
-
-// Enum ActionStateMachine.EActionPredictionType
-enum class EActionPredictionType : uint8_t
-{
-	EActionPredictionType__Predicted = 0,
-	None                           = 1
-};
-
-
-// Enum ActionStateMachine.EActionStatePriority
-enum class EActionStatePriority : uint8_t
-{
-	EActionStatePriority__Overrides = 0,
-	None                           = 1
-};
-
-
-
 //---------------------------------------------------------------------------
 //Script Structs
 //---------------------------------------------------------------------------
@@ -61,6 +29,13 @@ struct FActionStateChangeRequestId
 struct FSerialisedActionStateInfo
 {
 	unsigned char                                      UnknownData00[0x40];                                      // 0x0000(0x0040) MISSED OFFSET
+};
+
+// ScriptStruct ActionStateMachine.SerialisedActionStateMessage
+// 0x0018
+struct FSerialisedActionStateMessage
+{
+	unsigned char                                      UnknownData00[0x18];                                      // 0x0000(0x0018) MISSED OFFSET
 };
 
 // ScriptStruct ActionStateMachine.SerialisedConstructionInfoStore
@@ -164,6 +139,14 @@ struct FActorActionStateConstructionInfo : public FActionStateConstructionInfo
 	TWeakObjectPtr<class AActor>                       ActorOwner;                                               // 0x0028(0x0008) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
 };
 
+// ScriptStruct ActionStateMachine.ActionStateMessage
+// 0x0010
+struct FActionStateMessage
+{
+	unsigned char                                      UnknownData00[0x8];                                       // 0x0000(0x0008) MISSED OFFSET
+	class UScriptStruct*                               Type;                                                     // 0x0008(0x0008) (ZeroConstructor, IsPlainOldData, RepSkip, RepNotify, Interp, NonTransactional, EditorOnly, NoDestructor, AutoWeak, ContainsInstancedReference, AssetRegistrySearchable, SimpleDisplay, AdvancedDisplay, Protected, BlueprintCallable, BlueprintAuthorityOnly, TextExportTransient, NonPIEDuplicateTransient, ExposeOnSpawn, PersistentInstance, UObjectWrapper, HasGetValueTypeHash, NativeAccessSpecifierPublic, NativeAccessSpecifierProtected, NativeAccessSpecifierPrivate)
+};
+
 // ScriptStruct ActionStateMachine.InnerWithObjTestStruct
 // 0x0008
 struct FInnerWithObjTestStruct
@@ -185,6 +168,21 @@ struct FTestActionStateConstructionInfoWithObjPointers : public FActionStateCons
 struct FNullActionStateConstructionInfo : public FActorActionStateConstructionInfo
 {
 
+};
+
+// ScriptStruct ActionStateMachine.TestActionStateMessage2
+// 0x0000 (0x0010 - 0x0010)
+struct FTestActionStateMessage2 : public FActionStateMessage
+{
+
+};
+
+// ScriptStruct ActionStateMachine.TestActionStateMessage
+// 0x0008 (0x0018 - 0x0010)
+struct FTestActionStateMessage : public FActionStateMessage
+{
+	int                                                TestProperty;                                             // 0x0010(0x0004) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x4];                                       // 0x0014(0x0004) MISSED OFFSET
 };
 
 // ScriptStruct ActionStateMachine.TestActorActionStateConstructionInfo

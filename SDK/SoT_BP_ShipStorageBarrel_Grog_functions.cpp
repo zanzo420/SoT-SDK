@@ -1,10 +1,10 @@
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
-#include "SoT_BP_ShipStorageBarrel_Grog_parameters.hpp"
+#include "SoT_BP_ShipStorageBarrel_Grog_classes.hpp"
 
 namespace SDK
 {
@@ -21,9 +21,15 @@ namespace SDK
 
 struct FVector ABP_ShipStorageBarrel_Grog_C::GetClosestInteractionPoint(const struct FVector& ReferencePosition, float* OutInteractionPointRadius)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_ShipStorageBarrel_Grog.BP_ShipStorageBarrel_Grog_C.GetClosestInteractionPoint");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function BP_ShipStorageBarrel_Grog.BP_ShipStorageBarrel_Grog_C.GetClosestInteractionPoint"));
 
-	ABP_ShipStorageBarrel_Grog_C_GetClosestInteractionPoint_Params params;
+	struct
+	{
+		struct FVector                 ReferencePosition;
+		float                          OutInteractionPointRadius;
+		struct FVector                 ReturnValue;
+	} params;
+
 	params.ReferencePosition = ReferencePosition;
 
 	UObject::ProcessEvent(fn, &params);
@@ -44,9 +50,15 @@ struct FVector ABP_ShipStorageBarrel_Grog_C::GetClosestInteractionPoint(const st
 
 bool ABP_ShipStorageBarrel_Grog_C::ShouldDrawTooltipInWorldSpace(class AActor* InInteractor, struct FVector* DesiredTooltipWorldPosition)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_ShipStorageBarrel_Grog.BP_ShipStorageBarrel_Grog_C.ShouldDrawTooltipInWorldSpace");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function BP_ShipStorageBarrel_Grog.BP_ShipStorageBarrel_Grog_C.ShouldDrawTooltipInWorldSpace"));
 
-	ABP_ShipStorageBarrel_Grog_C_ShouldDrawTooltipInWorldSpace_Params params;
+	struct
+	{
+		class AActor*                  InInteractor;
+		struct FVector                 DesiredTooltipWorldPosition;
+		bool                           ReturnValue;
+	} params;
+
 	params.InInteractor = InInteractor;
 
 	UObject::ProcessEvent(fn, &params);
@@ -63,9 +75,12 @@ bool ABP_ShipStorageBarrel_Grog_C::ShouldDrawTooltipInWorldSpace(class AActor* I
 
 void ABP_ShipStorageBarrel_Grog_C::UserConstructionScript()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_ShipStorageBarrel_Grog.BP_ShipStorageBarrel_Grog_C.UserConstructionScript");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function BP_ShipStorageBarrel_Grog.BP_ShipStorageBarrel_Grog_C.UserConstructionScript"));
 
-	ABP_ShipStorageBarrel_Grog_C_UserConstructionScript_Params params;
+	struct
+	{
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -14,23 +14,6 @@ namespace SDK
 //Classes
 //---------------------------------------------------------------------------
 
-// Class Occlusion.OcclusionFunctionLibrary
-// 0x0000 (0x0028 - 0x0028)
-class UOcclusionFunctionLibrary : public UBlueprintFunctionLibrary
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindObject<UClass>("Class Occlusion.OcclusionFunctionLibrary");
-		return ptr;
-	}
-
-
-	TEnumAsByte<EOcclusionTypes> STATIC_IsActorOccludedFromActor(class UObject* WorldContextObject, class AActor* Observer, class AActor* Target, const struct FVector& TargetPosition, float InteractionPointRadius, TArray<class AActor*> AdditionalIgnoredActors);
-};
-
-
 // Class Occlusion.OcclusionInterface
 // 0x0000 (0x0028 - 0x0028)
 class UOcclusionInterface : public UInterface
@@ -39,25 +22,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class Occlusion.OcclusionInterface");
-		return ptr;
-	}
-
-
-	TEnumAsByte<EOcclusionTypes> IsActorOccludedFromActor(class AActor* Observer, class AActor* Target, const struct FVector& TargetPosition, float Tolerance, TEnumAsByte<ECollisionChannel> CollisionChannel, TArray<class AActor*> AdditionalIgnoredActors);
-};
-
-
-// Class Occlusion.OcclusionMock
-// 0x0010 (0x0038 - 0x0028)
-class UOcclusionMock : public UObject
-{
-public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0028(0x0010) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindObject<UClass>("Class Occlusion.OcclusionMock");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class Occlusion.OcclusionInterface"));
 		return ptr;
 	}
 
@@ -65,18 +30,21 @@ public:
 
 
 // Class Occlusion.OcclusionService
-// 0x0020 (0x0048 - 0x0028)
+// 0x0068 (0x0090 - 0x0028)
 class UOcclusionService : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0028(0x0020) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x68];                                      // 0x0028(0x0068) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class Occlusion.OcclusionService");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class Occlusion.OcclusionService"));
 		return ptr;
 	}
 
+
+	void OnPrimaryActorEndPlay(class AActor* InActor);
+	void OnIgnoredActorEndPlay(class AActor* InActor);
 };
 
 

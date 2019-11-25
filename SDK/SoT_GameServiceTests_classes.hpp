@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,14 +15,14 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // Class GameServiceTests.GameModeWithServiceProviderGameState
-// 0x0000 (0x0588 - 0x0588)
+// 0x0000 (0x05A0 - 0x05A0)
 class AGameModeWithServiceProviderGameState : public AGameMode
 {
 public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class GameServiceTests.GameModeWithServiceProviderGameState");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class GameServiceTests.GameModeWithServiceProviderGameState"));
 		return ptr;
 	}
 
@@ -37,7 +37,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class GameServiceTests.TestGameServiceInterface");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class GameServiceTests.TestGameServiceInterface"));
 		return ptr;
 	}
 
@@ -53,7 +53,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class GameServiceTests.TestGameService");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class GameServiceTests.TestGameService"));
 		return ptr;
 	}
 
@@ -69,7 +69,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class GameServiceTests.TestGameServiceRequiringUninitialisation");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class GameServiceTests.TestGameServiceRequiringUninitialisation"));
 		return ptr;
 	}
 
@@ -84,7 +84,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class GameServiceTests.TestGameServiceActorInterface");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class GameServiceTests.TestGameServiceActorInterface"));
 		return ptr;
 	}
 
@@ -92,15 +92,15 @@ public:
 
 
 // Class GameServiceTests.TestGameServiceActor
-// 0x0008 (0x0498 - 0x0490)
+// 0x0008 (0x04B0 - 0x04A8)
 class ATestGameServiceActor : public AActor
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0490(0x0008) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x8];                                       // 0x04A8(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class GameServiceTests.TestGameServiceActor");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class GameServiceTests.TestGameServiceActor"));
 		return ptr;
 	}
 
@@ -108,15 +108,15 @@ public:
 
 
 // Class GameServiceTests.TestGameServiceProvider
-// 0x0058 (0x0080 - 0x0028)
+// 0x0078 (0x00A0 - 0x0028)
 class UTestGameServiceProvider : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x58];                                      // 0x0028(0x0058) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x78];                                      // 0x0028(0x0078) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class GameServiceTests.TestGameServiceProvider");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class GameServiceTests.TestGameServiceProvider"));
 		return ptr;
 	}
 
@@ -124,15 +124,31 @@ public:
 
 
 // Class GameServiceTests.TestGameStateWithCollection
-// 0x0060 (0x0548 - 0x04E8)
+// 0x0060 (0x0560 - 0x0500)
 class ATestGameStateWithCollection : public AGameState
 {
 public:
-	unsigned char                                      UnknownData00[0x60];                                      // 0x04E8(0x0060) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x60];                                      // 0x0500(0x0060) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class GameServiceTests.TestGameStateWithCollection");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class GameServiceTests.TestGameStateWithCollection"));
+		return ptr;
+	}
+
+};
+
+
+// Class GameServiceTests.TestGameStateWithObjectMessagingServiceProvider
+// 0x00D8 (0x0680 - 0x05A8)
+class ATestGameStateWithObjectMessagingServiceProvider : public ATestGameStateWithObjectMessagingDispatcher
+{
+public:
+	unsigned char                                      UnknownData00[0xD8];                                      // 0x05A8(0x00D8) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class GameServiceTests.TestGameStateWithObjectMessagingServiceProvider"));
 		return ptr;
 	}
 
@@ -149,7 +165,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class GameServiceTests.TestServiceProviderGameInstance");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class GameServiceTests.TestServiceProviderGameInstance"));
 		return ptr;
 	}
 
@@ -157,16 +173,16 @@ public:
 
 
 // Class GameServiceTests.TestServiceProviderGameState
-// 0x0018 (0x0500 - 0x04E8)
+// 0x0018 (0x0518 - 0x0500)
 class ATestServiceProviderGameState : public AGameState
 {
 public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x04E8(0x0010) MISSED OFFSET
-	class UObject*                                     ServiceToReturn;                                          // 0x04F8(0x0008) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0500(0x0010) MISSED OFFSET
+	class UObject*                                     ServiceToReturn;                                          // 0x0510(0x0008) (ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class GameServiceTests.TestServiceProviderGameState");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class GameServiceTests.TestServiceProviderGameState"));
 		return ptr;
 	}
 

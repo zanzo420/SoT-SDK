@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,16 +15,16 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass BP_BountyRewardSkull_Mythical.BP_BountyRewardSkull_Mythical_C
-// 0x0010 (0x0820 - 0x0810)
+// 0x0010 (0x0880 - 0x0870)
 class ABP_BountyRewardSkull_Mythical_C : public ABP_BountyRewardSkull_C
 {
 public:
-	class UParticleSystemComponent*                    VFX_Skull_Glow_1st;                                       // 0x0810(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	class UParticleSystemComponent*                    VFX_Skull_Glow_3rd;                                       // 0x0818(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	class UParticleSystemComponent*                    VFX_Skull_Glow_1st;                                       // 0x0870(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	class UParticleSystemComponent*                    VFX_Skull_Glow_3rd;                                       // 0x0878(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("BlueprintGeneratedClass BP_BountyRewardSkull_Mythical.BP_BountyRewardSkull_Mythical_C");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("BlueprintGeneratedClass BP_BountyRewardSkull_Mythical.BP_BountyRewardSkull_Mythical_C"));
 		return ptr;
 	}
 

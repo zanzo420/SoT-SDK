@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,29 +15,29 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // Class Interaction.InteractableComponent
-// 0x0050 (0x0128 - 0x00D8)
+// 0x0050 (0x0120 - 0x00D0)
 class UInteractableComponent : public UActorComponent
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x00D8(0x0008) MISSED OFFSET
-	unsigned char                                      ProxyForActorInteraction : 1;                             // 0x00E0(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly)
-	unsigned char                                      UnknownData01[0x3];                                       // 0x00E1(0x0003) MISSED OFFSET
-	struct FName                                       FeatureFlag;                                              // 0x00E4(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     BoxExtent;                                                // 0x00EC(0x000C) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	struct FVector                                     BoxOrigin;                                                // 0x00F8(0x000C) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	struct FRotator                                    BoxRotation;                                              // 0x0104(0x000C) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      MayBeGrouped : 1;                                         // 0x0110(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly)
-	unsigned char                                      UnknownData02[0x3];                                       // 0x0111(0x0003) MISSED OFFSET
-	bool                                               RequiresFacingFront;                                      // 0x0114(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	bool                                               RequiresNotAirborne;                                      // 0x0115(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData03[0x2];                                       // 0x0116(0x0002) MISSED OFFSET
-	class UInteractableArea*                           InteractableArea;                                         // 0x0118(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
-	TEnumAsByte<EInteractableState>                    CurrentInteractionState;                                  // 0x0120(0x0001) (ZeroConstructor, Transient, IsPlainOldData)
-	unsigned char                                      UnknownData04[0x7];                                       // 0x0121(0x0007) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x8];                                       // 0x00D0(0x0008) MISSED OFFSET
+	struct FName                                       FeatureFlag;                                              // 0x00D8(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     BoxExtent;                                                // 0x00E0(0x000C) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	struct FVector                                     BoxOrigin;                                                // 0x00EC(0x000C) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	struct FRotator                                    BoxRotation;                                              // 0x00F8(0x000C) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      MayBeGrouped : 1;                                         // 0x0104(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly)
+	unsigned char                                      ProxyForActorInteraction : 1;                             // 0x0104(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly)
+	unsigned char                                      UnknownData01[0x3];                                       // 0x0105(0x0003) MISSED OFFSET
+	bool                                               RequiresFacingFront;                                      // 0x0108(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	bool                                               RequiresNotAirborne;                                      // 0x0109(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	bool                                               RequiresNotSwimming;                                      // 0x010A(0x0001) (Edit, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData02[0x5];                                       // 0x010B(0x0005) MISSED OFFSET
+	class UInteractableArea*                           InteractableArea;                                         // 0x0110(0x0008) (ZeroConstructor, Transient, IsPlainOldData)
+	TEnumAsByte<EInteractableState>                    CurrentInteractionState;                                  // 0x0118(0x0001) (ZeroConstructor, Transient, IsPlainOldData)
+	unsigned char                                      UnknownData03[0x7];                                       // 0x0119(0x0007) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class Interaction.InteractableComponent");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class Interaction.InteractableComponent"));
 		return ptr;
 	}
 
@@ -53,16 +53,16 @@ public:
 
 
 // Class Interaction.CharacterInteractionComponent
-// 0x00A0 (0x0680 - 0x05E0)
+// 0x00C0 (0x0690 - 0x05D0)
 class UCharacterInteractionComponent : public UBoxComponent
 {
 public:
-	class UInteractableArea*                           CurrentOptimalInteractable;                               // 0x05E0(0x0008) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x98];                                      // 0x05E8(0x0098) MISSED OFFSET
+	class UInteractableArea*                           CurrentOptimalInteractable;                               // 0x05D0(0x0008) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0xB8];                                      // 0x05D8(0x00B8) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class Interaction.CharacterInteractionComponent");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class Interaction.CharacterInteractionComponent"));
 		return ptr;
 	}
 
@@ -75,14 +75,14 @@ public:
 
 
 // Class Interaction.GroupedInteractableAreaComponent
-// 0x0000 (0x00D8 - 0x00D8)
+// 0x0000 (0x00D0 - 0x00D0)
 class UGroupedInteractableAreaComponent : public UActorComponent
 {
 public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class Interaction.GroupedInteractableAreaComponent");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class Interaction.GroupedInteractableAreaComponent"));
 		return ptr;
 	}
 
@@ -102,7 +102,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class Interaction.InteractableArea");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class Interaction.InteractableArea"));
 		return ptr;
 	}
 
@@ -127,7 +127,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class Interaction.InteractableInterface");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class Interaction.InteractableInterface"));
 		return ptr;
 	}
 
@@ -141,6 +141,7 @@ public:
 	struct FVector GetClosestInteractionPoint(const struct FVector& ReferencePosition, float* OutInteractionPointRadius);
 	void GetActorsToIgnoreDuringOcclusionChecker(TArray<class AActor*>* ActorsToIgnore);
 	class UActionRulesComponent* GetActionRulesComponent();
+	bool DoesRequireNotSwimming();
 	bool DoesRequireNotBeingAirborne();
 	bool DoesRequireFacingFront();
 	bool CanInteractWithNotificationInputId(class AActor* InInteractor, class UClass* NotificationInputId);
@@ -157,7 +158,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class Interaction.InteractableServiceInterface");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class Interaction.InteractableServiceInterface"));
 		return ptr;
 	}
 
@@ -165,16 +166,17 @@ public:
 
 
 // Class Interaction.InteractableService
-// 0x0020 (0x0048 - 0x0028)
+// 0x0048 (0x0070 - 0x0028)
 class UInteractableService : public UObject
 {
 public:
 	unsigned char                                      UnknownData00[0x10];                                      // 0x0028(0x0010) MISSED OFFSET
 	TArray<class UInteractableArea*>                   InteractableAreas;                                        // 0x0038(0x0010) (ZeroConstructor, Transient)
+	unsigned char                                      UnknownData01[0x28];                                      // 0x0048(0x0028) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class Interaction.InteractableService");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class Interaction.InteractableService"));
 		return ptr;
 	}
 
@@ -189,7 +191,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class Interaction.InteractorInterface");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class Interaction.InteractorInterface"));
 		return ptr;
 	}
 
@@ -197,17 +199,17 @@ public:
 
 
 // Class Interaction.MockActorWithCharacterInteractionComponent
-// 0x00B0 (0x0540 - 0x0490)
+// 0x00B0 (0x0560 - 0x04B0)
 class AMockActorWithCharacterInteractionComponent : public AActor
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0490(0x0008) MISSED OFFSET
-	class UCharacterInteractionComponent*              CharacterInteractionComponent;                            // 0x0498(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
-	unsigned char                                      UnknownData01[0xA0];                                      // 0x04A0(0x00A0) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x8];                                       // 0x04B0(0x0008) MISSED OFFSET
+	class UCharacterInteractionComponent*              CharacterInteractionComponent;                            // 0x04B8(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
+	unsigned char                                      UnknownData01[0xA0];                                      // 0x04C0(0x00A0) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class Interaction.MockActorWithCharacterInteractionComponent");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class Interaction.MockActorWithCharacterInteractionComponent"));
 		return ptr;
 	}
 
@@ -223,7 +225,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class Interaction.MockInteractableService");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class Interaction.MockInteractableService"));
 		return ptr;
 	}
 
@@ -231,35 +233,19 @@ public:
 
 
 // Class Interaction.MockInteractorActor
-// 0x0028 (0x04B8 - 0x0490)
+// 0x0028 (0x04D8 - 0x04B0)
 class AMockInteractorActor : public AActor
 {
 public:
-	unsigned char                                      UnknownData00[0x8];                                       // 0x0490(0x0008) MISSED OFFSET
-	class UObject*                                     FocusedInteractable;                                      // 0x0498(0x0008) (ZeroConstructor, IsPlainOldData)
-	class UObject*                                     InteractedObject;                                         // 0x04A0(0x0008) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x10];                                      // 0x04A8(0x0010) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x8];                                       // 0x04B0(0x0008) MISSED OFFSET
+	class UObject*                                     FocusedInteractable;                                      // 0x04B8(0x0008) (ZeroConstructor, IsPlainOldData)
+	class UObject*                                     InteractedObject;                                         // 0x04C0(0x0008) (ZeroConstructor, IsPlainOldData)
+	class UClass*                                      InteractNotificationType;                                 // 0x04C8(0x0008) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x8];                                       // 0x04D0(0x0008) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class Interaction.MockInteractorActor");
-		return ptr;
-	}
-
-};
-
-
-// Class Interaction.TestActorWithInteractableComponent
-// 0x0010 (0x04A0 - 0x0490)
-class ATestActorWithInteractableComponent : public AActor
-{
-public:
-	class USceneComponent*                             SceneRootComponent;                                       // 0x0490(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
-	class UInteractableComponent*                      InteractableComponent;                                    // 0x0498(0x0008) (ExportObject, ZeroConstructor, InstancedReference, IsPlainOldData)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindObject<UClass>("Class Interaction.TestActorWithInteractableComponent");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class Interaction.MockInteractorActor"));
 		return ptr;
 	}
 

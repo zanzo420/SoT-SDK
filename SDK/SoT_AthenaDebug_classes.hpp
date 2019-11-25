@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -14,19 +14,74 @@ namespace SDK
 //Classes
 //---------------------------------------------------------------------------
 
-// Class AthenaDebug.Videprinter
-// 0x0028 (0x04B8 - 0x0490)
-class AVideprinter : public AActor
+// Class AthenaDebug.DrawDebugServiceInterface
+// 0x0000 (0x0028 - 0x0028)
+class UDrawDebugServiceInterface : public UInterface
 {
 public:
-	TArray<class FString>                              OutputRingBuffer;                                         // 0x0490(0x0010) (Net, ZeroConstructor)
-	int                                                AddAt;                                                    // 0x04A0(0x0004) (Net, ZeroConstructor, IsPlainOldData)
-	struct FName                                       Id;                                                       // 0x04A4(0x0008) (Net, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0xC];                                       // 0x04AC(0x000C) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class AthenaDebug.Videprinter");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class AthenaDebug.DrawDebugServiceInterface"));
+		return ptr;
+	}
+
+};
+
+
+// Class AthenaDebug.DrawDebugService
+// 0x0078 (0x0528 - 0x04B0)
+class ADrawDebugService : public AActor
+{
+public:
+	unsigned char                                      UnknownData00[0x8];                                       // 0x04B0(0x0008) MISSED OFFSET
+	TArray<struct FDrawDebugItemSphere>                Spheres;                                                  // 0x04B8(0x0010) (Net, ZeroConstructor)
+	TArray<struct FDrawDebugItemBox>                   Boxes;                                                    // 0x04C8(0x0010) (Net, ZeroConstructor)
+	TArray<struct FDrawDebugItemCapsule>               Capsules;                                                 // 0x04D8(0x0010) (Net, ZeroConstructor)
+	TArray<struct FDrawDebugItemLine>                  Lines;                                                    // 0x04E8(0x0010) (Net, ZeroConstructor)
+	TArray<struct FDrawDebugItemMessage>               Messages;                                                 // 0x04F8(0x0010) (Net, ZeroConstructor)
+	TArray<struct FDrawDebugItemString>                Strings;                                                  // 0x0508(0x0010) (Net, ZeroConstructor)
+	unsigned char                                      UnknownData01[0x10];                                      // 0x0518(0x0010) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class AthenaDebug.DrawDebugService"));
+		return ptr;
+	}
+
+
+	void OnRep_ReplicatedItems();
+};
+
+
+// Class AthenaDebug.TickableDebugDrawingServiceInterface
+// 0x0000 (0x0028 - 0x0028)
+class UTickableDebugDrawingServiceInterface : public UInterface
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class AthenaDebug.TickableDebugDrawingServiceInterface"));
+		return ptr;
+	}
+
+};
+
+
+// Class AthenaDebug.Videprinter
+// 0x0028 (0x04D8 - 0x04B0)
+class AVideprinter : public AActor
+{
+public:
+	TArray<class FString>                              OutputRingBuffer;                                         // 0x04B0(0x0010) (Net, ZeroConstructor)
+	int                                                AddAt;                                                    // 0x04C0(0x0004) (Net, ZeroConstructor, IsPlainOldData)
+	struct FName                                       Id;                                                       // 0x04C4(0x0008) (Net, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0xC];                                       // 0x04CC(0x000C) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class AthenaDebug.Videprinter"));
 		return ptr;
 	}
 
@@ -41,7 +96,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class AthenaDebug.VideprinterServiceInterface");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class AthenaDebug.VideprinterServiceInterface"));
 		return ptr;
 	}
 
@@ -58,7 +113,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class AthenaDebug.VideprinterService");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class AthenaDebug.VideprinterService"));
 		return ptr;
 	}
 

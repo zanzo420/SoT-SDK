@@ -1,10 +1,10 @@
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (1.4) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
-#include "SoT_AD_FirstPerson_PlayerPirate_Female_Thin_parameters.hpp"
+#include "SoT_AD_FirstPerson_PlayerPirate_Female_Thin_classes.hpp"
 
 namespace SDK
 {

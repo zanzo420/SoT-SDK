@@ -1,116 +1,23 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
 #include "SoT_Basic.hpp"
-#include "SoT_Engine_classes.hpp"
+#include "SoT_UMG_enums.hpp"
 #include "SoT_CoreUObject_classes.hpp"
-#include "SoT_SlateCore_classes.hpp"
-#include "SoT_MovieSceneTracks_classes.hpp"
-#include "SoT_MovieScene_classes.hpp"
+#include "SoT_Engine_classes.hpp"
 #include "SoT_Slate_classes.hpp"
+#include "SoT_SlateCore_classes.hpp"
+#include "SoT_MovieScene_classes.hpp"
+#include "SoT_MovieSceneTracks_classes.hpp"
 #include "SoT_InputCore_classes.hpp"
 
 namespace SDK
 {
-//---------------------------------------------------------------------------
-//Enums
-//---------------------------------------------------------------------------
-
-// Enum UMG.ESlateVisibility
-enum class ESlateVisibility : uint8_t
-{
-	ESlateVisibility__Visible      = 0,
-	None                           = 1,
-	IntProperty                    = 2,
-	ESlateVisibility__SelfHitTestInvisible = 3,
-	None01                         = 4
-};
-
-
-// Enum UMG.EDragPivot
-enum class EDragPivot : uint8_t
-{
-	EDragPivot__MouseDown          = 0,
-	None                           = 1,
-	IntProperty                    = 2,
-	EDragPivot__CenterLeft         = 3,
-	None01                         = 4,
-	NameProperty                   = 5,
-	EDragPivot__BottomCenter       = 6,
-	None02                         = 7,
-	StructProperty                 = 8,
-	None03                         = 9
-};
-
-
-// Enum UMG.ESlateSizeRule
-enum class ESlateSizeRule : uint8_t
-{
-	ESlateSizeRule__Automatic      = 0,
-	None                           = 1
-};
-
-
-// Enum UMG.EWidgetDesignFlags
-enum class EWidgetDesignFlags : uint8_t
-{
-	EWidgetDesignFlags__None       = 0,
-	None                           = 1,
-	EUMGSequencePlayMode__Forward  = 2
-};
-
-
-// Enum UMG.EDesignPreviewSizeMode
-enum class EDesignPreviewSizeMode : uint8_t
-{
-	EDesignPreviewSizeMode__FillScreen = 0,
-	None                           = 1,
-	EDesignPreviewSizeMode__DesiredOnScreen = 2,
-	None01                         = 3,
-	RMT_None                       = 4
-};
-
-
-// Enum UMG.EUMGSequencePlayMode
-enum class EUMGSequencePlayMode : uint8_t
-{
-	EUMGSequencePlayMode__Forward  = 0,
-	None                           = 1,
-	EBindingKind__Function         = 2
-};
-
-
-// Enum UMG.EBindingKind
-enum class EBindingKind : uint8_t
-{
-	EBindingKind__Function         = 0,
-	None                           = 1
-};
-
-
-// Enum UMG.EWidgetBlendMode
-enum class EWidgetBlendMode : uint8_t
-{
-	EWidgetBlendMode__Opaque       = 0,
-	None                           = 1,
-	EWidgetSpace__World            = 2
-};
-
-
-// Enum UMG.EWidgetSpace
-enum class EWidgetSpace : uint8_t
-{
-	EWidgetSpace__World            = 0,
-	None                           = 1
-};
-
-
-
 //---------------------------------------------------------------------------
 //Script Structs
 //---------------------------------------------------------------------------

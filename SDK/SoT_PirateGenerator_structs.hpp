@@ -1,101 +1,18 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
 #include "SoT_Basic.hpp"
-#include "SoT_Engine_classes.hpp"
+#include "SoT_PirateGenerator_enums.hpp"
 #include "SoT_CoreUObject_classes.hpp"
+#include "SoT_Engine_classes.hpp"
 
 namespace SDK
 {
-//---------------------------------------------------------------------------
-//Enums
-//---------------------------------------------------------------------------
-
-// Enum PirateGenerator.EIPGEthnicity
-enum class EIPGEthnicity : uint8_t
-{
-	EIPGEthnicity__UNSPECIFIED     = 0,
-	None                           = 1,
-	IntProperty                    = 2,
-	EIPGEthnicity__EIPGEthnicity_MAX = 3
-};
-
-
-// Enum PirateGenerator.EIPGGender
-enum class EIPGGender : uint8_t
-{
-	EIPGGender__UNSPECIFIED        = 0,
-	None                           = 1,
-	IntProperty                    = 2,
-	EConsoleForGamepadLabels__None = 3
-};
-
-
-// Enum PirateGenerator.EIPGPirateType
-enum class EIPGPirateType : uint8_t
-{
-	EIPGPirateType__PLAYER         = 0,
-	None                           = 1
-};
-
-
-// Enum PirateGenerator.EIPGTestEnum
-enum class EIPGTestEnum : uint8_t
-{
-	EIPGTestEnum__RANDOM           = 0,
-	None                           = 1
-};
-
-
-// Enum PirateGenerator.EIPGSetMode
-enum class EIPGSetMode : uint8_t
-{
-	EIPGSetMode__RANDOM            = 0,
-	None                           = 1,
-	EIPGSetMode__NONE              = 2,
-	None01                         = 3
-};
-
-
-// Enum PirateGenerator.EIPGBlendType
-enum class EIPGBlendType : uint8_t
-{
-	EIPGBlendType__NIX             = 0,
-	None                           = 1,
-	EIPGBlendType__POSNEG          = 2,
-	None01                         = 3,
-	NameProperty                   = 4,
-	EIPGBlendType__ONOFF_BIAS      = 5,
-	None02                         = 6,
-	StructProperty                 = 7,
-	None03                         = 8
-};
-
-
-// Enum PirateGenerator.EPirateBakeFlags
-enum class EPirateBakeFlags : uint8_t
-{
-	EPirateBakeFlags__None         = 0,
-	None                           = 1,
-	EPirateBakeFlags__StripTopLOD  = 2,
-	None01                         = 3
-};
-
-
-// Enum PirateGenerator.EFileAccessAsyncResult
-enum class EFileAccessAsyncResult : uint8_t
-{
-	EFileAccessAsyncResult__Succeeded = 0,
-	None                           = 1
-};
-
-
-
 //---------------------------------------------------------------------------
 //Script Structs
 //---------------------------------------------------------------------------
@@ -179,9 +96,10 @@ struct FBlendedSubMeshSpecification
 struct FMaterialReferenceEntry
 {
 	bool                                               bCopyParametersAcross;                                    // 0x0000(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x7];                                       // 0x0001(0x0007) MISSED OFFSET
+	bool                                               bReplaceAll;                                              // 0x0001(0x0001) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x6];                                       // 0x0002(0x0006) MISSED OFFSET
 	class UMaterialInterface*                          FromMaterial;                                             // 0x0008(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
-	class UMaterialInterface*                          ToMaterial;                                               // 0x0010(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
+	class UMaterialInstanceConstant*                   ToMaterial;                                               // 0x0010(0x0008) (Edit, BlueprintVisible, BlueprintReadOnly, ZeroConstructor, IsPlainOldData)
 };
 
 // ScriptStruct PirateGenerator.MaterialReferencesEntry
@@ -206,7 +124,8 @@ struct FTextureSwitchParameters
 {
 	unsigned char                                      UnknownData00[0x8];                                       // 0x0000(0x0008) MISSED OFFSET
 	bool                                               bAsync;                                                   // 0x0008(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData01[0x3];                                       // 0x0009(0x0003) MISSED OFFSET
+	bool                                               bHighPriority;                                            // 0x0009(0x0001) (ZeroConstructor, Transient, IsPlainOldData)
+	unsigned char                                      UnknownData01[0x2];                                       // 0x000A(0x0002) MISSED OFFSET
 	int                                                Seed;                                                     // 0x000C(0x0004) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	TEnumAsByte<EIPGGender>                            SelectedGender;                                           // 0x0010(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	TEnumAsByte<EIPGEthnicity>                         SelectedEthnicity;                                        // 0x0011(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
@@ -285,11 +204,12 @@ struct FWardrobeOutfitCategoryBias
 };
 
 // ScriptStruct PirateGenerator.WardrobeOutfitResult
-// 0x0020
+// 0x0030
 struct FWardrobeOutfitResult
 {
 	TArray<class USkeletalMesh*>                       Meshes;                                                   // 0x0000(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
 	TArray<struct FIPGScalarParameter>                 ScalarParameters;                                         // 0x0010(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
+	TArray<struct FName>                               MaterialReferences;                                       // 0x0020(0x0010) (BlueprintVisible, BlueprintReadOnly, ZeroConstructor)
 };
 
 // ScriptStruct PirateGenerator.IPGTestSimpleType
@@ -431,11 +351,13 @@ struct FConfig
 };
 
 // ScriptStruct PirateGenerator.ClothingSlot
-// 0x0018
+// 0x0020
 struct FClothingSlot
 {
 	struct FName                                       Name;                                                     // 0x0000(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	TArray<struct FName>                               Tags;                                                     // 0x0008(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	TEnumAsByte<EIPGSlotType>                          Type;                                                     // 0x0018(0x0001) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x7];                                       // 0x0019(0x0007) MISSED OFFSET
 };
 
 // ScriptStruct PirateGenerator.WardrobeConfig
@@ -447,12 +369,13 @@ struct FWardrobeConfig
 };
 
 // ScriptStruct PirateGenerator.Outfit
-// 0x0030
+// 0x0040
 struct FOutfit
 {
 	TArray<struct FName>                               PartNames;                                                // 0x0000(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
 	TArray<struct FName>                               FreeSlots;                                                // 0x0010(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
 	TArray<struct FIPGScalarParameter>                 ScalarParameters;                                         // 0x0020(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	TArray<struct FName>                               MaterialReferences;                                       // 0x0030(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
 };
 
 // ScriptStruct PirateGenerator.ClothingPart
@@ -466,16 +389,18 @@ struct FClothingPart
 };
 
 // ScriptStruct PirateGenerator.ClothingItem
-// 0x0058
+// 0x0078
 struct FClothingItem
 {
 	struct FName                                       Type;                                                     // 0x0000(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	struct FName                                       Name;                                                     // 0x0008(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	TArray<TEnumAsByte<EIPGPirateType>>                CompatiblePirateTypes;                                    // 0x0010(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
 	TArray<struct FName>                               Variants;                                                 // 0x0020(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
-	struct FName                                       Parent;                                                   // 0x0030(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	TArray<struct FClothingPart>                       Parts;                                                    // 0x0038(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
-	TArray<struct FIPGScalarParameter>                 ScalarParameters;                                         // 0x0048(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	TArray<struct FName>                               NewSlots;                                                 // 0x0030(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	struct FName                                       Parent;                                                   // 0x0040(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	TArray<struct FClothingPart>                       Parts;                                                    // 0x0048(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	TArray<struct FIPGScalarParameter>                 ScalarParameters;                                         // 0x0058(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	TArray<struct FName>                               MaterialReferences;                                       // 0x0068(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
 };
 
 }

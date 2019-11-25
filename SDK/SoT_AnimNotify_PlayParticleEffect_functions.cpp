@@ -1,10 +1,10 @@
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
-#include "SoT_AnimNotify_PlayParticleEffect_parameters.hpp"
+#include "SoT_AnimNotify_PlayParticleEffect_classes.hpp"
 
 namespace SDK
 {
@@ -19,9 +19,13 @@ namespace SDK
 
 class FString UAnimNotify_PlayParticleEffect_C::GetNotifyName()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function AnimNotify_PlayParticleEffect.AnimNotify_PlayParticleEffect_C.GetNotifyName");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function AnimNotify_PlayParticleEffect.AnimNotify_PlayParticleEffect_C.GetNotifyName"));
 
-	UAnimNotify_PlayParticleEffect_C_GetNotifyName_Params params;
+	struct
+	{
+		class FString                  ReturnValue;
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -38,9 +42,15 @@ class FString UAnimNotify_PlayParticleEffect_C::GetNotifyName()
 
 bool UAnimNotify_PlayParticleEffect_C::Received_Notify(class USkeletalMeshComponent* MeshComp, class UAnimSequenceBase* Animation)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function AnimNotify_PlayParticleEffect.AnimNotify_PlayParticleEffect_C.Received_Notify");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function AnimNotify_PlayParticleEffect.AnimNotify_PlayParticleEffect_C.Received_Notify"));
 
-	UAnimNotify_PlayParticleEffect_C_Received_Notify_Params params;
+	struct
+	{
+		class USkeletalMeshComponent*  MeshComp;
+		class UAnimSequenceBase*       Animation;
+		bool                           ReturnValue;
+	} params;
+
 	params.MeshComp = MeshComp;
 	params.Animation = Animation;
 

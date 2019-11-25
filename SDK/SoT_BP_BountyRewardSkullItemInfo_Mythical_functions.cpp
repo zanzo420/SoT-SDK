@@ -1,10 +1,10 @@
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
-#include "SoT_BP_BountyRewardSkullItemInfo_Mythical_parameters.hpp"
+#include "SoT_BP_BountyRewardSkullItemInfo_Mythical_classes.hpp"
 
 namespace SDK
 {
@@ -17,9 +17,12 @@ namespace SDK
 
 void ABP_BountyRewardSkullItemInfo_Mythical_C::UserConstructionScript()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_BountyRewardSkullItemInfo_Mythical.BP_BountyRewardSkullItemInfo_Mythical_C.UserConstructionScript");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function BP_BountyRewardSkullItemInfo_Mythical.BP_BountyRewardSkullItemInfo_Mythical_C.UserConstructionScript"));
 
-	ABP_BountyRewardSkullItemInfo_Mythical_C_UserConstructionScript_Params params;
+	struct
+	{
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -30,9 +33,12 @@ void ABP_BountyRewardSkullItemInfo_Mythical_C::UserConstructionScript()
 
 void ABP_BountyRewardSkullItemInfo_Mythical_C::ReceiveBeginPlay()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_BountyRewardSkullItemInfo_Mythical.BP_BountyRewardSkullItemInfo_Mythical_C.ReceiveBeginPlay");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function BP_BountyRewardSkullItemInfo_Mythical.BP_BountyRewardSkullItemInfo_Mythical_C.ReceiveBeginPlay"));
 
-	ABP_BountyRewardSkullItemInfo_Mythical_C_ReceiveBeginPlay_Params params;
+	struct
+	{
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -45,9 +51,13 @@ void ABP_BountyRewardSkullItemInfo_Mythical_C::ReceiveBeginPlay()
 
 void ABP_BountyRewardSkullItemInfo_Mythical_C::ExecuteUbergraph_BP_BountyRewardSkullItemInfo_Mythical(int EntryPoint)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_BountyRewardSkullItemInfo_Mythical.BP_BountyRewardSkullItemInfo_Mythical_C.ExecuteUbergraph_BP_BountyRewardSkullItemInfo_Mythical");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function BP_BountyRewardSkullItemInfo_Mythical.BP_BountyRewardSkullItemInfo_Mythical_C.ExecuteUbergraph_BP_BountyRewardSkullItemInfo_Mythical"));
 
-	ABP_BountyRewardSkullItemInfo_Mythical_C_ExecuteUbergraph_BP_BountyRewardSkullItemInfo_Mythical_Params params;
+	struct
+	{
+		int                            EntryPoint;
+	} params;
+
 	params.EntryPoint = EntryPoint;
 
 	UObject::ProcessEvent(fn, &params);

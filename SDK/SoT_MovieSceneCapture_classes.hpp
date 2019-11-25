@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -22,7 +22,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class MovieSceneCapture.MovieSceneCaptureInterface");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class MovieSceneCapture.MovieSceneCaptureInterface"));
 		return ptr;
 	}
 
@@ -42,7 +42,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class MovieSceneCapture.MovieSceneCapture");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class MovieSceneCapture.MovieSceneCapture"));
 		return ptr;
 	}
 
@@ -65,7 +65,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class MovieSceneCapture.AutomatedLevelSequenceCapture");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class MovieSceneCapture.AutomatedLevelSequenceCapture"));
 		return ptr;
 	}
 
@@ -81,7 +81,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class MovieSceneCapture.LevelCapture");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class MovieSceneCapture.LevelCapture"));
 		return ptr;
 	}
 
@@ -96,13 +96,13 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class MovieSceneCapture.MovieSceneCaptureEnvironment");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class MovieSceneCapture.MovieSceneCaptureEnvironment"));
 		return ptr;
 	}
 
 
-	int STATIC_GetCaptureFrameNumber();
-	float STATIC_GetCaptureElapsedTime();
+	static int GetCaptureFrameNumber();
+	static float GetCaptureElapsedTime();
 };
 
 

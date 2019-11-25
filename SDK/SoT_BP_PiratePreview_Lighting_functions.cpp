@@ -1,10 +1,10 @@
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
-#include "SoT_BP_PiratePreview_Lighting_parameters.hpp"
+#include "SoT_BP_PiratePreview_Lighting_classes.hpp"
 
 namespace SDK
 {
@@ -17,9 +17,12 @@ namespace SDK
 
 void ABP_PiratePreview_Lighting_C::UserConstructionScript()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_PiratePreview_Lighting.BP_PiratePreview_Lighting_C.UserConstructionScript");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function BP_PiratePreview_Lighting.BP_PiratePreview_Lighting_C.UserConstructionScript"));
 
-	ABP_PiratePreview_Lighting_C_UserConstructionScript_Params params;
+	struct
+	{
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -32,9 +35,13 @@ void ABP_PiratePreview_Lighting_C::UserConstructionScript()
 
 void ABP_PiratePreview_Lighting_C::PreviewReady__DelegateSignature(const struct FPiratePreviewReadyEvent& Data)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_PiratePreview_Lighting.BP_PiratePreview_Lighting_C.PreviewReady__DelegateSignature");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function BP_PiratePreview_Lighting.BP_PiratePreview_Lighting_C.PreviewReady__DelegateSignature"));
 
-	ABP_PiratePreview_Lighting_C_PreviewReady__DelegateSignature_Params params;
+	struct
+	{
+		struct FPiratePreviewReadyEvent Data;
+	} params;
+
 	params.Data = Data;
 
 	UObject::ProcessEvent(fn, &params);
@@ -48,9 +55,13 @@ void ABP_PiratePreview_Lighting_C::PreviewReady__DelegateSignature(const struct 
 
 void ABP_PiratePreview_Lighting_C::PreviewBusy__DelegateSignature(const struct FPiratePreviewBusyEvent& Data)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_PiratePreview_Lighting.BP_PiratePreview_Lighting_C.PreviewBusy__DelegateSignature");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function BP_PiratePreview_Lighting.BP_PiratePreview_Lighting_C.PreviewBusy__DelegateSignature"));
 
-	ABP_PiratePreview_Lighting_C_PreviewBusy__DelegateSignature_Params params;
+	struct
+	{
+		struct FPiratePreviewBusyEvent Data;
+	} params;
+
 	params.Data = Data;
 
 	UObject::ProcessEvent(fn, &params);

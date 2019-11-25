@@ -1,81 +1,19 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
 #include "SoT_Basic.hpp"
+#include "SoT_Slate_enums.hpp"
 #include "SoT_SlateCore_classes.hpp"
 #include "SoT_InputCore_classes.hpp"
 #include "SoT_CoreUObject_classes.hpp"
 
 namespace SDK
 {
-//---------------------------------------------------------------------------
-//Enums
-//---------------------------------------------------------------------------
-
-// Enum Slate.ETextJustify
-enum class ETextJustify : uint8_t
-{
-	ETextJustify__Left             = 0,
-	None                           = 1,
-	EThreePlayerSplitScreenType__FavorTop = 2
-};
-
-
-// Enum Slate.ETableViewMode
-enum class ETableViewMode : uint8_t
-{
-	ETableViewMode__List           = 0,
-	None                           = 1,
-	EButtonPressMethod__DownAndUp  = 2
-};
-
-
-// Enum Slate.ESelectionMode
-enum class ESelectionMode : uint8_t
-{
-	ESelectionMode__None           = 0,
-	None                           = 1,
-	ESelectionMode__ESelectionMode_MAX = 2,
-	ESlateBrushTileType__NoTile    = 3
-};
-
-
-// Enum Slate.EStretch
-enum class EStretch : uint8_t
-{
-	EStretch__None                 = 0,
-	None                           = 1,
-	EStretch__ScaleToFitY          = 2,
-	None01                         = 3
-};
-
-
-// Enum Slate.EStretchDirection
-enum class EStretchDirection : uint8_t
-{
-	EStretchDirection__Both        = 0,
-	None                           = 1,
-	ETextJustify__Left             = 2
-};
-
-
-// Enum Slate.EProgressBarFillType
-enum class EProgressBarFillType : uint8_t
-{
-	EProgressBarFillType__LeftToRight = 0,
-	None                           = 1,
-	IntProperty                    = 2,
-	EProgressBarFillType__BottomToTop = 3,
-	None01                         = 4
-};
-
-
-
 //---------------------------------------------------------------------------
 //Script Structs
 //---------------------------------------------------------------------------

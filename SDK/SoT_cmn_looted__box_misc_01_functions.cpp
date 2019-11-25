@@ -1,10 +1,10 @@
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
-#include "SoT_cmn_looted__box_misc_01_parameters.hpp"
+#include "SoT_cmn_looted__box_misc_01_classes.hpp"
 
 namespace SDK
 {
@@ -17,9 +17,12 @@ namespace SDK
 
 void Acmn_looted__box_misc_01_C::UserConstructionScript()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function cmn_looted__box_misc_01.cmn_looted__box_misc_01_C.UserConstructionScript");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function cmn_looted__box_misc_01.cmn_looted__box_misc_01_C.UserConstructionScript"));
 
-	Acmn_looted__box_misc_01_C_UserConstructionScript_Params params;
+	struct
+	{
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 }

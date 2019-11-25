@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,14 +15,14 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass BP_TreasureMap_ItemDesc_Merchant.BP_TreasureMap_ItemDesc_Merchant_C
-// 0x0000 (0x0120 - 0x0120)
+// 0x0000 (0x0130 - 0x0130)
 class UBP_TreasureMap_ItemDesc_Merchant_C : public UTreasureMapItemDesc
 {
 public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("BlueprintGeneratedClass BP_TreasureMap_ItemDesc_Merchant.BP_TreasureMap_ItemDesc_Merchant_C");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("BlueprintGeneratedClass BP_TreasureMap_ItemDesc_Merchant.BP_TreasureMap_ItemDesc_Merchant_C"));
 		return ptr;
 	}
 

@@ -1,87 +1,18 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
 #include "SoT_Basic.hpp"
-#include "SoT_Engine_classes.hpp"
+#include "SoT_AnimGraphRuntime_enums.hpp"
 #include "SoT_CoreUObject_classes.hpp"
+#include "SoT_Engine_classes.hpp"
 
 namespace SDK
 {
-//---------------------------------------------------------------------------
-//Enums
-//---------------------------------------------------------------------------
-
-// Enum AnimGraphRuntime.EDrivenBoneModificationMode
-enum class EDrivenBoneModificationMode : uint8_t
-{
-	EDrivenBoneModificationMode__AddToInput = 0,
-	None                           = 1,
-	EPawnActionMoveMode__UsePathfinding = 2
-};
-
-
-// Enum AnimGraphRuntime.EComponentType
-enum class EComponentType : uint8_t
-{
-	EComponentType__None           = 0,
-	None                           = 1,
-	EComponentType__RotationX      = 2,
-	None01                         = 3,
-	EComponentType__ScaleX         = 4,
-	None02                         = 5,
-	None03                         = 6,
-	EMPMatchOutcome__None          = 7,
-	None04                         = 8
-};
-
-
-// Enum AnimGraphRuntime.EInterpolationBlend
-enum class EInterpolationBlend : uint8_t
-{
-	EInterpolationBlend__Linear    = 0,
-	None                           = 1,
-	EInterpolationBlend__EaseInOutExponent3 = 2,
-	None01                         = 3,
-	EInterpolationBlend__EInterpolationBlend_MAX = 4
-};
-
-
-// Enum AnimGraphRuntime.EAxisOption
-enum class EAxisOption : uint8_t
-{
-	EAxisOption__X                 = 0,
-	None                           = 1,
-	IntProperty                    = 2,
-	EAxisOption__Y_Neg             = 3,
-	None01                         = 4,
-	NameProperty                   = 5
-};
-
-
-// Enum AnimGraphRuntime.EBoneModificationMode
-enum class EBoneModificationMode : uint8_t
-{
-	BMM_Ignore                     = 0,
-	None                           = 1,
-	BA_X                           = 2
-};
-
-
-// Enum AnimGraphRuntime.EBoneAxis
-enum class EBoneAxis : uint8_t
-{
-	BA_X                           = 0,
-	None                           = 1,
-	ETestEnum__Value0              = 2
-};
-
-
-
 //---------------------------------------------------------------------------
 //Script Structs
 //---------------------------------------------------------------------------
@@ -291,14 +222,6 @@ struct FAnimNode_TwoBoneIK : public FAnimNode_SkeletalControlBase
 	unsigned char                                      UnknownData01[0x2];                                       // 0x0092(0x0002) MISSED OFFSET
 	struct FName                                       JointTargetSpaceBoneName;                                 // 0x0094(0x0008) (Edit, BlueprintVisible, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData02[0x4];                                       // 0x009C(0x0004) MISSED OFFSET
-};
-
-// ScriptStruct AnimGraphRuntime.AnimNode_WheelHandler
-// 0x0018 (0x0070 - 0x0058)
-struct FAnimNode_WheelHandler : public FAnimNode_SkeletalControlBase
-{
-	class UWheeledVehicleMovementComponent*            VehicleSimComponent;                                      // 0x0058(0x0008) (ExportObject, ZeroConstructor, Transient, InstancedReference, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0060(0x0010) MISSED OFFSET
 };
 
 }

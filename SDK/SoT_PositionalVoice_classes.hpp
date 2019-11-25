@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -22,7 +22,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class PositionalVoice.VoiceChatRendererInterface");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class PositionalVoice.VoiceChatRendererInterface"));
 		return ptr;
 	}
 
@@ -30,15 +30,15 @@ public:
 
 
 // Class PositionalVoice.MockVoiceChatRenderer
-// 0x0030 (0x0058 - 0x0028)
+// 0x0018 (0x0040 - 0x0028)
 class UMockVoiceChatRenderer : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x30];                                      // 0x0028(0x0030) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x18];                                      // 0x0028(0x0018) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class PositionalVoice.MockVoiceChatRenderer");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class PositionalVoice.MockVoiceChatRenderer"));
 		return ptr;
 	}
 
@@ -53,7 +53,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class PositionalVoice.VoiceChatRendererRetreivalInterface");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class PositionalVoice.VoiceChatRendererRetreivalInterface"));
 		return ptr;
 	}
 
@@ -69,7 +69,30 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class PositionalVoice.MockVoiceChatRendererRetriever");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class PositionalVoice.MockVoiceChatRendererRetriever"));
+		return ptr;
+	}
+
+};
+
+
+// Class PositionalVoice.VoiceChatRenderer
+// 0x00F8 (0x0120 - 0x0028)
+class UVoiceChatRenderer : public UObject
+{
+public:
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0028(0x0010) MISSED OFFSET
+	class UWwiseEvent*                                 AttenuatedVoiceEvent;                                     // 0x0038(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UWwiseEvent*                                 AttenuatedAndSpatialisedVoiceEvent;                       // 0x0040(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	class UWwiseEvent*                                 UnattenuatedVoiceEvent;                                   // 0x0048(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
+	int                                                PreBufferInMilliseconds;                                  // 0x0050(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	int                                                ChatRoutingListenerIndex;                                 // 0x0054(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	float                                              EmitterHoldInSeconds;                                     // 0x0058(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
+	unsigned char                                      UnknownData01[0xC4];                                      // 0x005C(0x00C4) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class PositionalVoice.VoiceChatRenderer"));
 		return ptr;
 	}
 
@@ -84,14 +107,14 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class PositionalVoice.PositionalVoiceTestFunctionLibrary");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class PositionalVoice.PositionalVoiceTestFunctionLibrary"));
 		return ptr;
 	}
 
 
-	int STATIC_GetNumberOfUnmutedRemotePlayers(class APlayerController* CurrentPlayer);
-	int STATIC_GetNumberOfRegisteredChatEmitters(class UObject* WorldContextObject, class UClass* VoiceChatRendererClass);
-	int STATIC_GetMaxNumberOfAudibleChatEmitters();
+	static int GetNumberOfUnmutedRemotePlayers(class APlayerController* CurrentPlayer);
+	static int GetNumberOfRegisteredChatEmitters(class UObject* WorldContextObject, class UClass* VoiceChatRendererClass);
+	static int GetMaxNumberOfAudibleChatEmitters();
 };
 
 
@@ -103,7 +126,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class PositionalVoice.VoiceChatEmitterInterface");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class PositionalVoice.VoiceChatEmitterInterface"));
 		return ptr;
 	}
 
@@ -115,15 +138,15 @@ public:
 
 
 // Class PositionalVoice.TestVoiceChatEmitter
-// 0x0038 (0x04C8 - 0x0490)
+// 0x0038 (0x04E8 - 0x04B0)
 class ATestVoiceChatEmitter : public AActor
 {
 public:
-	unsigned char                                      UnknownData00[0x38];                                      // 0x0490(0x0038) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x38];                                      // 0x04B0(0x0038) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class PositionalVoice.TestVoiceChatEmitter");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class PositionalVoice.TestVoiceChatEmitter"));
 		return ptr;
 	}
 
@@ -131,29 +154,6 @@ public:
 	struct FVector GetVoiceLocation();
 	void GetVoiceAudioEmitterProxy(struct FWwiseEmitter* EmitterProxy);
 	float GetVoiceAttenuationScaler(const TScriptInterface<class UVoiceChatEmitterInterface>& RelativeToThisEmitter);
-};
-
-
-// Class PositionalVoice.VoiceChatRenderer
-// 0x0110 (0x0138 - 0x0028)
-class UVoiceChatRenderer : public UObject
-{
-public:
-	unsigned char                                      UnknownData00[0x10];                                      // 0x0028(0x0010) MISSED OFFSET
-	class UWwiseEvent*                                 AttenuatedVoiceEvent;                                     // 0x0038(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UWwiseEvent*                                 AttenuatedAndSpatialisedVoiceEvent;                       // 0x0040(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	class UWwiseEvent*                                 UnattenuatedVoiceEvent;                                   // 0x0048(0x0008) (Edit, ZeroConstructor, IsPlainOldData)
-	int                                                PreBufferInMilliseconds;                                  // 0x0050(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	int                                                ChatRoutingListenerIndex;                                 // 0x0054(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	float                                              EmitterHoldInSeconds;                                     // 0x0058(0x0004) (Edit, ZeroConstructor, Config, IsPlainOldData)
-	unsigned char                                      UnknownData01[0xDC];                                      // 0x005C(0x00DC) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindObject<UClass>("Class PositionalVoice.VoiceChatRenderer");
-		return ptr;
-	}
-
 };
 
 

@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -22,13 +22,13 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class JsonUtilities.JsonUtilitiesBlueprintHelperLibrary");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class JsonUtilities.JsonUtilitiesBlueprintHelperLibrary"));
 		return ptr;
 	}
 
 
-	bool STATIC_UStructToJsonObjectString(const struct FGenericStruct& Struct, class FString* OutJsonString);
-	bool STATIC_JsonObjectStringToUStruct(const class FString& InJsonString, const struct FGenericStruct& Struct);
+	static bool UStructToJsonObjectString(const struct FGenericStruct& Struct, class FString* OutJsonString);
+	static bool JsonObjectStringToUStruct(const class FString& InJsonString, const struct FGenericStruct& Struct);
 };
 
 

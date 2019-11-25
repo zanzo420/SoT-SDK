@@ -1,10 +1,10 @@
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
-#include "SoT_BP_HullInterface_parameters.hpp"
+#include "SoT_BP_HullInterface_classes.hpp"
 
 namespace SDK
 {
@@ -23,9 +23,17 @@ namespace SDK
 
 void UBP_HullInterface_C::Apply_Hit(const struct FVector& HitPosition, const struct FVector& HitNormal, float HitStrength, bool Has_Decal, class UDecalComponent** Decal)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_HullInterface.BP_HullInterface_C.Apply Hit");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function BP_HullInterface.BP_HullInterface_C.Apply Hit"));
 
-	UBP_HullInterface_C_Apply_Hit_Params params;
+	struct
+	{
+		struct FVector                 HitPosition;
+		struct FVector                 HitNormal;
+		float                          HitStrength;
+		bool                           Has_Decal;
+		class UDecalComponent*         Decal;
+	} params;
+
 	params.HitPosition = HitPosition;
 	params.HitNormal = HitNormal;
 	params.HitStrength = HitStrength;

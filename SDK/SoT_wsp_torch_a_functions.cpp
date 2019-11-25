@@ -1,10 +1,10 @@
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
-#include "SoT_wsp_torch_a_parameters.hpp"
+#include "SoT_wsp_torch_a_classes.hpp"
 
 namespace SDK
 {
@@ -17,9 +17,12 @@ namespace SDK
 
 void Awsp_torch_a_C::UserConstructionScript()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function wsp_torch_a.wsp_torch_a_C.UserConstructionScript");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function wsp_torch_a.wsp_torch_a_C.UserConstructionScript"));
 
-	Awsp_torch_a_C_UserConstructionScript_Params params;
+	struct
+	{
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -30,9 +33,12 @@ void Awsp_torch_a_C::UserConstructionScript()
 
 void Awsp_torch_a_C::ReceiveBeginPlay()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function wsp_torch_a.wsp_torch_a_C.ReceiveBeginPlay");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function wsp_torch_a.wsp_torch_a_C.ReceiveBeginPlay"));
 
-	Awsp_torch_a_C_ReceiveBeginPlay_Params params;
+	struct
+	{
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -45,9 +51,13 @@ void Awsp_torch_a_C::ReceiveBeginPlay()
 
 void Awsp_torch_a_C::ExecuteUbergraph_wsp_torch_a(int EntryPoint)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function wsp_torch_a.wsp_torch_a_C.ExecuteUbergraph_wsp_torch_a");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function wsp_torch_a.wsp_torch_a_C.ExecuteUbergraph_wsp_torch_a"));
 
-	Awsp_torch_a_C_ExecuteUbergraph_wsp_torch_a_Params params;
+	struct
+	{
+		int                            EntryPoint;
+	} params;
+
 	params.EntryPoint = EntryPoint;
 
 	UObject::ProcessEvent(fn, &params);

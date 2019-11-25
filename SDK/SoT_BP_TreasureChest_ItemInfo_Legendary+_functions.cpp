@@ -1,10 +1,10 @@
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
-#include "SoT_BP_TreasureChest_ItemInfo_Legendary+_parameters.hpp"
+#include "SoT_BP_TreasureChest_ItemInfo_Legendary+_classes.hpp"
 
 namespace SDK
 {
@@ -17,9 +17,12 @@ namespace SDK
 
 void ABP_TreasureChest_ItemInfo_Legendary__C::UserConstructionScript()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_TreasureChest_ItemInfo_Legendary+.BP_TreasureChest_ItemInfo_Legendary+_C.UserConstructionScript");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function BP_TreasureChest_ItemInfo_Legendary+.BP_TreasureChest_ItemInfo_Legendary+_C.UserConstructionScript"));
 
-	ABP_TreasureChest_ItemInfo_Legendary__C_UserConstructionScript_Params params;
+	struct
+	{
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,14 +15,14 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass BP_HurdyGurdy.BP_HurdyGurdy_C
-// 0x0000 (0x08C8 - 0x08C8)
+// 0x0000 (0x0920 - 0x0920)
 class ABP_HurdyGurdy_C : public AMusicalInstrumentSkeletalMesh
 {
 public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("BlueprintGeneratedClass BP_HurdyGurdy.BP_HurdyGurdy_C");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("BlueprintGeneratedClass BP_HurdyGurdy.BP_HurdyGurdy_C"));
 		return ptr;
 	}
 

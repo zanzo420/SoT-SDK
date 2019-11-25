@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,6 +13,24 @@ namespace SDK
 //---------------------------------------------------------------------------
 //Classes
 //---------------------------------------------------------------------------
+
+// Class AthenaLoadingScreen.AthenaLoadingScreenBlueprintFunctionLibrary
+// 0x0000 (0x0028 - 0x0028)
+class UAthenaLoadingScreenBlueprintFunctionLibrary : public UBlueprintFunctionLibrary
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class AthenaLoadingScreen.AthenaLoadingScreenBlueprintFunctionLibrary"));
+		return ptr;
+	}
+
+
+	static bool IsLoadingScreenVisible();
+	static bool IsLoadingScreenRegistered();
+};
+
 
 // Class AthenaLoadingScreen.SlateLoadingScreenParams
 // 0x01E8 (0x0210 - 0x0028)
@@ -34,8 +52,7 @@ public:
 	TArray<struct FSlateLoadingScreenImageParams>      CyclingImages;                                            // 0x0080(0x0010) (Edit, ZeroConstructor)
 	int                                                MaxNumImagesPerLoad;                                      // 0x0090(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 	unsigned char                                      UnknownData01[0x4];                                       // 0x0094(0x0004) MISSED OFFSET
-	struct FText                                       SpinnerText;                                              // 0x0098(0x0018) (Edit)
-	unsigned char                                      UnknownData02[0x20];                                      // 0x0094(0x0020) FIX WRONG TYPE SIZE OF PREVIOUS PROPERTY
+	struct FText                                       SpinnerText;                                              // 0x0098(0x0038) (Edit)
 	struct FSlateColor                                 SpinnerTextColour;                                        // 0x00D0(0x0030) (Edit)
 	struct FSlateFontInfo                              SpinnerTextFont;                                          // 0x0100(0x0040) (Edit)
 	float                                              SpinnerSize;                                              // 0x0140(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
@@ -49,29 +66,13 @@ public:
 	int                                                NumTipsPerImage;                                          // 0x0184(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
 	struct FSlateFontInfo                              LoadingTipFont;                                           // 0x0188(0x0040) (Edit)
 	float                                              LoadingTipFontLineHeightPercentage;                       // 0x01C8(0x0004) (Edit, ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData03[0x4];                                       // 0x01CC(0x0004) MISSED OFFSET
+	unsigned char                                      UnknownData02[0x4];                                       // 0x01CC(0x0004) MISSED OFFSET
 	TArray<struct FText>                               LoadingScreenTips;                                        // 0x01D0(0x0010) (Edit, ZeroConstructor)
 	struct FSlateColor                                 LoadingScreenTipColour;                                   // 0x01E0(0x0030) (Edit)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class AthenaLoadingScreen.SlateLoadingScreenParams");
-		return ptr;
-	}
-
-};
-
-
-// Class AthenaLoadingScreen.AthenaGameLoadingScreensDataAsset
-// 0x0010 (0x0038 - 0x0028)
-class UAthenaGameLoadingScreensDataAsset : public UDataAsset
-{
-public:
-	struct FFeatureToggledStringAssetReference         GameLoadingScreens;                                       // 0x0028(0x0010) (Edit)
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindObject<UClass>("Class AthenaLoadingScreen.AthenaGameLoadingScreensDataAsset");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class AthenaLoadingScreen.SlateLoadingScreenParams"));
 		return ptr;
 	}
 
@@ -79,38 +80,21 @@ public:
 
 
 // Class AthenaLoadingScreen.AthenaLoadingScreenParams
-// 0x0030 (0x0068 - 0x0038)
+// 0x0040 (0x0078 - 0x0038)
 class UAthenaLoadingScreenParams : public UDeveloperSettings
 {
 public:
 	struct FStringAssetReference                       BootLoadingScreen;                                        // 0x0038(0x0010) (Edit, ZeroConstructor, Config)
 	struct FStringAssetReference                       TeleportLoadingScreen;                                    // 0x0048(0x0010) (Edit, ZeroConstructor, Config)
-	struct FStringAssetReference                       GameLoadingScreens;                                       // 0x0058(0x0010) (Edit, ZeroConstructor, Config)
+	struct FStringAssetReference                       AdventureLoadingScreens;                                  // 0x0058(0x0010) (Edit, ZeroConstructor, Config)
+	struct FStringAssetReference                       ArenaLoadingScreens;                                      // 0x0068(0x0010) (Edit, ZeroConstructor, Config)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class AthenaLoadingScreen.AthenaLoadingScreenParams");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class AthenaLoadingScreen.AthenaLoadingScreenParams"));
 		return ptr;
 	}
 
-};
-
-
-// Class AthenaLoadingScreen.AthenaLoadingScreenBlueprintFunctionLibrary
-// 0x0000 (0x0028 - 0x0028)
-class UAthenaLoadingScreenBlueprintFunctionLibrary : public UBlueprintFunctionLibrary
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindObject<UClass>("Class AthenaLoadingScreen.AthenaLoadingScreenBlueprintFunctionLibrary");
-		return ptr;
-	}
-
-
-	bool STATIC_IsLoadingScreenVisible();
-	bool STATIC_IsLoadingScreenRegistered();
 };
 
 
@@ -122,12 +106,12 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class AthenaLoadingScreen.LoadingUtilities");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class AthenaLoadingScreen.LoadingUtilities"));
 		return ptr;
 	}
 
 
-	bool STATIC_IsStreaming(class UObject* WorldContextObject);
+	static bool IsStreaming(class UObject* WorldContextObject);
 };
 
 

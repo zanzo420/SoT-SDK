@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -22,7 +22,22 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class AthenaEngine.AthenaEngineInterface");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class AthenaEngine.AthenaEngineInterface"));
+		return ptr;
+	}
+
+};
+
+
+// Class AthenaEngine.BoxedRpcDispatcherInterface
+// 0x0000 (0x0028 - 0x0028)
+class UBoxedRpcDispatcherInterface : public UInterface
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class AthenaEngine.BoxedRpcDispatcherInterface"));
 		return ptr;
 	}
 
@@ -37,7 +52,69 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class AthenaEngine.EmptyObject");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class AthenaEngine.EmptyObject"));
+		return ptr;
+	}
+
+};
+
+
+// Class AthenaEngine.NestedWorldRootDataAsset
+// 0x0020 (0x0048 - 0x0028)
+class UNestedWorldRootDataAsset : public UDataAsset
+{
+public:
+	TArray<TAssetPtr<class UWorld>>                    WorldRoots;                                               // 0x0028(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
+	unsigned char                                      UnknownData00[0x10];                                      // 0x0038(0x0010) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class AthenaEngine.NestedWorldRootDataAsset"));
+		return ptr;
+	}
+
+};
+
+
+// Class AthenaEngine.OnlinePlayerPermissionsRetrieverInterface
+// 0x0000 (0x0028 - 0x0028)
+class UOnlinePlayerPermissionsRetrieverInterface : public UInterface
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class AthenaEngine.OnlinePlayerPermissionsRetrieverInterface"));
+		return ptr;
+	}
+
+};
+
+
+// Class AthenaEngine.PlayModeInterface
+// 0x0000 (0x0028 - 0x0028)
+class UPlayModeInterface : public UInterface
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class AthenaEngine.PlayModeInterface"));
+		return ptr;
+	}
+
+};
+
+
+// Class AthenaEngine.ResourceProviderInterface
+// 0x0000 (0x0028 - 0x0028)
+class UResourceProviderInterface : public UInterface
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class AthenaEngine.ResourceProviderInterface"));
 		return ptr;
 	}
 
@@ -54,7 +131,22 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class AthenaEngine.StringToAssetClassMap");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class AthenaEngine.StringToAssetClassMap"));
+		return ptr;
+	}
+
+};
+
+
+// Class AthenaEngine.SyncedRandomRetrievalInterface
+// 0x0000 (0x0028 - 0x0028)
+class USyncedRandomRetrievalInterface : public UInterface
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class AthenaEngine.SyncedRandomRetrievalInterface"));
 		return ptr;
 	}
 

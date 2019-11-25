@@ -1,59 +1,19 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
 #include "SoT_Basic.hpp"
-#include "SoT_OnlineSubsystem_classes.hpp"
-#include "SoT_Engine_classes.hpp"
+#include "SoT_OnlineSubsystemUtils_enums.hpp"
 #include "SoT_CoreUObject_classes.hpp"
+#include "SoT_Engine_classes.hpp"
+#include "SoT_OnlineSubsystem_classes.hpp"
 
 namespace SDK
 {
-//---------------------------------------------------------------------------
-//Enums
-//---------------------------------------------------------------------------
-
-// Enum OnlineSubsystemUtils.EBeaconConnectionState
-enum class EBeaconConnectionState : uint8_t
-{
-	EBeaconConnectionState__Invalid = 0,
-	None                           = 1,
-	IntProperty                    = 2,
-	EBeaconConnectionState__EBeaconConnectionState_MAX = 3
-};
-
-
-// Enum OnlineSubsystemUtils.EPartyReservationResult
-enum class EPartyReservationResult : uint8_t
-{
-	EPartyReservationResult__NoResult = 0,
-	None                           = 1,
-	EPartyReservationResult__IncorrectPlayerCount = 2,
-	None01                         = 3,
-	EPartyReservationResult__ReservationAccepted = 4,
-	None02                         = 5,
-	EPartyReservationResult__ReservationInvalid = 6,
-	None03                         = 7
-};
-
-
-// Enum OnlineSubsystemUtils.EClientRequestType
-enum class EClientRequestType : uint8_t
-{
-	EClientRequestType__NonePending = 0,
-	None                           = 1,
-	IntProperty                    = 2,
-	EClientRequestType__ChangeWorldRequest = 3,
-	None01                         = 4,
-	NameProperty                   = 5
-};
-
-
-
 //---------------------------------------------------------------------------
 //Script Structs
 //---------------------------------------------------------------------------
@@ -79,10 +39,10 @@ struct FPartyReservation
 };
 
 // ScriptStruct OnlineSubsystemUtils.BlueprintSessionResult
-// 0x00D8
+// 0x00E0
 struct FBlueprintSessionResult
 {
-	unsigned char                                      UnknownData00[0xD8];                                      // 0x0000(0x00D8) MISSED OFFSET
+	unsigned char                                      UnknownData00[0xE0];                                      // 0x0000(0x00E0) MISSED OFFSET
 };
 
 }

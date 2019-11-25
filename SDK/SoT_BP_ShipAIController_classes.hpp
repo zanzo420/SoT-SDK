@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,14 +15,14 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass BP_ShipAIController.BP_ShipAIController_C
-// 0x0000 (0x0660 - 0x0660)
+// 0x0000 (0x07C8 - 0x07C8)
 class ABP_ShipAIController_C : public AAthenaAIShipController
 {
 public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("BlueprintGeneratedClass BP_ShipAIController.BP_ShipAIController_C");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("BlueprintGeneratedClass BP_ShipAIController.BP_ShipAIController_C"));
 		return ptr;
 	}
 

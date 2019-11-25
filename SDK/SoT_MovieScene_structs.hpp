@@ -1,32 +1,17 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
 #include "SoT_Basic.hpp"
+#include "SoT_MovieScene_enums.hpp"
 #include "SoT_CoreUObject_classes.hpp"
 
 namespace SDK
 {
-//---------------------------------------------------------------------------
-//Enums
-//---------------------------------------------------------------------------
-
-// Enum MovieScene.EMovieSceneKeyInterpolation
-enum class EMovieSceneKeyInterpolation : uint8_t
-{
-	MSKI_Auto                      = 0,
-	None                           = 1,
-	MSKI_Constant                  = 2,
-	None01                         = 3,
-	ESlateVisibility__Visible      = 4
-};
-
-
-
 //---------------------------------------------------------------------------
 //Script Structs
 //---------------------------------------------------------------------------

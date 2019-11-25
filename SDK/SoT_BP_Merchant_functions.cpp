@@ -1,10 +1,10 @@
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
-#include "SoT_BP_Merchant_parameters.hpp"
+#include "SoT_BP_Merchant_classes.hpp"
 
 namespace SDK
 {
@@ -17,9 +17,12 @@ namespace SDK
 
 void ABP_Merchant_C::UserConstructionScript()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_Merchant.BP_Merchant_C.UserConstructionScript");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function BP_Merchant.BP_Merchant_C.UserConstructionScript"));
 
-	ABP_Merchant_C_UserConstructionScript_Params params;
+	struct
+	{
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -30,9 +33,12 @@ void ABP_Merchant_C::UserConstructionScript()
 
 void ABP_Merchant_C::PlayItemAnimation()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_Merchant.BP_Merchant_C.PlayItemAnimation");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function BP_Merchant.BP_Merchant_C.PlayItemAnimation"));
 
-	ABP_Merchant_C_PlayItemAnimation_Params params;
+	struct
+	{
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -45,9 +51,13 @@ void ABP_Merchant_C::PlayItemAnimation()
 
 void ABP_Merchant_C::ExecuteUbergraph_BP_Merchant(int EntryPoint)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_Merchant.BP_Merchant_C.ExecuteUbergraph_BP_Merchant");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function BP_Merchant.BP_Merchant_C.ExecuteUbergraph_BP_Merchant"));
 
-	ABP_Merchant_C_ExecuteUbergraph_BP_Merchant_Params params;
+	struct
+	{
+		int                            EntryPoint;
+	} params;
+
 	params.EntryPoint = EntryPoint;
 
 	UObject::ProcessEvent(fn, &params);

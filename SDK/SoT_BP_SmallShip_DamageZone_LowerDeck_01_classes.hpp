@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,14 +15,14 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass BP_SmallShip_DamageZone_LowerDeck_01.BP_SmallShip_DamageZone_LowerDeck_01_C
-// 0x0000 (0x08D0 - 0x08D0)
+// 0x0000 (0x0890 - 0x0890)
 class ABP_SmallShip_DamageZone_LowerDeck_01_C : public ABP_BaseInternalDamageZone_C
 {
 public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("BlueprintGeneratedClass BP_SmallShip_DamageZone_LowerDeck_01.BP_SmallShip_DamageZone_LowerDeck_01_C");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("BlueprintGeneratedClass BP_SmallShip_DamageZone_LowerDeck_01.BP_SmallShip_DamageZone_LowerDeck_01_C"));
 		return ptr;
 	}
 

@@ -1,10 +1,10 @@
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
-#include "SoT_dvr_sea_rock_cluster_d_parameters.hpp"
+#include "SoT_dvr_sea_rock_cluster_d_classes.hpp"
 
 namespace SDK
 {
@@ -17,9 +17,12 @@ namespace SDK
 
 void Advr_sea_rock_cluster_d_C::UserConstructionScript()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function dvr_sea_rock_cluster_d.dvr_sea_rock_cluster_d_C.UserConstructionScript");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function dvr_sea_rock_cluster_d.dvr_sea_rock_cluster_d_C.UserConstructionScript"));
 
-	Advr_sea_rock_cluster_d_C_UserConstructionScript_Params params;
+	struct
+	{
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -13,6 +13,83 @@ namespace SDK
 //---------------------------------------------------------------------------
 //Classes
 //---------------------------------------------------------------------------
+
+// Class WwiseAudio.WwiseSubSystemInterface
+// 0x0000 (0x0028 - 0x0028)
+class UWwiseSubSystemInterface : public UInterface
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class WwiseAudio.WwiseSubSystemInterface"));
+		return ptr;
+	}
+
+};
+
+
+// Class WwiseAudio.WwiseEmitterManager
+// 0x0020 (0x0048 - 0x0028)
+class UWwiseEmitterManager : public UObject
+{
+public:
+	unsigned char                                      UnknownData00[0x20];                                      // 0x0028(0x0020) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class WwiseAudio.WwiseEmitterManager"));
+		return ptr;
+	}
+
+};
+
+
+// Class WwiseAudio.WwiseEvent
+// 0x0028 (0x0050 - 0x0028)
+class UWwiseEvent : public UObject
+{
+public:
+	class UWwiseBank*                                  RequiredBank;                                             // 0x0028(0x0008) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
+	bool                                               WaitForBankToLoad;                                        // 0x0030(0x0001) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData00[0x3];                                       // 0x0031(0x0003) MISSED OFFSET
+	uint32_t                                           WwiseId;                                                  // 0x0034(0x0004) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
+	float                                              DurationMin;                                              // 0x0038(0x0004) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
+	float                                              DurationMax;                                              // 0x003C(0x0004) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
+	float                                              MaxAttenuation;                                           // 0x0040(0x0004) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
+	TEnumAsByte<EWwiseEventDurationType>               DurationType;                                             // 0x0044(0x0001) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
+	bool                                               CookedIsStopEvent;                                        // 0x0045(0x0001) (ZeroConstructor, IsPlainOldData)
+	unsigned char                                      UnknownData01[0xA];                                       // 0x0046(0x000A) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class WwiseAudio.WwiseEvent"));
+		return ptr;
+	}
+
+
+	bool IsAudible(const struct FVector& SoundPosition, const struct FVector& ListenerPos);
+	float GetMaxAttenuation();
+	TEnumAsByte<EWwiseEventDurationType> GetDurationType();
+	float GetDurationMin();
+	float GetDurationMax();
+};
+
+
+// Class WwiseAudio.WwiseEmitterInterface
+// 0x0000 (0x0028 - 0x0028)
+class UWwiseEmitterInterface : public UInterface
+{
+public:
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class WwiseAudio.WwiseEmitterInterface"));
+		return ptr;
+	}
+
+};
+
 
 // Class WwiseAudio.WwiseAudioSettings
 // 0x02A0 (0x02C8 - 0x0028)
@@ -48,7 +125,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class WwiseAudio.WwiseAudioSettings");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class WwiseAudio.WwiseAudioSettings"));
 		return ptr;
 	}
 
@@ -66,22 +143,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class WwiseAudio.WwiseBank");
-		return ptr;
-	}
-
-};
-
-
-// Class WwiseAudio.WwiseSubSystemInterface
-// 0x0000 (0x0028 - 0x0028)
-class UWwiseSubSystemInterface : public UInterface
-{
-public:
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindObject<UClass>("Class WwiseAudio.WwiseSubSystemInterface");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class WwiseAudio.WwiseBank"));
 		return ptr;
 	}
 
@@ -97,69 +159,38 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class WwiseAudio.WwiseDebugManager");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class WwiseAudio.WwiseDebugManager"));
 		return ptr;
 	}
 
 };
 
 
-// Class WwiseAudio.WwiseEmitterManager
-// 0x0020 (0x0048 - 0x0028)
-class UWwiseEmitterManager : public UObject
+// Class WwiseAudio.WwiseInputManagerInterface
+// 0x0000 (0x0028 - 0x0028)
+class UWwiseInputManagerInterface : public UInterface
 {
 public:
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0028(0x0020) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class WwiseAudio.WwiseEmitterManager");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class WwiseAudio.WwiseInputManagerInterface"));
 		return ptr;
 	}
 
-};
-
-
-// Class WwiseAudio.WwiseEvent
-// 0x0028 (0x0050 - 0x0028)
-class UWwiseEvent : public UObject
-{
-public:
-	class UWwiseBank*                                  RequiredBank;                                             // 0x0028(0x0008) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
-	bool                                               WaitForBankToLoad;                                        // 0x0030(0x0001) (ZeroConstructor, IsPlainOldData)
-	unsigned char                                      UnknownData00[0x3];                                       // 0x0031(0x0003) MISSED OFFSET
-	uint32_t                                           WwiseId;                                                  // 0x0034(0x0004) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
-	float                                              DurationMin;                                              // 0x0038(0x0004) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
-	float                                              DurationMax;                                              // 0x003C(0x0004) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
-	float                                              MaxAttenuation;                                           // 0x0040(0x0004) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
-	TEnumAsByte<EWwiseEventDurationType>               DurationType;                                             // 0x0044(0x0001) (Edit, ZeroConstructor, EditConst, IsPlainOldData)
-	unsigned char                                      UnknownData01[0xB];                                       // 0x0045(0x000B) MISSED OFFSET
-
-	static UClass* StaticClass()
-	{
-		static auto ptr = UObject::FindObject<UClass>("Class WwiseAudio.WwiseEvent");
-		return ptr;
-	}
-
-
-	bool IsAudible(const struct FVector& SoundPosition, const struct FVector& ListenerPos);
-	float GetMaxAttenuation();
-	TEnumAsByte<EWwiseEventDurationType> GetDurationType();
-	float GetDurationMin();
-	float GetDurationMax();
 };
 
 
 // Class WwiseAudio.WwiseInputManager
-// 0x0020 (0x0048 - 0x0028)
+// 0x0028 (0x0050 - 0x0028)
 class UWwiseInputManager : public UObject
 {
 public:
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0028(0x0020) MISSED OFFSET
+	unsigned char                                      UnknownData00[0x28];                                      // 0x0028(0x0028) MISSED OFFSET
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class WwiseAudio.WwiseInputManager");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class WwiseAudio.WwiseInputManager"));
 		return ptr;
 	}
 
@@ -175,7 +206,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class WwiseAudio.WwiseMediaManager");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class WwiseAudio.WwiseMediaManager"));
 		return ptr;
 	}
 
@@ -191,7 +222,23 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class WwiseAudio.WwisePersistentContentStore");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class WwiseAudio.WwisePersistentContentStore"));
+		return ptr;
+	}
+
+};
+
+
+// Class WwiseAudio.WwisePoolManager
+// 0x00A8 (0x00D0 - 0x0028)
+class UWwisePoolManager : public UObject
+{
+public:
+	unsigned char                                      UnknownData00[0xA8];                                      // 0x0028(0x00A8) MISSED OFFSET
+
+	static UClass* StaticClass()
+	{
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class WwiseAudio.WwisePoolManager"));
 		return ptr;
 	}
 
@@ -207,7 +254,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class WwiseAudio.WwiseSoundFrameManager");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class WwiseAudio.WwiseSoundFrameManager"));
 		return ptr;
 	}
 

@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,14 +15,14 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass BP_GhostCharacterAudioComponent.BP_GhostCharacterAudioComponent_C
-// 0x0000 (0x01A0 - 0x01A0)
+// 0x0000 (0x0198 - 0x0198)
 class UBP_GhostCharacterAudioComponent_C : public UGhostCharacterAudioComponent
 {
 public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("BlueprintGeneratedClass BP_GhostCharacterAudioComponent.BP_GhostCharacterAudioComponent_C");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("BlueprintGeneratedClass BP_GhostCharacterAudioComponent.BP_GhostCharacterAudioComponent_C"));
 		return ptr;
 	}
 

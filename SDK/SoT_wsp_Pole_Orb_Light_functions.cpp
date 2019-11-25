@@ -1,10 +1,10 @@
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
-#include "SoT_wsp_Pole_Orb_Light_parameters.hpp"
+#include "SoT_wsp_Pole_Orb_Light_classes.hpp"
 
 namespace SDK
 {
@@ -17,9 +17,12 @@ namespace SDK
 
 void Awsp_Pole_Orb_Light_C::UserConstructionScript()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function wsp_Pole_Orb_Light.wsp_Pole_Orb_Light_C.UserConstructionScript");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function wsp_Pole_Orb_Light.wsp_Pole_Orb_Light_C.UserConstructionScript"));
 
-	Awsp_Pole_Orb_Light_C_UserConstructionScript_Params params;
+	struct
+	{
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 }

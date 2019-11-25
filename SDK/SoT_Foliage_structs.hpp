@@ -1,63 +1,18 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
 #include "SoT_Basic.hpp"
-#include "SoT_Engine_classes.hpp"
+#include "SoT_Foliage_enums.hpp"
 #include "SoT_CoreUObject_classes.hpp"
+#include "SoT_Engine_classes.hpp"
 
 namespace SDK
 {
-//---------------------------------------------------------------------------
-//Enums
-//---------------------------------------------------------------------------
-
-// Enum Foliage.EFoliageScaling
-enum class EFoliageScaling : uint8_t
-{
-	EFoliageScaling__Uniform       = 0,
-	None                           = 1,
-	IntProperty                    = 2,
-	EFoliageScaling__LockYZ        = 3,
-	None01                         = 4,
-	EProgressBarFillType__LeftToRight = 5
-};
-
-
-// Enum Foliage.FoliageVertexColorMask
-enum class EFoliageVertexColorMask : uint8_t
-{
-	FOLIAGEVERTEXCOLORMASK_Disabled = 0,
-	None                           = 1,
-	FOLIAGEVERTEXCOLORMASK_Alpha   = 2,
-	None01                         = 3,
-	LCCT_None                      = 4
-};
-
-
-// Enum Foliage.ESimulationQuery
-enum class ESimulationQuery : uint8_t
-{
-	ESimulationQuery__CollisionOverlap = 0,
-	None                           = 1,
-	LGT_None                       = 2
-};
-
-
-// Enum Foliage.ESimulationOverlap
-enum class ESimulationOverlap : uint8_t
-{
-	ESimulationOverlap__CollisionOverlap = 0,
-	None                           = 1,
-	ESlateBrushImageType__NoImage  = 2
-};
-
-
-
 //---------------------------------------------------------------------------
 //Script Structs
 //---------------------------------------------------------------------------

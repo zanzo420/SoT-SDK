@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,15 +15,15 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass BP_gmp_compass_elb_01_a_v02_ItemInfo.BP_gmp_compass_elb_01_a_v02_ItemInfo_C
-// 0x0008 (0x04F0 - 0x04E8)
+// 0x0008 (0x05D8 - 0x05D0)
 class ABP_gmp_compass_elb_01_a_v02_ItemInfo_C : public AItemInfo
 {
 public:
-	class USceneComponent*                             DefaultSceneRoot;                                         // 0x04E8(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	class USceneComponent*                             DefaultSceneRoot;                                         // 0x05D0(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("BlueprintGeneratedClass BP_gmp_compass_elb_01_a_v02_ItemInfo.BP_gmp_compass_elb_01_a_v02_ItemInfo_C");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("BlueprintGeneratedClass BP_gmp_compass_elb_01_a_v02_ItemInfo.BP_gmp_compass_elb_01_a_v02_ItemInfo_C"));
 		return ptr;
 	}
 

@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,30 +15,30 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass BP_PlayerPirate_Ghost.BP_PlayerPirate_Ghost_C
-// 0x0044 (0x1544 - 0x1500)
+// 0x0044 (0x1954 - 0x1910)
 class ABP_PlayerPirate_Ghost_C : public AAthenaGhostPlayerCharacter
 {
 public:
-	struct FPointerToUberGraphFrame                    UberGraphFrame;                                           // 0x1500(0x0008) (ZeroConstructor, Transient, DuplicateTransient)
-	class UBP_GhostCharacterAudioComponent_C*          BP_GhostCharacterAudioComponent;                          // 0x1508(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	class UWaterInteractionComponent*                  WaterInteraction;                                         // 0x1510(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	class UPlayerNameplateComponent*                   PlayerNameplate;                                          // 0x1518(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	class UBodyLightControllerComponent*               BodyLightController;                                      // 0x1520(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	class UAnimNotifyWwiseEmitterComponent*            AnimNotifyWwiseEmitter;                                   // 0x1528(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	class UAmbientLightSourceComponent*                BodyLight;                                                // 0x1530(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	class UCharacterFootImpactComponent*               CharacterFootImpact;                                      // 0x1538(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	float                                              Default_Ghost_Parameter;                                  // 0x1540(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
+	struct FPointerToUberGraphFrame                    UberGraphFrame;                                           // 0x1910(0x0008) (ZeroConstructor, Transient, DuplicateTransient)
+	class UBP_GhostCharacterAudioComponent_C*          BP_GhostCharacterAudioComponent;                          // 0x1918(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	class UWaterInteractionComponent*                  WaterInteraction;                                         // 0x1920(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	class UPlayerNameplateComponent*                   PlayerNameplate;                                          // 0x1928(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	class UBodyLightControllerComponent*               BodyLightController;                                      // 0x1930(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	class UAnimNotifyWwiseEmitterComponent*            AnimNotifyWwiseEmitter;                                   // 0x1938(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	class UAmbientLightSourceComponent*                BodyLight;                                                // 0x1940(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	class UCharacterFootImpactComponent*               CharacterFootImpact;                                      // 0x1948(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	float                                              Default_Ghost_Parameter;                                  // 0x1950(0x0004) (Edit, BlueprintVisible, ZeroConstructor, DisableEditOnInstance, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("BlueprintGeneratedClass BP_PlayerPirate_Ghost.BP_PlayerPirate_Ghost_C");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("BlueprintGeneratedClass BP_PlayerPirate_Ghost.BP_PlayerPirate_Ghost_C"));
 		return ptr;
 	}
 
 
 	void GetAllMaterialParents(class UMaterialInstance* MaterialInstance, TArray<class UMaterialInstance*>* Parents);
 	void CheckBaseMaterial(class UMaterialInstance* MaterialInstance, class UMaterial* MaterialToCheck, bool* Result);
-	void Set_Up_Ghost_Materials(class USkeletalMeshComponent* Input_Mesh, float Ghost_Fade_Parameter, bool EnableDither);
+	void Set_Up_Ghost_Materials(class USkeletalMeshComponent* Input_Mesh, float Ghost_Fade_Parameter, bool EnableDither, bool FirstPersonMesh);
 	struct FVector GetMouthPosition();
 	void UserConstructionScript();
 	void Update_Athena_Character(class AAthenaCharacter* AthenaCharacter);

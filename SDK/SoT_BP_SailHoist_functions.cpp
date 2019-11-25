@@ -1,10 +1,10 @@
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
-#include "SoT_BP_SailHoist_parameters.hpp"
+#include "SoT_BP_SailHoist_classes.hpp"
 
 namespace SDK
 {
@@ -19,9 +19,13 @@ namespace SDK
 
 struct FDockableInfo ABP_SailHoist_C::GetDockableInfo()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_SailHoist.BP_SailHoist_C.GetDockableInfo");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function BP_SailHoist.BP_SailHoist_C.GetDockableInfo"));
 
-	ABP_SailHoist_C_GetDockableInfo_Params params;
+	struct
+	{
+		struct FDockableInfo           ReturnValue;
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -34,9 +38,12 @@ struct FDockableInfo ABP_SailHoist_C::GetDockableInfo()
 
 void ABP_SailHoist_C::UserConstructionScript()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_SailHoist.BP_SailHoist_C.UserConstructionScript");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function BP_SailHoist.BP_SailHoist_C.UserConstructionScript"));
 
-	ABP_SailHoist_C_UserConstructionScript_Params params;
+	struct
+	{
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 }

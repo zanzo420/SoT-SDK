@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -25,7 +25,7 @@ class FUObjectItem
 public:
 	UObject* Object;
 	int32_t Flags;
-	int32_t ClusterIndex;
+	int32_t ClusterIndex; 
 	int32_t SerialNumber;
 
 	enum class EInternalObjectFlags : int32_t
@@ -205,16 +205,8 @@ using TNameEntryArray = TStaticIndirectArrayThreadSafeRead<FNameEntry, 2 * 1024 
 
 struct FName
 {
-	union
-	{
-		struct
-		{
-			int32_t ComparisonIndex;
-			int32_t Number;
-		};
-
-		uint64_t CompositeComparisonValue;
-	};
+	int32_t ComparisonIndex;
+	int32_t Number;
 
 	inline FName()
 		: ComparisonIndex(0),
@@ -398,7 +390,7 @@ public:
 
 struct FText
 {
-	char UnknownData[0x18];
+	char UnknownData[0x38];
 };
 
 struct FScriptDelegate
@@ -422,7 +414,7 @@ struct FWeakObjectPtr
 public:
 	inline bool SerialNumbersMatch(FUObjectItem* ObjectItem) const
 	{
-		return ObjectItem->SerialNumber == ObjectSerialNumber;
+		return true;//ObjectItem->SerialNumber == ObjectSerialNumber;
 	}
 
 	bool IsValid() const;

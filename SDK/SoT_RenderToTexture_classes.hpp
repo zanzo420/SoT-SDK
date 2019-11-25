@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -29,7 +29,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class RenderToTexture.RenderToTextureSceneDetails");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class RenderToTexture.RenderToTextureSceneDetails"));
 		return ptr;
 	}
 
@@ -48,13 +48,13 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class RenderToTexture.RenderToTextureFunctionLibrary");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class RenderToTexture.RenderToTextureFunctionLibrary"));
 		return ptr;
 	}
 
 
-	class URenderToTextureSceneDetails* STATIC_GetRenderToTexture(const struct FName& Identifier);
-	class URenderToTextureSceneDetails* STATIC_CreateRenderToTexture(const struct FName& Identifier, class UClass* ClassToSpawn, const struct FIntPoint& Resolution, bool bForceLinearGamma);
+	static class URenderToTextureSceneDetails* GetRenderToTexture(const struct FName& Identifier);
+	static class URenderToTextureSceneDetails* CreateRenderToTexture(const struct FName& Identifier, class UClass* ClassToSpawn, const struct FIntPoint& Resolution, bool bForceLinearGamma);
 };
 
 

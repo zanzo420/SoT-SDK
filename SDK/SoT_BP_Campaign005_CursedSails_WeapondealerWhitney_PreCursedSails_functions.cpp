@@ -1,10 +1,10 @@
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
-#include "SoT_BP_Campaign005_CursedSails_WeapondealerWhitney_PreCursedSails_parameters.hpp"
+#include "SoT_BP_Campaign005_CursedSails_WeapondealerWhitney_PreCursedSails_classes.hpp"
 
 namespace SDK
 {
@@ -17,9 +17,12 @@ namespace SDK
 
 void ABP_Campaign005_CursedSails_WeapondealerWhitney_PreCursedSails_C::UserConstructionScript()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_Campaign005_CursedSails_WeapondealerWhitney_PreCursedSails.BP_Campaign005_CursedSails_WeapondealerWhitney_PreCursedSails_C.UserConstructionScript");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function BP_Campaign005_CursedSails_WeapondealerWhitney_PreCursedSails.BP_Campaign005_CursedSails_WeapondealerWhitney_PreCursedSails_C.UserConstructionScript"));
 
-	ABP_Campaign005_CursedSails_WeapondealerWhitney_PreCursedSails_C_UserConstructionScript_Params params;
+	struct
+	{
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 }

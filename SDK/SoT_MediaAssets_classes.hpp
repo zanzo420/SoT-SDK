@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -28,7 +28,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class MediaAssets.MediaPlayer");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class MediaAssets.MediaPlayer"));
 		return ptr;
 	}
 
@@ -71,7 +71,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class MediaAssets.MediaSoundWave");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class MediaAssets.MediaSoundWave"));
 		return ptr;
 	}
 
@@ -97,7 +97,7 @@ public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("Class MediaAssets.MediaTexture");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("Class MediaAssets.MediaTexture"));
 		return ptr;
 	}
 

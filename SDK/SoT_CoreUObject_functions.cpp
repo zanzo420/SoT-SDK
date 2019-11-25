@@ -1,10 +1,10 @@
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
-#include "SoT_CoreUObject_parameters.hpp"
+#include "SoT_CoreUObject_classes.hpp"
 
 namespace SDK
 {
@@ -70,9 +70,13 @@ bool UObject::IsA(UClass* cmp) const
 
 void UObject::ExecuteUbergraph(int EntryPoint)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function CoreUObject.Object.ExecuteUbergraph");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function CoreUObject.Object.ExecuteUbergraph"));
 
-	UObject_ExecuteUbergraph_Params params;
+	struct
+	{
+		int                            EntryPoint;
+	} params;
+
 	params.EntryPoint = EntryPoint;
 
 	UObject::ProcessEvent(fn, &params);

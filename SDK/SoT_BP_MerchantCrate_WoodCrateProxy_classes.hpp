@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,17 +15,17 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass BP_MerchantCrate_WoodCrateProxy.BP_MerchantCrate_WoodCrateProxy_C
-// 0x0018 (0x0928 - 0x0910)
+// 0x0018 (0x0870 - 0x0858)
 class ABP_MerchantCrate_WoodCrateProxy_C : public AMerchantCrateItemProxy
 {
 public:
-	class UStorageContainerComponent*                  StorageContainer;                                         // 0x0910(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	class UNPCDialogComponent*                         NPCDialog;                                                // 0x0918(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
-	class UInteractableComponent*                      Interactable;                                             // 0x0920(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	class UAddOpenContainerActionRuleComponent*        AddOpenContainerActionRule;                               // 0x0858(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	class UStorageContainerComponent*                  StorageContainer;                                         // 0x0860(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
+	class UInteractableComponent*                      Interactable;                                             // 0x0868(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("BlueprintGeneratedClass BP_MerchantCrate_WoodCrateProxy.BP_MerchantCrate_WoodCrateProxy_C");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("BlueprintGeneratedClass BP_MerchantCrate_WoodCrateProxy.BP_MerchantCrate_WoodCrateProxy_C"));
 		return ptr;
 	}
 

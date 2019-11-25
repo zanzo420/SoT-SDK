@@ -1,10 +1,10 @@
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
-#include "SoT_BP_FlyingCreature_parameters.hpp"
+#include "SoT_BP_FlyingCreature_classes.hpp"
 
 namespace SDK
 {
@@ -17,9 +17,12 @@ namespace SDK
 
 void ABP_FlyingCreature_C::CreateCreature()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_FlyingCreature.BP_FlyingCreature_C.CreateCreature");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function BP_FlyingCreature.BP_FlyingCreature_C.CreateCreature"));
 
-	ABP_FlyingCreature_C_CreateCreature_Params params;
+	struct
+	{
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -30,9 +33,12 @@ void ABP_FlyingCreature_C::CreateCreature()
 
 void ABP_FlyingCreature_C::UserConstructionScript()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_FlyingCreature.BP_FlyingCreature_C.UserConstructionScript");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function BP_FlyingCreature.BP_FlyingCreature_C.UserConstructionScript"));
 
-	ABP_FlyingCreature_C_UserConstructionScript_Params params;
+	struct
+	{
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 }

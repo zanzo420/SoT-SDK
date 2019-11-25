@@ -1,10 +1,10 @@
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
-#include "SoT_BP_ShipwreckTreasureChest_Proxy_Mythical_parameters.hpp"
+#include "SoT_BP_ShipwreckTreasureChest_Proxy_Mythical_classes.hpp"
 
 namespace SDK
 {

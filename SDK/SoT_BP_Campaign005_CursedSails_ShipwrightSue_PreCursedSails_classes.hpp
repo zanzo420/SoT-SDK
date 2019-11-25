@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,14 +15,14 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass BP_Campaign005_CursedSails_ShipwrightSue_PreCursedSails.BP_Campaign005_CursedSails_ShipwrightSue_PreCursedSails_C
-// 0x0000 (0x05D0 - 0x05D0)
+// 0x0000 (0x06B8 - 0x06B8)
 class ABP_Campaign005_CursedSails_ShipwrightSue_PreCursedSails_C : public ABP_Shipwright_C
 {
 public:
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("BlueprintGeneratedClass BP_Campaign005_CursedSails_ShipwrightSue_PreCursedSails.BP_Campaign005_CursedSails_ShipwrightSue_PreCursedSails_C");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("BlueprintGeneratedClass BP_Campaign005_CursedSails_ShipwrightSue_PreCursedSails.BP_Campaign005_CursedSails_ShipwrightSue_PreCursedSails_C"));
 		return ptr;
 	}
 

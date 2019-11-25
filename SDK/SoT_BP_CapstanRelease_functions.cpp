@@ -1,10 +1,10 @@
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
-#include "SoT_BP_CapstanRelease_parameters.hpp"
+#include "SoT_BP_CapstanRelease_classes.hpp"
 
 namespace SDK
 {
@@ -21,9 +21,15 @@ namespace SDK
 
 struct FVector ABP_CapstanRelease_C::GetClosestInteractionPoint(const struct FVector& ReferencePosition, float* OutInteractionPointRadius)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_CapstanRelease.BP_CapstanRelease_C.GetClosestInteractionPoint");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function BP_CapstanRelease.BP_CapstanRelease_C.GetClosestInteractionPoint"));
 
-	ABP_CapstanRelease_C_GetClosestInteractionPoint_Params params;
+	struct
+	{
+		struct FVector                 ReferencePosition;
+		float                          OutInteractionPointRadius;
+		struct FVector                 ReturnValue;
+	} params;
+
 	params.ReferencePosition = ReferencePosition;
 
 	UObject::ProcessEvent(fn, &params);
@@ -40,9 +46,12 @@ struct FVector ABP_CapstanRelease_C::GetClosestInteractionPoint(const struct FVe
 
 void ABP_CapstanRelease_C::UserConstructionScript()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function BP_CapstanRelease.BP_CapstanRelease_C.UserConstructionScript");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function BP_CapstanRelease.BP_CapstanRelease_C.UserConstructionScript"));
 
-	ABP_CapstanRelease_C_UserConstructionScript_Params params;
+	struct
+	{
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 }

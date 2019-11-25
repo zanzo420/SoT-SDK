@@ -1,48 +1,18 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
 #include "SoT_Basic.hpp"
-#include "SoT_CoreUObject_classes.hpp"
+#include "SoT_GameplayTags_enums.hpp"
 #include "SoT_Engine_classes.hpp"
+#include "SoT_CoreUObject_classes.hpp"
 
 namespace SDK
 {
-//---------------------------------------------------------------------------
-//Enums
-//---------------------------------------------------------------------------
-
-// Enum GameplayTags.EGameplayTagQueryExprType
-enum class EGameplayTagQueryExprType : uint8_t
-{
-	EGameplayTagQueryExprType__Undefined = 0,
-	None                           = 1,
-	EGameplayTagQueryExprType__AnyExprMatch = 2,
-	None01                         = 3
-};
-
-
-// Enum GameplayTags.EGameplayContainerMatchType
-enum class EGameplayContainerMatchType : uint8_t
-{
-	EGameplayContainerMatchType__Any = 0,
-	None                           = 1
-};
-
-
-// Enum GameplayTags.EGameplayTagMatchType
-enum class EGameplayTagMatchType : uint8_t
-{
-	EGameplayTagMatchType__Explicit = 0,
-	None                           = 1
-};
-
-
-
 //---------------------------------------------------------------------------
 //Script Structs
 //---------------------------------------------------------------------------
@@ -87,8 +57,7 @@ struct FGameplayTagNode
 struct FGameplayTagTableRow : public FTableRowBase
 {
 	class FString                                      Tag;                                                      // 0x0000(0x0010) (Edit, BlueprintVisible, ZeroConstructor)
-	struct FText                                       CategoryText;                                             // 0x0010(0x0018) (Edit, BlueprintVisible)
-	unsigned char                                      UnknownData00[0x20];                                      // 0x0010(0x0020) FIX WRONG TYPE SIZE OF PREVIOUS PROPERTY
+	struct FText                                       CategoryText;                                             // 0x0010(0x0038) (Edit, BlueprintVisible)
 };
 
 }

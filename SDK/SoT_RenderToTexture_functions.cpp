@@ -1,10 +1,10 @@
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
 #endif
 
-#include "SoT_RenderToTexture_parameters.hpp"
+#include "SoT_RenderToTexture_classes.hpp"
 
 namespace SDK
 {
@@ -19,9 +19,13 @@ namespace SDK
 
 class UTextureRenderTarget2D* URenderToTextureSceneDetails::GetTexture()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function RenderToTexture.RenderToTextureSceneDetails.GetTexture");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function RenderToTexture.RenderToTextureSceneDetails.GetTexture"));
 
-	URenderToTextureSceneDetails_GetTexture_Params params;
+	struct
+	{
+		class UTextureRenderTarget2D*  ReturnValue;
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -36,9 +40,13 @@ class UTextureRenderTarget2D* URenderToTextureSceneDetails::GetTexture()
 
 class AActor* URenderToTextureSceneDetails::GetInstance()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function RenderToTexture.RenderToTextureSceneDetails.GetInstance");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function RenderToTexture.RenderToTextureSceneDetails.GetInstance"));
 
-	URenderToTextureSceneDetails_GetInstance_Params params;
+	struct
+	{
+		class AActor*                  ReturnValue;
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 
@@ -51,9 +59,12 @@ class AActor* URenderToTextureSceneDetails::GetInstance()
 
 void URenderToTextureSceneDetails::DestroyTexture()
 {
-	static auto fn = UObject::FindObject<UFunction>("Function RenderToTexture.RenderToTextureSceneDetails.DestroyTexture");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function RenderToTexture.RenderToTextureSceneDetails.DestroyTexture"));
 
-	URenderToTextureSceneDetails_DestroyTexture_Params params;
+	struct
+	{
+	} params;
+
 
 	UObject::ProcessEvent(fn, &params);
 }
@@ -65,14 +76,20 @@ void URenderToTextureSceneDetails::DestroyTexture()
 // struct FName                   Identifier                     (Parm, ZeroConstructor, IsPlainOldData)
 // class URenderToTextureSceneDetails* ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 
-class URenderToTextureSceneDetails* URenderToTextureFunctionLibrary::STATIC_GetRenderToTexture(const struct FName& Identifier)
+class URenderToTextureSceneDetails* URenderToTextureFunctionLibrary::GetRenderToTexture(const struct FName& Identifier)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function RenderToTexture.RenderToTextureFunctionLibrary.GetRenderToTexture");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function RenderToTexture.RenderToTextureFunctionLibrary.GetRenderToTexture"));
 
-	URenderToTextureFunctionLibrary_GetRenderToTexture_Params params;
+	struct
+	{
+		struct FName                   Identifier;
+		class URenderToTextureSceneDetails* ReturnValue;
+	} params;
+
 	params.Identifier = Identifier;
 
-	UObject::ProcessEvent(fn, &params);
+	static auto defaultObj = StaticClass()->CreateDefaultObject();
+	defaultObj->ProcessEvent(fn, &params);
 
 	return params.ReturnValue;
 }
@@ -87,17 +104,26 @@ class URenderToTextureSceneDetails* URenderToTextureFunctionLibrary::STATIC_GetR
 // bool                           bForceLinearGamma              (Parm, ZeroConstructor, IsPlainOldData)
 // class URenderToTextureSceneDetails* ReturnValue                    (Parm, OutParm, ZeroConstructor, ReturnParm, IsPlainOldData)
 
-class URenderToTextureSceneDetails* URenderToTextureFunctionLibrary::STATIC_CreateRenderToTexture(const struct FName& Identifier, class UClass* ClassToSpawn, const struct FIntPoint& Resolution, bool bForceLinearGamma)
+class URenderToTextureSceneDetails* URenderToTextureFunctionLibrary::CreateRenderToTexture(const struct FName& Identifier, class UClass* ClassToSpawn, const struct FIntPoint& Resolution, bool bForceLinearGamma)
 {
-	static auto fn = UObject::FindObject<UFunction>("Function RenderToTexture.RenderToTextureFunctionLibrary.CreateRenderToTexture");
+	static auto fn = UObject::FindObject<UFunction>(_xor_("Function RenderToTexture.RenderToTextureFunctionLibrary.CreateRenderToTexture"));
 
-	URenderToTextureFunctionLibrary_CreateRenderToTexture_Params params;
+	struct
+	{
+		struct FName                   Identifier;
+		class UClass*                  ClassToSpawn;
+		struct FIntPoint               Resolution;
+		bool                           bForceLinearGamma;
+		class URenderToTextureSceneDetails* ReturnValue;
+	} params;
+
 	params.Identifier = Identifier;
 	params.ClassToSpawn = ClassToSpawn;
 	params.Resolution = Resolution;
 	params.bForceLinearGamma = bForceLinearGamma;
 
-	UObject::ProcessEvent(fn, &params);
+	static auto defaultObj = StaticClass()->CreateDefaultObject();
+	defaultObj->ProcessEvent(fn, &params);
 
 	return params.ReturnValue;
 }

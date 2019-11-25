@@ -1,6 +1,6 @@
 #pragma once
 
-// Sea of Thieves (1.2.6) SDK
+// Sea of Thieves (2.0) SDK
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -15,17 +15,20 @@ namespace SDK
 //---------------------------------------------------------------------------
 
 // BlueprintGeneratedClass BP_TreasureChest.BP_TreasureChest_C
-// 0x0000 (0x07F0 - 0x07F0)
+// 0x0008 (0x0858 - 0x0850)
 class ABP_TreasureChest_C : public ATreasureChest
 {
 public:
+	class UBoxComponent*                               HitVolume;                                                // 0x0850(0x0008) (BlueprintVisible, ZeroConstructor, IsPlainOldData)
 
 	static UClass* StaticClass()
 	{
-		static auto ptr = UObject::FindObject<UClass>("BlueprintGeneratedClass BP_TreasureChest.BP_TreasureChest_C");
+		static auto ptr = UObject::FindObject<UClass>(_xor_("BlueprintGeneratedClass BP_TreasureChest.BP_TreasureChest_C"));
 		return ptr;
 	}
 
+
+	void UserConstructionScript();
 };
 
 
