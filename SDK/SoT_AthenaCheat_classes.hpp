@@ -82,6 +82,7 @@ public:
 	void TeleportToHideout();
 	void TeleportShip(float X, float Y, float Z);
 	void TeleportPlayerToSafety();
+	void TeleportPlayerToOffsetAndReturn(float OffsetX, float OffsetY, float OffsetZ, float ReturnTime);
 	void TeleportPlayerToKraken();
 	void TeleportPlayersCrewShipToPlayerLocation();
 	void TeleportOutOfHideout();
@@ -166,6 +167,7 @@ public:
 	void SmoulderClosestShipFire();
 	void SmoulderAllShipFires();
 	void SlowMotionOverride(bool InValue);
+	void SkipToEndOfOnboarding();
 	void SinkShipWithKeelOverIndex(int KeelOverConfigIndex);
 	void SinkShipByActorId(const class FString& ShipActorIdString);
 	void SinkShip();
@@ -214,6 +216,7 @@ public:
 	void SetPhotoMode(bool Enabled);
 	void SetPetMovementTimeWindow(float TimeWindow);
 	void SetNonCrewChatSpatialisation(bool Enabled);
+	void SetMaxNumOfSpawnedAI(int MaxNumOfSpawnedActors);
 	void SetMaxMovingPetsOnShips(int MaxMovingPets);
 	void SetMaxMovingPetsOnServer(int MaxMovingPets);
 	void SetMaxMovingPetsOnLand(int MaxMovingPets);
@@ -252,6 +255,7 @@ public:
 	void ResetTinySharkSpawnTimer();
 	void ResetStats();
 	void ResetMouseDelta();
+	void ResetMaxNumOfSpawnedAI();
 	void ResetMaxMovingPetsOnServerToDefault();
 	void ResetDemoSession(bool StartNewSession);
 	void ResetAllMechanisms();
@@ -312,6 +316,7 @@ public:
 	void KillCrew(const class FString& CrewId);
 	void KillAllSkeletons();
 	void KillAllPlayers();
+	void KillAllDebugAISpawners();
 	void KillAllCrews();
 	void JoinAlliance(const class FString& OfferingCrew, const class FString& AcceptingCrew);
 	void IPGOverride(const struct FName& BodyShape, float Distance);
@@ -415,6 +420,8 @@ public:
 	void DamagePlayer(float Strength);
 	void CureAllAilings();
 	void CreateDebugReapersChestMarkerAtPlayerLocation();
+	void CreateDebugAISpawnerAt(const class FString& SpawnerAssetName, const class FString& LocationActorName);
+	void CreateDebugAISpawner(const class FString& SpawnerAssetName);
 	void CompleteVoyage();
 	void CompleteAllActivePuzzleVaults();
 	void CompleteActiveQuests();
